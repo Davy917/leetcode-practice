@@ -109,14 +109,6 @@ head--->[A | -]---> [B | -]---> [C | -]---> [D | ]
         visitor.next = visitor.next.next;
     }
 
-/**
- * 當 visitor.next == null 表示 visitor 已經是鏈表的最後一個節點（沒有下一個節點）。會在以下情況發生：
- * - 鏈表只有一個節點且要刪除的 index > 0（例如刪除 index == 1），此時 visitor = head 且 visitor.next == null。
- * - 遍歷過程中已到達尾節點，但還沒達到 index-1，也就是傳入的 index 超過或等於鏈表長度，迴圈會在遇到尾節點時停止。
- * - 若傳入負數 index（未檢查負值），迴圈同樣可能走到尾端而使 visitor.next == null。
- * 結果是迴圈會終止，後續的 if (visitor.next == null) { return; } 會阻止執行刪除操作（因為目標索引不存在）。
- */
-
     static void main(String[] args) {
         P0707_MyLinkedList myLinkedList = new P0707_MyLinkedList();
         myLinkedList.addAtHead(1);
@@ -131,18 +123,6 @@ head--->[A | -]---> [B | -]---> [C | -]---> [D | ]
 
 
 /**
- * Your MyLinkedList object will be instantiated and called as such:
- * MyLinkedList obj = new MyLinkedList();
- * int param_1 = obj.get(index);
- * obj.addAtHead(val);
- * obj.addAtTail(val);
- * obj.addAtIndex(index,val);
- * obj.deleteAtIndex(index);
- */
-/*
-什麼情況下visitor == null
-鏈表為空（head == null），visitor 一開始就是 null。
-指定的 index 超過或等於鏈表長度，遍歷時會走到最後一個節點的 next（即 null）後仍未達到目標索引。
-若傳入負數 index，counter 永遠不會等於 index，迴圈會一直走到 visitor 變為 null。
-簡單說就是：遍歷已走出鏈表尾端（index 超出範圍 或 空表）。
+ * 在 deleteAtIndex，需刪除的是 visitor.next，因此迴圈必須保證 visitor.next 存在，避免對 visitor.next.next 解參考時為 null。
+ * 在 addAtIndex，需要找到前一個節點，允許 visitor走到 null以判斷索引超出範圍，所以檢查 visitor != null 即可。
  */
