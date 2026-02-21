@@ -1,13 +1,17 @@
 import java.util.*;
-public String P0151_reverseWords(String s) {
-    if (s == null) return null;
-    String[] splitString = s.trim().split("\\s+");
-    List<String> reversed_List = new ArrayList<>(Arrays.asList(splitString));
-    return String.join(" ", reversed_List.reversed());
-}
 
-void main() {
-    System.out.println(P0151_reverseWords("   a  good   example   "));
+class Solution151 {
+    public String P0151_reverseWords(String s) {
+        if (s == null) return null;
+        String[] splitString = s.trim().split("\\s+");
+        List<String> reversed_List = new ArrayList<>(Arrays.asList(splitString));
+        return String.join(" ", reversed_List.reversed());
+    }
+
+    static void main() {
+        Solution151 sol = new Solution151();
+        System.out.println(sol.P0151_reverseWords("   a  good   example   "));
+    }
 }
 
 /*

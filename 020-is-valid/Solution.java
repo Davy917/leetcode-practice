@@ -1,6 +1,6 @@
 import java.util.*;
 //Package Solution;
-class Solution {
+class Solution20 {
     public boolean isValid(String s) {
         //#如果輸入的是奇數,代表永遠不會全部都配對完
         if(s.length()%2==1){
@@ -40,7 +40,7 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        Solution sol = new Solution();
+        Solution20 sol = new Solution20();
         System.out.println(sol.isValid("(]{}"));    // true
     }
 }

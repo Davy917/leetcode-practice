@@ -1,4 +1,4 @@
-class Solution {
+class Solution28 {
     public int strStr(String haystack, String needle) {
         //宣告雙指針以及錨點
         int i = 0;
@@ -29,10 +29,11 @@ class Solution {
         //沒找到匹配的下標
         return -1;
     }
-}
-public void main(String[] args){
-    String s1 = ("Mississippi");
-    String s2 = ("issip");
-    Solution sol = new Solution();
-    System.out.println(sol.strStr(s1,s2));
+
+    static void main(String[] args){
+        String s1 = ("Mississippi");
+        String s2 = ("issip");
+        Solution28 sol = new Solution28();
+        System.out.println(sol.strStr(s1,s2));
+    }
 }
