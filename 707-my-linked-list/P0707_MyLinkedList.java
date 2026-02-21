@@ -126,18 +126,3 @@ head--->[A | -]---> [B | -]---> [C | -]---> [D | ]
  * 在 deleteAtIndex，需刪除的是 visitor.next，因此迴圈必須保證 visitor.next 存在，避免對 visitor.next.next 解參考時為 null。
  * 在 addAtIndex，需要找到前一個節點，允許 visitor走到 null以判斷索引超出範圍，所以檢查 visitor != null 即可。
  */
-
-/*
-public ListNode removeElements(ListNode head, int val) {
-    ListNode visitor = head;
-
-    while (visitor != null){
-        if (visitor.val == val){//??
-            visitor = visitor.next.next;//??
-            continue;//??
-        }
-        visitor = visitor.next;
-    }
-    return visitor;
-}
- */
