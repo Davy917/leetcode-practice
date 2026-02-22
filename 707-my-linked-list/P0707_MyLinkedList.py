@@ -6,20 +6,20 @@ class LinkedList(object):
 class MyLinkedList(object):
 
     def __init__(self):
-        self.head
+        self.head = None#注意
 
     def get(self, index):
         counter = 0
         visitor = self.head
 
-        if visitor == None:
-            return None
+        if visitor is None:
+            return -1
 
         while counter != index and visitor != None:
             visitor = visitor.next
             counter += 1
 
-        return -1 if visitor == None else visitor.val
+        return -1 if visitor is None else visitor.val
 
     def addAtHead(self, val):
         newNode = LinkedList(val)
@@ -35,7 +35,6 @@ class MyLinkedList(object):
         
         tailNode = self.head
 
-        #覺得寫這樣好像也可以
         while tailNode != None:
 
             if tailNode.next == None:
@@ -46,13 +45,24 @@ class MyLinkedList(object):
 
 
     def addAtIndex(self, index, val):
-        """
-        :type index: int
-        :type val: int
-        :rtype: None
-        """
+        newNode = LinkedList(val)
+        visitor = self.head
+        if index == 0:
+            self.addAtHead(val)
+            return
+
+        counter = 0
+        while counter < index-1 and visitor is not None:
+            visitor = visitor.next
+            counter += 1
+            print(f"counter = {counter}")
+            
+        if counter == index-1 and visitor is not None:
+            print(f"Index {val} into position {index}")
+            newNode.next = visitor.next
+            visitor.next = newNode
         
-    def deleteAtHead(self, index):
+    def deleteAtHead(self):
         """
         在 deleteAtHead 方法中，你是要刪除鏈表的第一個節點（head）。
 
@@ -76,22 +86,47 @@ class MyLinkedList(object):
         self.head = self.head.next
 
     def deleteAtIndex(self, index):
+        visitor = self.head
+        
+        if index == 0:
+            self.deleteAtHead()
+            return
+        counter = 0
+        #2
+        while counter < index-1 and visitor.next is not None:
+            visitor = visitor.next
+            counter += 1
+            print(f"counter = {counter}")
+            
+        if counter == index-1 and visitor.next is not None:
+            print(f"Delete position {index} value")
+            visitor.next = visitor.next.next
+            
+    def printList(self):
+        current = self.head
+        elements = []
+        while current is not None:
+            elements.append(str(current.val))
+            current = current.next
+        print("[" + ", ".join(elements) + "]")
+        
         """
-        :type index: int
-        :rtype: None
+        str.join() 是一個 字串 (string) 的方法，它的主要功能是將一個 可迭代物件 (iterable) 中的所有字串元素連接起來，並在每個元素之間插入呼叫 join() 方法的那個字串。  
+
+        簡單來說，它就像是用膠水把一堆字串粘合起來，而這個「膠水」就是你呼叫 join() 時使用的字串。  
         """
-    def printList(self, head):
-        return head
         
 if __name__ == "__main__":
-    # obj = MyLinkedList()
-    # param_1 = obj.get(index)
-    # obj.addAtHead(val)
-    # obj.addAtTail(val)
-    # obj.addAtIndex(index,val)
-    # obj.deleteAtIndex(index)
-
-    """
+    obj = MyLinkedList()
+    obj.addAtIndex(2, 1)
+    obj.printList()
+    obj.addAtIndex(3, 4)
+    obj.printList()
+    obj.addAtTail(1)
+    obj.get(0)
+    obj.deleteAtIndex(0)
+    obj.get(0)
+"""
         假設index = 2
 
                             visitor     index = 2
@@ -100,4 +135,4 @@ if __name__ == "__main__":
 
                                 [newNode | ]
 
-    """
+"""
