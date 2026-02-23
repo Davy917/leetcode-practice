@@ -52,7 +52,7 @@ class MyLinkedList(object):
             return
 
         counter = 0
-        while counter < index-1 and visitor is not None:
+        while counter < index-1 and visitor is not None:#check again
             visitor = visitor.next
             counter += 1
             print(f"counter = {counter}")
