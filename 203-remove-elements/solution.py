@@ -11,30 +11,32 @@ class Solution:
 
     def addAtTail(self, val):
         newNode = ListNode(val)
-        tailNode = self.head
 
-        if tailNode is None:
-            tailNode = newNode
+        if self.head is None:
+            self.head = newNode
             return
         
+        tailNode = self.head
+
         while tailNode is not None:
             if tailNode.next is None:
                 tailNode.next = newNode
+                newNode.next = None
                 break
             tailNode = tailNode.next
+
+
 
     def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
         pass
 
     def printList(self, head):
-        current = self.head
-        print("[")
+        current = head
+        val = []
         while current is not None:
-            print(current.val)
-            if(current.next is not None):
-                print(", ")
+            val.append(current.val)
             current = current.next
-        print("]")
+        print(val)
 
 if __name__ == "__main__":
     sol = Solution()
