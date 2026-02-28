@@ -78,6 +78,12 @@ class Solution82 {
             current = current.next;
         }
 
+        /**
+         * dummy：假頭節點，固定存在，dummy.next = head
+         * prev：永遠指向「目前結果鏈表的最後一個保留節點」
+         * curr：掃描原鏈表的游標
+         */
+
         // 2) rebuild links in-place using dummy
         ListNode dummy = new ListNode(0);
         dummy.next = head;
@@ -122,3 +128,39 @@ class Solution82 {
         sol.printList(result);
     }
 }
+/**deleteDuplicatesWithDummy
+ * 初始化：
+ * dummy -> 1 -> 2 -> 3 -> 3 -> 4 -> 4 -> 5 -> null
+ * prev
+ * curr  (curr=head)
+ *
+ * Step 1：curr = 1（map[1]=1，保留）
+ * dummy -> 1 -> 2 -> 3 -> 3 -> 4 -> 4 -> 5
+ *          prev
+ *               curr
+ *
+ * Step 2：curr = 2（map[2]=1，保留）
+ * dummy -> 1 -> 2 -> 3 -> 3 -> 4 -> 4 -> 5
+ *               prev
+ *                    curr
+ * Step 3：curr = 第一個 3（map[3]=2，刪除）
+ * 刪除時做：prev.next = curr.next
+ * 此刻 prev 在 2，curr 在第一個 3
+ * 所以把 2.next 從「指向 3」改成「指向下一個節點」（也就是第二個 3）
+ * dummy -> 1 -> 2 ------> 3 -> 4 -> 4 -> 5
+ *               prev      curr(第二個3)
+ *
+ *
+ * Step 4：curr = 第二個 3（map[3]=2，仍刪除）
+ * 再做一次：prev.next = curr.next
+ *
+ * 把 2.next 從第二個 3 改指向 4
+ * dummy -> 1 -> 2 ------> 4 -> 4 -> 5
+ *               prev      curr(第一個4)
+ * 到這裡，「值為 3 的整段」全部被移除。
+ *
+ * 往下以此類推.......
+ * dummy 為何好用（重點）
+ * 如果「開頭就要刪」也能一致處理，例如： 1 -> 1 -> 2 -> 3
+ * 你用 dummy 後，刪掉開頭的 1 時只需要改 dummy.next，不用寫一堆特判 head 的程式。
+ */
