@@ -159,7 +159,23 @@ class Solution82 {
  *               prev      curr(第一個4)
  * 到這裡，「值為 3 的整段」全部被移除。
  *
- * 往下以此類推.......
+ * Step 5：curr = 第一個 4（map[4]=2，刪除）
+ * prev 還在 2，執行：prev.next = curr.next 把 2.next 指向第二個 4
+ * dummy -> 1 -> 2 ------> 4 -> 5
+ *               prev      curr(第二個4)
+ *
+ * Step 6：curr = 第二個 4（map[4]=2，刪除）
+ * 再做：prev.next = curr.next 把 2.next 指向 5
+ * dummy -> 1 -> 2 ------> 5
+ *               prev      curr(5)
+ *
+ * Step 7：curr = 5（map[5]=1，保留）
+ * 保留：prev = curr
+ * dummy -> 1 -> 2 -> 5 -> null
+ *                    prev
+ *                    curr
+ * curr 走到 null 結束。
+ *
  * dummy 為何好用（重點）
  * 如果「開頭就要刪」也能一致處理，例如： 1 -> 1 -> 2 -> 3
  * 你用 dummy 後，刪掉開頭的 1 時只需要改 dummy.next，不用寫一堆特判 head 的程式。
