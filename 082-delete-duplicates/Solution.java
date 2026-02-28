@@ -64,11 +64,40 @@ class Solution82 {
         }
         return head;
     }
-    /*
-    head
+    public ListNode deleteDuplicatesWithDummy(ListNode head) {
 
-    1-   -->1--->1
-     */
+        if (head == null) {
+            return null;
+        }
+
+        // 1) count frequency
+        Map<Integer, Integer> map = new HashMap<>();
+        ListNode current = head;
+        while (current != null) {
+            map.put(current.val, map.getOrDefault(current.val, 0) + 1);
+            current = current.next;
+        }
+
+        // 2) rebuild links in-place using dummy
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+
+        ListNode prev = dummy;
+        ListNode curr = head;
+
+        while (curr != null) {
+            if (map.get(curr.val) > 1) {
+                // remove curr
+                prev.next = curr.next;
+            } else {
+                // keep curr
+                prev = curr;
+            }
+            curr = curr.next;
+        }
+
+        return dummy.next;
+    }
 
     public void printList(ListNode head) {
         ListNode current = head;
@@ -86,11 +115,10 @@ class Solution82 {
     static void main(String[] args) {
         Solution82 sol = new Solution82();
         int[] nums = {1,2,3,3,4,4,5};
-        for (int i : nums){
-            sol.addAtTail(i);
-        }
+        for (int i : nums){ sol.addAtTail(i); }
         sol.printList(sol.head);
-        ListNode result = sol.deleteDuplicates(sol.head);
+        //ListNode result = sol.deleteDuplicates(sol.head);
+        ListNode result = sol.deleteDuplicatesWithDummy(sol.head);
         sol.printList(result);
     }
 }
