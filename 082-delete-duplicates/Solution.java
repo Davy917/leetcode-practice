@@ -41,8 +41,34 @@ class Solution82 {
             current = current.next;
             map.put(current.val, map.getOrDefault(current.val, 0) + 1);
         }
+        System.out.println("map = " + map);
+
+
+        //處理頭節點，為Duplicates的情形
+        while (head != null && (map.get(head.val)>1)){ head = head.next; }
+
+        //頭節點處理完了，但是鏈表也空了
+        if (head == null) { return null; }
+
+        //頭節點處理完了，但是鏈表還沒空
+        current = head;
+        while (current.next != null){
+            System.out.println("current.next.val = " + current.next.val);
+
+            if (map.get(current.next.val) > 1){
+                current.next = current.next.next;
+            }
+            else {
+                current = current.next;
+            }
+        }
         return head;
     }
+    /*
+    head
+
+    1-   -->1--->1
+     */
 
     public void printList(ListNode head) {
         ListNode current = head;
@@ -59,7 +85,7 @@ class Solution82 {
 
     static void main(String[] args) {
         Solution82 sol = new Solution82();
-        int[] nums = {1, 2, 3, 3, 4, 4, 6, 6, 5, 9};
+        int[] nums = {1,2,3,3,4,4,5};
         for (int i : nums){
             sol.addAtTail(i);
         }
