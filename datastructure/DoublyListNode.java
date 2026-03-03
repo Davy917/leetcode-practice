@@ -1,13 +1,14 @@
-class DoublyListNode{
+public class DoublyListNode{
+    int key;
     int val;
-    DoublyListNode next, prev;
-    DoublyListNode(int x) {val = x;}
-}
-
-public class MyDoublyListNode{
-    DoublyListNode head;
-    DoublyListNode tail;
     int size;
+    DoublyListNode next, prev;
+    DoublyListNode head, tail;
+    DoublyListNode(int key, int val){
+        this.key = key;
+        this.val = val;
+    }
+
     public int get(int index){
         if (index < 0 || index >= size){
             return -1;
@@ -20,8 +21,8 @@ public class MyDoublyListNode{
         }
         return visitor.val;
     }
-    public void addAtHead(int val){
-        DoublyListNode newNode = new DoublyListNode(val);
+    public void addAtHead(int key, int val){
+        DoublyListNode newNode = new DoublyListNode(key, val);
         if (size == 0){
             this.head = newNode;
             this.tail = newNode;
@@ -33,9 +34,9 @@ public class MyDoublyListNode{
         this.head = newNode;
         this.size++;
     }
-    public void addAtTail(int val){
-        DoublyListNode newNode = new DoublyListNode(val);
-        if (size == 0){ addAtHead(val); return; }
+    public void addAtTail(int key, int val){
+        DoublyListNode newNode = new DoublyListNode(key, val);
+        if (size == 0){ addAtHead(key, val); return; }
         tail.next = newNode;
         newNode.prev = tail;
         tail = newNode;
@@ -44,9 +45,9 @@ public class MyDoublyListNode{
     public void addAtIndex(int index, int val){
         //index的三種邊界情形
         if (index < 0 || index > this.size){ return; }
-        if (index == 0){ addAtHead(val); return; }
-        if (index == size){ addAtTail(val); return;}
-        DoublyListNode newNode = new DoublyListNode(val);
+        if (index == 0){ addAtHead(key, val); return; }
+        if (index == size){ addAtTail(key, val); return;}
+        DoublyListNode newNode = new DoublyListNode(key, val);
         DoublyListNode visitor = head;
         int counter = 0;
         while (counter != index){
@@ -91,6 +92,26 @@ public class MyDoublyListNode{
         visitor.next.prev = visitor.prev;
         visitor.prev.next = visitor.next;
         this.size--;
+    }
+
+    public void deleteNode(DoublyListNode node) {
+        if (node == null || node == head || node == tail) return;
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+    }
+
+    public void printList(DoublyListNode head){
+        DoublyListNode current = head;
+        System.out.print("[");
+
+        while (current != null){
+            System.out.print(current.key + " " + current.val);
+            if (current.next != null){
+                System.out.print(", ");
+            }
+            current = current.next;
+        }
+        System.out.print("]");
     }
 }
 
