@@ -1,13 +1,12 @@
 class LRUCache {
+    MyDoublyListNode dummyList;
     public LRUCache(int capacity) {
+        dummyList = new MyDoublyListNode();
     }
-
     public int get(int key) {
-
     }
 
     public void put(int key, int value) {
-
     }
 
     static void main(String[] args) {
