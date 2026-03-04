@@ -17,14 +17,12 @@ class Node{
 
 //寫一個雙鏈表，把每一個channel串在一起
 class DoublyLinkedList{
-    int size;
     Node head;
     Node tail;
-    public DoublyLinkedList(Node homepage, int seq){
+    public DoublyLinkedList(Node homepage){
         //用 homepage 初始化浏览器类。
         this.head = homepage;
         this.tail = homepage;
-        this.size = seq;
     }
     //從頭打印整個List
     void printList(Node head){
@@ -43,21 +41,16 @@ class DoublyLinkedList{
         System.out.println("]");
     }
 }
-//map的鍵存的是channel的順位，值存的是channel的地址
 class BrowserHistory {
     int seq;
     Node firstNode, current;
     DoublyLinkedList channelList;
-    Map<Integer, Node> map;
     public BrowserHistory(String homepage) {
         //用 homepage 初始化浏览器类。
-        seq = 1;
         firstNode = new Node(homepage, 1);
-        channelList = new DoublyLinkedList(firstNode, seq);
+        channelList = new DoublyLinkedList(firstNode);
         channelList.head = firstNode;
         channelList.tail = firstNode;
-        map = new HashMap<>();
-        map.put(seq, firstNode);
         current = firstNode;
     }
 
@@ -65,13 +58,11 @@ class BrowserHistory {
         //从当前页跳转访问 url 对应的页面 。执行此操作会把浏览历史前进的记录全部删除。
         System.out.printf("你原本在瀏覽%s", current.nodeName + "。");
         Node newNode = new Node(url, ++seq);//注意++seq 與 seq++不同
-        newNode.prev = channelList.tail;
-        channelList.tail.next = newNode;//修改的是「舊尾巴節點」的 next 指標
-        channelList.tail = newNode;//修改的是「鏈表物件」的 tail 欄位
-        map.put(seq, newNode);
+        newNode.prev = current;
+        current.next = newNode;
+        current = newNode;//注意
         System.out.printf("訪問%s%n", url);
         channelList.printList(channelList.head);
-        current = channelList.tail;//每一次動作完都要記得更新current
     }
 
     public String back(int steps) {
