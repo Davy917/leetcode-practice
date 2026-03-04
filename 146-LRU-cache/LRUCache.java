@@ -41,8 +41,6 @@ class DoublyLinkedList {
             // node 是尾节点，更新 dummyList.tail
             tail = node.prev;
         }
-
-        // 更新容量计数
         size--;
     }
 

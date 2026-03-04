@@ -14,8 +14,8 @@ class RandomizedSet {
     public boolean insert(int val) {
         if(map.containsKey(val)){return false;}
         map.put(val, list.size());
-        list.add(val);//等價於list.add(list.size(), val);
-        System.out.println("After insert:\n" + "list = " + list + ", map = " + map);
+        list.add(val);//等價於list.add(channelList.size(), val);
+        System.out.println("After insert:\n" + "channelList = " + list + ", map = " + map);
         return true;
     }
     // Remove: O(n)
@@ -31,11 +31,11 @@ class RandomizedSet {
         //(1)這邊會先寫出來
         map.put(lastElement, valIndex);//把map最後一個元素的下標改成val的下標
         list.set(valIndex, lastElement);//把要remove的val，替換成list最後一個val
-        System.out.println("Before remove:\n" + "list = " + list + ", map = " + map);
+        System.out.println("Before remove:\n" + "channelList = " + list + ", map = " + map);
 
         map.remove(val);
         list.remove(lastIndex);//直接把list最後一個val拔掉
-        System.out.println("After remove:\n" + "list = " + list + ", map = " + map);
+        System.out.println("After remove:\n" + "channelList = " + list + ", map = " + map);
         return true;
     }
 
@@ -49,12 +49,12 @@ class RandomizedSet {
         list.remove(idx);
         // remove the key from map
         map.remove(val);
-        System.out.println("After simplyRemove:\n" + "list = " + list + ", map = " + map);
+        System.out.println("After simplyRemove:\n" + "channelList = " + list + ", map = " + map);
         // update indices in map for elements that were shifted left
         for (int i = idx; i < list.size(); i++) {
             map.put(list.get(i), i);
         }
-        //System.out.println("After simplyRemove:\n" + "list = " + list + ", map = " + map);
+        //System.out.println("After simplyRemove:\n" + "channelList = " + channelList + ", map = " + map);
         return true;
     }
 

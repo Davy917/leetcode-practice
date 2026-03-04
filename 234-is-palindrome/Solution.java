@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Solution234 {
-    // Helper class for linked list node
+    // Helper class for linked channelList node
     static class ListNode {
         int val;
         ListNode next;
@@ -59,7 +59,7 @@ class Solution234 {
         int j=1;
         for (int i=0; i<len/2; i++){
             if (list.get(i).equals(list.get(len-j))){
-                //System.out.println(list.get(i) +" is equal " + list.get(len-j));
+                //System.out.println(channelList.get(i) +" is equal " + channelList.get(len-j));
                 j++;
             }
             else { return false; }

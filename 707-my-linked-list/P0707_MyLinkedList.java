@@ -1,4 +1,4 @@
-// Helper class for linked list node
+// Helper class for linked channelList node
 class ListNode {
     /**
      * ListNode next; 是宣告一個參考（reference）欄位，類型是 ListNode。

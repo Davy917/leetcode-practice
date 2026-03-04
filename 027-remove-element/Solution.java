@@ -28,15 +28,15 @@ import java.util.stream.*;
 class Solution777 {
     // 方法 A: 使用 ArrayList\<Integer\>（動態大小），最後轉回 int[]
     public int removeElementUsingList(int[] nums, int val) {
-        List<Integer> list = new ArrayList<>();
+        List<Integer> channelList = new ArrayList<>();
         for (int n : nums) {
             if (n != val) {
-                list.add(n);
-                System.out.println(list); // 印出動態集合狀態
+                channelList.add(n);
+                System.out.println(channelList); // 印出動態集合狀態
             }
         }
         // 如果需要 primitive int[]，可以轉回：
-        int[] result = list.stream().mapToInt(Integer::intValue).toArray();
+        int[] result = channelList.stream().mapToInt(Integer::intValue).toArray();
         // 選擇性：把結果拷回原陣列前段
         System.arraycopy(result, 0, nums, 0, result.length);
         return result.length;
