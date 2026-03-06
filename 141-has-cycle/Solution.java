@@ -1,3 +1,4 @@
+//這題有優化空間複雜度的解法，直接看142題
 import java.util.HashSet;
 import java.util.Set;
 
