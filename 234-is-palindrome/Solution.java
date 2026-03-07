@@ -1,3 +1,4 @@
+//將值複製到數組中然後使用雙指針
 import java.util.ArrayList;
 import java.util.List;
 
