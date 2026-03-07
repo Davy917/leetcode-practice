@@ -7,7 +7,6 @@ class solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         pre: Optional[ListNode] = None
         current = head
-        pre = None
         while current is not None:#為什麼是current 而不是 current.next
             temp = current.next
             current.next = pre
