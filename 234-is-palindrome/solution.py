@@ -4,7 +4,6 @@ class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
-
 class linkedList:
     def __init__(self):
         self.head = None #注意
@@ -19,7 +18,6 @@ class linkedList:
             current = current.next
         current.next = newNode
         return self.head
-
     def printList(self, head):
         if(head is None):
             return
@@ -30,7 +28,6 @@ class linkedList:
             current = current.next
             nums.append(current.val)
         print(nums)
-
     def reverseList(self, slow):
         current = slow
         pre = None
@@ -39,28 +36,37 @@ class linkedList:
             current.next = pre
             pre = current
             current = temp
-            print("pre = ", pre.val)
         return pre
-
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
-        fast = head.next
+        if head is None:
+            return True
+        fast = head#注意
         slow = head
         while fast.next is not None and fast.next.next is not None:
             fast = fast.next.next
             slow = slow.next
             print(f"fast = {fast.val}", f"slow = {slow.val}")
-        linkedList.reverseList(slow.next)
-
+        pre = linkedList.reverseList(slow.next)
+        linkedList.printList(pre)
+        while pre is not None:#注意
+            print(f"head.val = {head.val} " + f"pre.val = {pre.val}")
+            if head.val == pre.val:
+                head = head.next
+                pre = pre.next
+            else:
+                print("is not Palindrome")
+                return False
+        print("is Palindrome")
+        return True
 if __name__ == "__main__":
-    nums = [1, 2, 3, 4, 4, 3, 2, 1]
+    nums = [1, 3, 4, 3, 1]
     sol = Solution()
     linkedList = linkedList()
     for i in nums:
         linkedList.addAtTail(i)
-    linkedList.printList(linkedList.head)
+    #linkedList.printList(linkedList.head)
     sol.isPalindrome(linkedList.head)
-
 """
 算法
 
