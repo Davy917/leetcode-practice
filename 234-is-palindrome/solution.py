@@ -88,14 +88,14 @@ line 44
 fast = head
 不能寫成
 fast = head.next
-因為會影響line 46迴圈的步數, 進一步影響slow的位置
-line50 我們會把slow.next傳進reverseList
+因為會影響line 49迴圈的步數, 進一步影響slow的位置
+line54 我們會把slow.next傳進reverseList
 所以又會進一步影響反轉鏈表
 
-如果反轉鏈表有問題, 後面line52 在比對是否回文的時候
+如果反轉鏈表有問題, 後面line57 在比對是否回文的時候
 在某些情況下會不精準
 
-line52 為什麼不能寫成 while pre.next is not None
+line57 為什麼不能寫成 while pre.next is not None
 一樣是迴圈步數的問題
 寫成那樣, 不管pre是奇數還是偶數都會少走一圈
 在比對的時候也會少比一次, 導致錯誤
