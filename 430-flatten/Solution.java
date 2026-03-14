@@ -65,58 +65,56 @@ class Solution430 {
                 continue;
             }
             System.out.printf("cur = %s have child%n", cur.val);
-            //先寫兩個temp, 子列表併回母列表會用到
+
+            //先存 cur.next, cur.child 後面會用到
             Node temp = cur.next;
-            Node temp2 = cur;
+            Node childHead = cur.child;//注意，容易忽略
+
             //把3 跟 7 接上
             cur.next = cur.child;
             cur.child.prev = cur;
             cur.child = null;//注意, 要記得把原節點 child 設 null
-            //開始遍歷7
+
+            //找子列表尾
             while (cur.next != null){
-                System.out.println("test" + cur.val);
                 cur = cur.next;
-                System.out.println("test" + cur.val);
             }
-            //子列表併回母列表
+
+            //子列表尾接回原本 next（若原本 next 不存在就不用接）
             cur.next = temp;
-            temp.prev = cur;
-            //把cur接回去
-            cur = temp2.next;
+            if (temp != null) { //注意, if 判斷式如果沒加, 在某些 condition 會噴錯
+                temp.prev = cur;
+            }
+
+            //cur移到7
+            cur = childHead;
         }
         return head;
     }
 /*
-
- 1---NULL
- |
- 2---NULL
- |
- 3---NULL
- */
-
-/*
-       cur   temp
-         ↓   ↓
- 1---2---3---4---5---6--NULL
-         |
-         7---8---9---10--NULL
+           cur   temp
+             ↓   ↓
+     1---2---3---4---5---6--NULL
              |
-             11--12--NULL
+  childHead→ 7---8---9---10--NULL
+                 |
+                 11--12--NULL
 
-         temp2       temp
-         ↓           ↓
- 1---2---3           4---5---6--NULL
-         |           |
-         7---8---9---10 ← cur
-             |
-             11--12--NULL
+                         temp
+                         ↓
+     1---2---3           4---5---6--NULL
+             |           |
+  childHead→ 7---8---9---10 ← cur
+                 |
+                 11--12--NULL
 
              cur              temp
              ↓                ↓
  1---2---3---7---8---9---10---4---5---6--NULL
                  |
-                 11--12--NULL
+      childHead→ 11--12--NULL
+
+      後面以此類推
  */
     static void main(String[] args) {
         Solution430 sol = new Solution430();
