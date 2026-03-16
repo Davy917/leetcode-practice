@@ -1,5 +1,3 @@
-//自己手寫的版本, 先知道整個鏈表的size才有辦法做運算
-//另外一版, 不用知道鏈表的整個size也能求解, 用python寫
 class ListNode{
     int val;
     ListNode next;
@@ -24,45 +22,43 @@ class LinkedList{
         tail = newNode;
     }
 }
-
-class Solution1290 {
-    public int getDecimalValue(ListNode head) {
+class Solution876 {
+    public ListNode middleNode(ListNode head) {
+        if (head == null){
+            return null;
+        }
         ListNode dummy = new ListNode(0, null, head);
         ListNode cur = dummy;
-        int size = -1, result = 0;
-
+        int size = 0;
         while (cur.next != null){
             cur = cur.next;
-            System.out.println(cur.val);
             size++;
+            System.out.println(size);
         }
-        System.out.println(size);
-
         cur = dummy;
+        int index = -1;
         while (cur.next != null){
             cur = cur.next;
-            if (cur.val == 1){
-                for (int j = size; j > 0; j--){
-                    cur.val *= 2;
-                }
+            index++;
+            System.out.printf("cur.val = %s ", cur.val);
+            System.out.printf("index = %s%n", index);
+            if (index >= size/2){
+                System.out.printf("return cur %s", cur.val);
+                break;
             }
-            size--;
-            System.out.println(cur.val);
-            result += cur.val;
         }
-
-        System.out.println(result);
-        return result;
+        return cur;
     }
 
     static void main(String[] args) {
-        int[] nums = {1, 0, 0, 1};
+        int[] nums = {1, 2, 3, 4, 5};
+        int[] nums2 = {1};
         LinkedList mainList = new LinkedList();
-        for (int i : nums){
+        for (int i : nums2){
             ListNode newNode = new ListNode(i, null, null);
             mainList.AddAtTail(newNode);
         }
-        Solution1290 sol = new Solution1290();
-        sol.getDecimalValue(mainList.head);
+        Solution876 sol = new Solution876();
+        sol.middleNode(mainList.head);
     }
 }
