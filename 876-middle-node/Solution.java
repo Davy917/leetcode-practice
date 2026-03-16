@@ -1,3 +1,4 @@
+//當前版本為單指針法，快慢指針法請見python
 class ListNode{
     int val;
     ListNode next;
