@@ -26,12 +26,15 @@ class LinkedList{
     }
 
     void printList(ListNode head){
+        if (head == null){
+            return;
+        }
         List<Integer> numbs = new ArrayList<>();
         ListNode cur = head;
-        numbs.addLast(cur.val);
+        numbs.add(cur.val);
         while (cur.next != null){
             cur = cur.next;
-            numbs.addLast(cur.val);
+            numbs.add(cur.val);
         }
         System.out.println(numbs);
     }
@@ -96,35 +99,31 @@ slow     fast     temp
                             ↓                          ↓
 [2|-]--->[3|-]--->[6|-]--->[7|-]--->[1|-]--->[5|-]--->[4|-]--->null
  */
-public ListNode oddEvenList_v2(ListNode head) {
-    if (head == null || head.next == null){
+    public ListNode oddEvenList_v2(ListNode head) {
+        if (head == null || head.next == null){
+            mainList.printList(head);
+            return head;
+        }
+        ListNode slow = head;
+        ListNode fast = head.next;
+        ListNode temp;
+        while (fast.next != null){
+            temp = fast.next;
+            fast.next = fast.next.next;
+            temp.next = slow.next;
+            slow.next = temp;
+            if (fast.next != null){
+                fast = fast.next;
+            }
+            slow = slow.next;
+            mainList.printList(head);
+            System.out.println("slow.val" + slow.val);
+            System.out.println("fast.val" + fast.val);
+        }
         return head;
     }
-
-    ListNode slow = head;
-    ListNode fast = head.next;
-    ListNode temp;
-
-    while (fast.next != null){
-        temp = fast.next;
-        fast.next = fast.next.next;
-        temp.next = slow.next;
-        slow.next = temp;
-
-        //移動指針
-//        if (fast.next != null){
-//            fast = fast.next;
-//        }
-        fast = fast.next;
-        slow = slow.next;
-        mainList.printList(head);
-        System.out.println("slow.val" + slow.val);
-        System.out.println("fast.val" + fast.val);
-    }
-    return head;
-}
     static void main(String[] args) {
-        int[] nums = {2, 1, 3, 5, 6, 4, 7};
+        int[] nums = {2, 1};
         Solution328 sol = new Solution328();
         for (int i : nums){
             ListNode newNode = new ListNode(i, null, null);
