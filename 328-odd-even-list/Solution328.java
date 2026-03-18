@@ -90,17 +90,12 @@ slow     fast     temp
                    slow                      fast     temp
                     ↓                          ↓        ↓
 [2|-]--->[3|-]--->[6|-]--->[1|-]--->[5|-]--->[4|-]--->[7|-]--->null
-
                    slow                      fast
                     ↓                          ↓
 [2|-]--->[3|-]--->[6|-]--->[7|-]--->[1|-]--->[5|-]--->[4|-]--->null
-
-                           slow                      fast
-                            ↓                          ↓
-[2|-]--->[3|-]--->[6|-]--->[7|-]--->[1|-]--->[5|-]--->[4|-]--->null
  */
     public ListNode oddEvenList_v2(ListNode head) {
-        if (head == null || head.next == null || head.next.next == null){
+        if (head == null || head.next == null){
             mainList.printList(head);
             return head;
         }
@@ -120,10 +115,11 @@ slow     fast     temp
             System.out.println("slow.val" + slow.val);
             System.out.println("fast.val" + fast.val);
         }
+        mainList.printList(head);
         return head;
     }
     static void main(String[] args) {
-        int[] nums = {2, 1};
+        int[] nums = {2, 1, 3, 5, 6, 4, 7};
         Solution328 sol = new Solution328();
         for (int i : nums){
             ListNode newNode = new ListNode(i, null, null);
