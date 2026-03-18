@@ -100,7 +100,7 @@ slow     fast     temp
 [2|-]--->[3|-]--->[6|-]--->[7|-]--->[1|-]--->[5|-]--->[4|-]--->null
  */
     public ListNode oddEvenList_v2(ListNode head) {
-        if (head == null || head.next == null){
+        if (head == null || head.next == null || head.next.next == null){
             mainList.printList(head);
             return head;
         }
