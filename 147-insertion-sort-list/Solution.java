@@ -59,24 +59,22 @@ class Solution147 {
             }
 
             else {
-//                System.out.printf("lastSorted.val = %s > ", lastSorted.val);
-//                System.out.println("cur.val" + cur.val);
+                System.out.println("need to swap cur.val " + cur.val);
+                System.out.println("As-is:");
+                mainList.printList(dummy.next);
                 ListNode prev = dummy;
                 while (prev.next.val <= cur.val){
-                    System.out.println("cur.val = " + cur.val);
-                    System.out.println("prev.next.val " + prev.next.val);
+                    System.out.println(prev.next.val + " <= cur.val");
                     prev = prev.next;
-                    System.out.println("prev.next.val " + prev.next.val);
                 }
-                System.out.print(lastSorted.val + " " + cur.val);
                 lastSorted.next = cur.next;
                 cur.next = prev.next;
                 prev.next = cur;
-                System.out.println(" change to " + lastSorted.val + " " + cur.val);
             }
             cur = lastSorted.next;
+            System.out.println("To-be:");
+            mainList.printList(dummy.next);
         }
-        mainList.printList(dummy.next);
         return dummy.next;
     }
 /*
