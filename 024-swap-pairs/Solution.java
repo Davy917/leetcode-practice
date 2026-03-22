@@ -1,3 +1,4 @@
+#迭代寫法，遞迴寫法見python
 import java.util.ArrayList;
 class ListNode{
     int val;
