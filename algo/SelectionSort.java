@@ -1,7 +1,6 @@
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
-class selectionSort{
+class SelectionSort {
     int[] selectionSort(int[] arr) {
         int minIndex;
         for (int i = 0; i < arr.length - 1; i++) {
@@ -27,7 +26,7 @@ class selectionSort{
     }
 
     public static void main(String[] args) {
-        selectionSort t = new selectionSort();
+        SelectionSort t = new SelectionSort();
         int[] ans = t.selectionSort(new int[]{5, 8, 6, 3, 9, 1});
         System.out.println(Arrays.toString(ans));
     }
