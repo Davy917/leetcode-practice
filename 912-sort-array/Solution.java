@@ -49,7 +49,7 @@ class Solution912 {
             System.out.println("delta = " + delta);
             for (int start = 0; start < delta; start++) {
                 System.out.println("start = " + start);
-                for (int i = delta + start; i < len; i += delta) {
+                for (int i = delta + start; i < len; i += delta) {//注意i += delta
                     System.out.println("i = " + i);
                     int temp = nums[i];
                     int j = i;
@@ -60,7 +60,7 @@ class Solution912 {
                     nums[j] = temp;//為什麼寫在這裡??
                 }
             }
-            System.out.printf(Arrays.toString(nums));
+            System.out.println(Arrays.toString(nums));
         }
         return nums;
     }
