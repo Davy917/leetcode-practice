@@ -61,6 +61,7 @@ class Solution215 {
         }
         return nums[k-1];
     }
+
     static void main(String[] args) {
         int[] nums = {3,2,1,5,6,4};
         int k = 2;
