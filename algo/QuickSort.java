@@ -55,22 +55,89 @@ public class QuickSort {
      */
     static void quickSort(int[] arr, int start, int end){
         System.out.println("in quickSort");
+        System.out.printf("quickSort(start=%d, end=%d)%n", start, end);
         //如果區域內的數字少於兩個, 退出遞歸
         if (start >= end){
-            System.out.printf("start %s >= ", start);
-            System.out.printf("end %s%n", end);
+            System.out.printf("  return because start>=end (start=%d, end=%d)%n", start, end);
             return;
         }
-        //將數組分區,並獲得中間值的下標
+        //middle左邊的數都比它小，右邊的數都比它大
+        System.out.println("start to find middle");
         int middle = partition(arr, start, end);
-        //對左邊區域進行快速排序
+        System.out.println("find middle = " + arr[middle]);
+        //接著對左邊區域進行快速排序
+        System.out.println("進入左半邊");
         quickSort(arr, start, middle - 1);
-        //對右邊區域進行快速排序
+        //接著對右邊區域進行快速排序
+        System.out.println("進入右半邊");
         quickSort(arr, middle + 1, end);
     }
+    /*
+    layer0：quickSort(arr, 0, 6)
+    partition → middle=3
+    呼叫左邊 → layer1：quickSort(arr, 0, 2)
 
+    layer1：quickSort(arr, 0, 2)
+    partition → middle=0
+    呼叫左邊 → layer2：quickSort(arr, 0, -1)
+
+    layer2：quickSort(arr, 0, -1)
+    start>=end → return
+    回到layer1 → quickSort(arr, 0, 2)
+
+    layer1：quickSort(arr, 0, 2)
+    呼叫右邊 → layer2：quickSort(arr, 1, 2)
+
+    layer2：quickSort(arr, 1, 2)
+    partition → middle=2
+    呼叫左邊 → layer3：quickSort(arr, 1, 1)
+
+    layer3：quickSort(arr, 1, 1)
+    start>=end → return
+    回到layer2 → quickSort(arr, 1, 2)
+
+    layer2：quickSort(arr, 1, 2)
+    呼叫右邊 → layer3：quickSort(arr, 3, 2)
+
+    layer3：quickSort(arr, 3, 2)
+    start>=end → return
+    回到layer2 → quickSort(arr, 1, 2)
+
+    layer2：quickSort(arr, 1, 2)
+    return（左右都處理完）
+    回到layer1 → quickSort(arr, 0, 2)
+
+    layer1：quickSort(arr, 0, 2)
+    return（左右都處理完）
+    回到layer0 → quickSort(arr, 0, 6)
+
+    layer0：quickSort(arr, 0, 6)
+    呼叫右邊 → layer1：quickSort(arr, 4, 6)
+
+    layer1：quickSort(arr, 4, 6)
+    partition → middle=5
+    呼叫左邊 → layer2：quickSort(arr, 4, 4)
+
+    layer2：quickSort(arr, 4, 4)
+    start>=end → return
+    回到layer1 → quickSort(arr, 4, 6)
+
+    layer1：quickSort(arr, 4, 6)
+    呼叫右邊 → layer2：quickSort(arr, 6, 6)
+
+    layer2：quickSort(arr, 6, 6)
+    start>=end → return
+    回到layer1 → quickSort(arr, 4, 6)
+
+    layer1：quickSort(arr, 4, 6)
+    return（左右都處理完）
+    回到layer0 → quickSort(arr, 0, 6)
+
+    layer0：quickSort(arr, 0, 6)
+    return（整體排序完成）
+    */
     static int partition(int[] arr, int start, int end){
-        System.out.println("in partition");
+        System.out.println("in partition" + Arrays.toString(arr));
         int pivot = arr[start];
         int left = start + 1;
         int right = end;
@@ -83,32 +150,38 @@ public class QuickSort {
             System.out.println("right.val = " + arr[right] + " Index = " + right);
 
             //此迴圈的用意在於, 找到第一個大於pivot的數字
+            //arr[left] <= pivot, 如果 left 值比 pivot小, 則繼續比較下一個left
             while (left < right && arr[left] <= pivot){
                 left++;
                 System.out.println("pivot > left, " + "left++");
             }
 
             //拿這個數字跟right交換
+            //一旦 left == right，代表指標已經相遇（區間收斂），此時再交換會造成兩個問題：做無效動作，甚至破壞後面收尾邏輯對 right 的假設。
             if (left != right){
-                System.out.printf("find %s > pivot%n", arr[left]);
+                System.out.printf("find %s > pivot, right-- %n", arr[left]);
                 exchange(arr, left, right);
                 right--;
             }
         }
 
+        /*
+        上面的迴圈結束後若 left == right，代表已經相遇；
+        如果相遇點 arr[right] > pivot，表示這個位置屬於右邊（大於 pivot）那一區，
+        pivot 不該放在這裡，所以先 right--，再在最後用 exchange(arr, start, right) 把 pivot 放回正確位置。
+         */
         if (left == right && arr[right] > pivot){
-            System.out.println("left == right && right.val > pivot");
             right--;
+            System.out.println("left, right相遇 且 right.val > pivot, right--");
         }
         if (right!= start){
-            System.out.println("left == right");
+            System.out.println("left, right相遇");
             exchange(arr, start, right);
         }return right;
-
     }
 
     static void exchange(int[] arr, int i, int j){
-        System.out.print("in exchange ");
+        System.out.println("in exchange ");
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
@@ -116,9 +189,21 @@ public class QuickSort {
     }
 
     static void main(String[] args) {
-        int[] arr = {6, 5, 4, 3, 2, 1};
-        int[] arr2 = {5, 4, 7, 2, 1, 8, 6};
-        quickSort(arr2);
-        System.out.println(Arrays.toString(arr2));
+        int[] arr = {4, 2, 7, 1, 6, 3, 5};
+        quickSort(arr);
+        System.out.println(Arrays.toString(arr));
     }
 }
+
+/*
+觀察arr變化
+
+從left開始, 遇到比pivot大的數, 就交換到數組最後, 並將right減一
+直到left和right相遇, 再將pivot 和中間數交換(right)此時數組就被分成左右兩區
+接下來會對左邊區域進行快速排序,
+
+4, 2, 7, 1, 6, 3, 5
+4, 2, 5, 1, 6, 3, 7
+4, 2, 3, 1, 6, 5, 7 <---left 和 right 相遇
+1, 2, 3, 4, 6, 5, 7
+ */
