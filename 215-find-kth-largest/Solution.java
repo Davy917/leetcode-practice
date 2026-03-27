@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -42,7 +43,6 @@ class Solution215 {
         return quickSelect(list, k);
     }
 
-    //--------------------------------------------------
     private static void swap(int[] arr, int i, int j){
         int temp = arr[i];
         arr[i] = arr[j];
@@ -66,7 +66,14 @@ class Solution215 {
         int[] nums = {3,2,1,5,6,4};
         int k = 2;
         Solution215 sol = new Solution215();
+
+        //快速排序測試
         //sol.findKthLargest(nums, k);
-        sol.findKthLargest_v2(nums, k);
+        //sol.findKthLargest_v2(nums, k);
+
+        //堆排序測試
+        HeapSort heapSort = new HeapSort();
+        heapSort.heapSort(nums, nums.length);
+        System.out.println(Arrays.toString(nums));
     }
 }

@@ -31,33 +31,39 @@ class HeapSort{
     }
 
     void buildHeap(int[] tree, int size){
-        //TODO buildHeap方法重寫
-        //迴圈中的i就是index
-        for (int i = size-1; i >= 0; i--) {
-            heapify(tree, size, i);
-            System.out.println("back");
-            System.out.println(Arrays.toString(tree));
+        int lastNode = size - 1;
+        int lastNode_parent = (lastNode - 1) / 2;
+
+        while (lastNode_parent >= 0){
+            heapify(tree,size, lastNode_parent--);
+            System.out.println("back to buildHeap, lastNode_parent = " + lastNode_parent);
         }
     }
 
     void heapSort(int[] tree, int size){
+        buildHeap(tree, size);
         //迴圈中的i就是index
-        for (int i = size-1; i >= 0; i--) {
-            heapify(tree, i + 1, 0);
-            int temp = tree[0];
-            tree[0] = tree[i];
-            tree[i] = temp;
-            System.out.println("back");
+        int index = size - 1;
+        int temp = 0;
+        while (index >= 0){
+            temp = tree[0];
+            tree[0] = tree[index];
+            tree[index] = temp;
+            heapify(tree, index, 0);//注意先後順序
+            index--;//注意先後順序
+            //debug
+            System.out.println("back to heapSort");
             System.out.println(Arrays.toString(tree));
         }
     }
     public static void main(String[] args) {
         HeapSort heapSort = new HeapSort();
         int[] tree = {4, 10, 3, 5, 1, 2};
-        int[] tree2 = {1, 2, 3, 4, 5, 10};
-        int size = 6;
+        int[] tree2 = {4, 5, 1, 3, 2};
+        int size = 5;
         //heapSort.heapify(tree, size, 0);
-        //heapSort.heapSort(tree, 6);
-        heapSort.buildHeap(tree2, size);
+        heapSort.heapSort(tree2, size);
+        //heapSort.buildHeap(tree2, size);
+        System.out.println("ans = " + tree2[tree2.length - 5]);
     }
 }
