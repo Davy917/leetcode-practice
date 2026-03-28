@@ -175,7 +175,7 @@ public class QuickSort_basic {
             right--;
             System.out.println("left, right相遇 且 right.val > pivot, right--");
         }
-        if (right!= start){//注意
+        if (right!= start){//注意, 這裡主要是在避免 swap(arr, start, start) 這種「自己跟自己交換」的無意義動作
             System.out.println("left, right相遇");
             swap(arr, start, right);
         }return right;
@@ -204,7 +204,8 @@ public class QuickSort_basic {
             while (left < right && arr[right] >= pivot){
                 right--;
             }
-            if (left < right){//??
+            if (left < right){
+                //為什麼 swap 後要 left++ / right--？ 答案見下方partition_v2
                 swap(arr, left, right);
                 left++;
                 right--;
@@ -213,6 +214,7 @@ public class QuickSort_basic {
         if (left == right && arr[right] > pivot){
             right--;
         }
+        //注意這邊沒加 right!= start 這個判定條件, 也不會影響結果
         swap(arr, start, right);
         return right;
     }
@@ -229,13 +231,14 @@ public class QuickSort_basic {
         int[] arr = {4, 2, 7, 1, 6, 3, 5};
         int[] arr2 = {2, 2, 1, 1, 1, 2, 2};
         QuickSort_basic quickSort = new QuickSort_basic();
-        //quickSort.quickSort(arr);
-        quickSort.quickSort_v2(arr);
+        quickSort.quickSort(arr);
+        //quickSort.quickSort_v2(arr);
         System.out.println(Arrays.toString(arr));
     }
 }
 
 /*
+partition:
 觀察arr變化
 
 從left開始, 遇到比pivot大的數, 就交換到數組最後, 並將right減一
@@ -250,4 +253,37 @@ public class QuickSort_basic {
 代碼出處:
 最简单的分区算法
 https://leetcode.cn/leetbook/read/sort-algorithms/eul7hm/
+ */
+
+/*
+partition_v2
+p  l              r
+4, 2, 7, 1, 6, 3, 5
+p     l        r
+4, 2, 7, 1, 6, 3, 5
+
+p     l        r
+4, 2, 3, 1, 6, 7, 5 <----swap後
+
+看第 1 輪 swap 後：
+arr[2] 變成 3（已經確定在正確的左邊）
+arr[5] 變成 7（已經確定在正確的右邊）
+所以 left++/right-- 是把「剛剛已經放對的兩格」直接排除，
+縮小待處理區間，避免下一輪又從同一格重新檢查。
+
+p        l  r
+4, 2, 3, 1, 6, 7, 5
+
+第二輪外層迴圈
+            l
+p           r
+4, 2, 3, 1, 6, 7, 5
+
+            l
+p        r
+4, 2, 3, 1, 6, 7, 5
+
+            l
+p        r
+1, 2, 3, 4, 6, 7, 5
  */
