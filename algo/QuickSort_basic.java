@@ -7,11 +7,7 @@
 
 import java.util.Arrays;
 
-public class QuickSort {
-    static void quickSort(int[] arr){
-        quickSort(arr, 0, arr.length - 1);
-    }
-
+public class QuickSort_basic {
     /**
      * quickSort中的等式是如何得出來的??
      * //將數組分區，並取得中間值的下標
@@ -53,7 +49,10 @@ public class QuickSort {
      * start == end:表明區域內只有一個數字
      * start ==end + 1:表明區域內一個數字也沒有
      */
-    static void quickSort(int[] arr, int start, int end){
+    void quickSort(int[] arr){
+        quickSort(arr, 0, arr.length-1);
+    }
+    void quickSort(int[] arr, int start, int end){
         System.out.println("in quickSort");
         System.out.printf("quickSort(start=%d, end=%d)%n", start, end);
         //如果區域內的數字少於兩個, 退出遞歸
@@ -136,7 +135,9 @@ public class QuickSort {
     layer0：quickSort(arr, 0, 6)
     return（整體排序完成）
     */
-    static int partition(int[] arr, int start, int end){
+
+
+    int partition(int[] arr, int start, int end){
         System.out.println("in partition" + Arrays.toString(arr));
         int pivot = arr[start];
         int left = start + 1;
@@ -151,7 +152,7 @@ public class QuickSort {
 
             //此迴圈的用意在於, 找到第一個大於pivot的數字
             //arr[left] <= pivot, 如果 left 值比 pivot小, 則繼續比較下一個left
-            while (left < right && arr[left] <= pivot){
+            while (left < right && arr[left] <= pivot){//注意是 arr[left] <= pivot, 原本寫成pivot > arr[left]
                 left++;
                 System.out.println("pivot > left, " + "left++");
             }
@@ -160,7 +161,7 @@ public class QuickSort {
             //一旦 left == right，代表指標已經相遇（區間收斂），此時再交換會造成兩個問題：做無效動作，甚至破壞後面收尾邏輯對 right 的假設。
             if (left != right){
                 System.out.printf("find %s > pivot, right-- %n", arr[left]);
-                exchange(arr, left, right);
+                swap(arr, left, right);
                 right--;
             }
         }
@@ -168,20 +169,56 @@ public class QuickSort {
         /*
         上面的迴圈結束後若 left == right，代表已經相遇；
         如果相遇點 arr[right] > pivot，表示這個位置屬於右邊（大於 pivot）那一區，
-        pivot 不該放在這裡，所以先 right--，再在最後用 exchange(arr, start, right) 把 pivot 放回正確位置。
+        pivot 不該放在這裡，所以先 right--，再在最後用 swap(arr, start, right) 把 pivot 放回正確位置。
          */
         if (left == right && arr[right] > pivot){
             right--;
             System.out.println("left, right相遇 且 right.val > pivot, right--");
         }
-        if (right!= start){
+        if (right!= start){//注意
             System.out.println("left, right相遇");
-            exchange(arr, start, right);
+            swap(arr, start, right);
         }return right;
     }
 
-    static void exchange(int[] arr, int i, int j){
-        System.out.println("in exchange ");
+//雙指針版本
+    void quickSort_v2(int[] arr){
+        quickSort_v2(arr, 0, arr.length-1);
+    }
+    void quickSort_v2(int[] arr, int start, int end){
+        if (start >= end){
+            return;
+        }
+        int middle = partition_v2(arr, start, end);
+        quickSort_v2(arr, start, middle - 1);
+        quickSort_v2(arr, middle + 1, end);
+    }
+    int partition_v2(int[] arr, int start, int end){
+        int pivot = arr[start];
+        int left = start + 1;
+        int right = end;
+        while (left < right){
+            while (left < right && arr[left] <= pivot){
+                left++;
+            }
+            while (left < right && arr[right] >= pivot){
+                right--;
+            }
+            if (left < right){//??
+                swap(arr, left, right);
+                left++;
+                right--;
+            }
+        }
+        if (left == right && arr[right] > pivot){
+            right--;
+        }
+        swap(arr, start, right);
+        return right;
+    }
+
+    static void swap(int[] arr, int i, int j){
+        System.out.println("in swap ");
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
@@ -190,7 +227,10 @@ public class QuickSort {
 
     static void main(String[] args) {
         int[] arr = {4, 2, 7, 1, 6, 3, 5};
-        quickSort(arr);
+        int[] arr2 = {2, 2, 1, 1, 1, 2, 2};
+        QuickSort_basic quickSort = new QuickSort_basic();
+        //quickSort.quickSort(arr);
+        quickSort.quickSort_v2(arr);
         System.out.println(Arrays.toString(arr));
     }
 }
@@ -206,4 +246,8 @@ public class QuickSort {
 4, 2, 5, 1, 6, 3, 7
 4, 2, 3, 1, 6, 5, 7 <---left 和 right 相遇
 1, 2, 3, 4, 6, 5, 7
+
+代碼出處:
+最简单的分区算法
+https://leetcode.cn/leetbook/read/sort-algorithms/eul7hm/
  */
