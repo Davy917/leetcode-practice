@@ -10,10 +10,12 @@ public class QuickSort_ultra {
         while (start < end){
             System.out.printf("Before partition start = %d end = %d%n", start, end);
             int pivot = partition(arr, start, end);
+            
             //debug
             System.out.printf("After partition start = %d ", start);
             System.out.printf("end = %d, pivot = %d%n", end, pivot);
             System.out.println(Arrays.toString(arr));
+            
             if (pivot - start < end - pivot){//pivot右邊的數較多
                 System.out.println("if");//debug
                 System.out.printf("quickSort %d ~ %d%n", start, pivot - 1);
@@ -41,7 +43,16 @@ public class QuickSort_ultra {
     After partition start = 4 end = 6, pivot = 5
     [1, 2, 3, 4, 5, 6, 7]
     else
-    quickSort 6 ~ 6
+    quickSort 6 ~ 6--->結束後回到上一層遞歸
+    
+    log不會印出, 但自己要曉得
+    外層：quickSort(0,6)
+            先遞迴右半邊：quickSort(4,6)
+            右半邊內又呼叫到：quickSort(6,6)（立刻 return）
+        右半邊整段結束 return 回外層
+        最外層(0, 6)接著執行：end = middle - 1 ⇒ end=2
+        外層 while 下一輪就變：start=0,end=2
+
     Before partition start = 0 end = 2
     After partition start = 0 end = 2, pivot = 0
     [1, 2, 3, 4, 5, 6, 7]
@@ -53,7 +64,6 @@ public class QuickSort_ultra {
     else
     quickSort 3 ~ 2
     [1, 2, 3, 4, 5, 6, 7]
-    0.7519769519802502
      */
 
 
@@ -84,7 +94,6 @@ public class QuickSort_ultra {
         int[] arr = {4, 2, 7, 1, 6, 3, 5};
         quickSort(arr);
         System.out.println(Arrays.toString(arr));
-        System.out.println(Math.random());
     }
 }
 
