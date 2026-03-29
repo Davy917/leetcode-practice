@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 class ShellSort{
-    int[] shellSort(int[] nums){
+    static int[] shellSort(int[] nums){
         int len = nums.length;
         System.out.println("--- 開始希爾排序 (Shell Sort) ---");
         System.out.println("原始陣列: " + Arrays.toString(nums));
@@ -43,9 +43,28 @@ class ShellSort{
         return nums;
     }
 
+//第二次練習時寫出, 先寫一遍insertSort, 再用insertSort的思想來寫shellSort
+    static int[] shellSort_v2(int[] nums){
+        int len = nums.length;
+        int temp;
+        for (int delta = len/2; delta >= 1; delta/=2){
+            for (int start = 0; start < delta; start++){
+                for (int cur = start + delta; cur < len; cur += delta) {
+                    temp = nums[cur];
+                    int pre = cur - delta;
+                    while (pre >= start && nums[pre] > temp){
+                        nums[pre + delta] = nums[pre];
+                        pre -= delta;
+                    }
+                    nums[pre + delta] = temp;
+                }
+            }
+        }
+        return nums;
+    }
+
     static void main(String[] args) {
         int[] nums = {5, 2, 8, 3, 7, 1, 6, 4};
-        ShellSort s = new ShellSort();
-        s.shellSort(nums);
+        shellSort(nums);
     }
 }
