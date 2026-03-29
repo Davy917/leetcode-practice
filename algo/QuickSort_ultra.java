@@ -11,6 +11,7 @@ public class QuickSort_ultra {
             int pivot = partition(arr, start, end);
             System.out.printf("After partition start = %d ", start);
             System.out.printf("end = %d, pivot = %d%n", end, pivot);
+            System.out.println(Arrays.toString(arr));
             if (pivot - start < end - pivot){//pivot右邊的數較多
                 quickSort(arr, start, pivot - 1);//就排序左邊
                 start = pivot + 1;
@@ -29,12 +30,12 @@ public class QuickSort_ultra {
     1, 2, 3, 4, 6, 7, 5
 
     start = 0 end = 1, pivot = 1
-    2, 1, 3, 4, 6, 7, 5
+    1, 2, 3, 4, 6, 7, 5
     
     走進else
     end 變 0
     最外層while (start < end)不成立,
-    整個排序就停在2, 1, 3, 4, 6, 7, 5
+    排序停在 1, 2, 3, 4, 6, 7, 5
      */
 
 
