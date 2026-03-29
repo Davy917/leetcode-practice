@@ -18,11 +18,13 @@ public class QuickSort_ultra {
                 System.out.println("if");//debug
                 System.out.printf("quickSort %d ~ %d%n", start, pivot - 1);
                 quickSort(arr, start, pivot - 1);//就排序左邊
+                System.out.printf("[返回] quickSort %d ~ %d, start 更新: %d → %d%n", start, pivot - 1, start, pivot + 1);
                 start = pivot + 1;
             }else {//pivot左邊的數較多, 或兩邊相等
                 System.out.println("else");//debug
                 System.out.printf("quickSort %d ~ %d%n", pivot + 1, end);
                 quickSort(arr, pivot + 1, end);//就排序右邊
+                System.out.printf("[返回] quickSort %d ~ %d, end 更新: %d → %d%n", pivot + 1, end, end, pivot - 1);
                 end = pivot - 1;
             }
         }
@@ -42,16 +44,20 @@ public class QuickSort_ultra {
     [1, 2, 3, 4, 5, 6, 7]
     else
     quickSort 6 ~ 6
+    [返回] quickSort 6 ~ 6, end 更新: 6 → 4   ← level 1 (4~6) 的遞迴結束, while(4<4) 不成立, level 1 return
+    [返回] quickSort 4 ~ 6, end 更新: 6 → 2   ← level 0 (0~6) 的遞迴結束, end 更新為 2, 繼續 while(0<2)
     Before partition start = 0 end = 2
     After partition start = 0 end = 2, pivot = 0
     [1, 2, 3, 4, 5, 6, 7]
     if
     quickSort 0 ~ -1
+    [返回] quickSort 0 ~ -1, start 更新: 0 → 1
     Before partition start = 1 end = 2
     After partition start = 1 end = 2, pivot = 2
     [1, 2, 3, 4, 5, 6, 7]
     else
     quickSort 3 ~ 2
+    [返回] quickSort 3 ~ 2, end 更新: 2 → 1
     [1, 2, 3, 4, 5, 6, 7]
     0.7519769519802502
      */
