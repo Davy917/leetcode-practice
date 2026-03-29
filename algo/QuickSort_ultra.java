@@ -8,14 +8,20 @@ public class QuickSort_ultra {
     }
     static void quickSort(int[] arr, int start, int end){
         while (start < end){
+            System.out.printf("Before partition start = %d end = %d%n", start, end);
             int pivot = partition(arr, start, end);
+            //debug
             System.out.printf("After partition start = %d ", start);
             System.out.printf("end = %d, pivot = %d%n", end, pivot);
             System.out.println(Arrays.toString(arr));
             if (pivot - start < end - pivot){//pivot右邊的數較多
+                System.out.println("if");//debug
+                System.out.printf("quickSort %d ~ %d%n", start, pivot - 1);
                 quickSort(arr, start, pivot - 1);//就排序左邊
                 start = pivot + 1;
             }else {//pivot左邊的數較多, 或兩邊相等
+                System.out.println("else");//debug
+                System.out.printf("quickSort %d ~ %d%n", pivot + 1, end);
                 quickSort(arr, pivot + 1, end);//就排序右邊
                 end = pivot - 1;
             }
@@ -26,16 +32,28 @@ public class QuickSort_ultra {
     初始:
     4, 2, 7, 1, 6, 3, 5
     
-    start = 0 end = 6, pivot = 2
-    1, 2, 3, 4, 6, 7, 5
-
-    start = 0 end = 1, pivot = 1
-    1, 2, 3, 4, 6, 7, 5
-    
-    走進else
-    end 變 0
-    最外層while (start < end)不成立,
-    排序停在 1, 2, 3, 4, 6, 7, 5
+    Before partition start = 0 end = 6
+    After partition start = 0 end = 6, pivot = 3
+    [1, 2, 3, 4, 6, 7, 5]
+    else
+    quickSort 4 ~ 6
+    Before partition start = 4 end = 6
+    After partition start = 4 end = 6, pivot = 5
+    [1, 2, 3, 4, 5, 6, 7]
+    else
+    quickSort 6 ~ 6
+    Before partition start = 0 end = 2
+    After partition start = 0 end = 2, pivot = 0
+    [1, 2, 3, 4, 5, 6, 7]
+    if
+    quickSort 0 ~ -1
+    Before partition start = 1 end = 2
+    After partition start = 1 end = 2, pivot = 2
+    [1, 2, 3, 4, 5, 6, 7]
+    else
+    quickSort 3 ~ 2
+    [1, 2, 3, 4, 5, 6, 7]
+    0.7519769519802502
      */
 
 
