@@ -61,3 +61,8 @@ Math.random() * 5 是 0.0 ~ 4.9999
 start + Math.random() * 5 區間變成 3.0 ~ 7.9999
 (int)後只可能是3, 4, 5, 6, 7
  */
+
+/*
+代碼出處:
+https://leetcode.cn/leetbook/read/illustration-of-algorithm/p57uhr/
+ */
