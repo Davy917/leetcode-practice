@@ -9,7 +9,7 @@ public class insertSort {
                 nums[j + 1] = nums[j];
                 j--;
             }
-            nums[j+1] = temp;//注意不可以寫在w
+            nums[j+1] = temp;//注意不可以寫在while迴圈中
         }
     }
 
