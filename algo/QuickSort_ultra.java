@@ -7,18 +7,21 @@ public class QuickSort_ultra {
         quickSort(arr, 0, arr.length - 1);
     }
     static void quickSort(int[] arr, int start, int end){
-        //TODO尾遞歸尚未完成
-        if (start >= end){
-            return;
+        while (start < end){
+            int middle = partition(arr, start, end);
+            if (middle - start < end - middle){
+                quickSort(arr, start, middle - 1);
+                start = middle + 1;
+                }else {
+                quickSort(arr, middle + 1, end);
+                end = middle - 1;
+            }
         }
-        int middle = partition(arr, start, end);
-        quickSort(arr, start, middle - 1);
-        quickSort(arr, middle + 1, end);
     }
 
     static int partition(int[] arr, int start, int end){
         int pivot = (int)(start + Math.random() * (end - start + 1));
-        //等價於ThreadLocalRandom.current().nextInt(l, r+1) <---copilot推薦寫法
+        //等價於 int pivot = ThreadLocalRandom.current().nextInt(start, end + 1); <---copilot推薦寫法
         swap(arr, start, pivot);
         int left = start;
         int right = end;
