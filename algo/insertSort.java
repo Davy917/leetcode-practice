@@ -12,6 +12,8 @@ public class insertSort {
             nums[j+1] = temp;//注意不可以寫在w
         }
     }
+
+//v2的寫法在邏輯上不嚴謹, 不屬於正規的插入排序法, 但暫時也無法證明它的結果是錯的
     static void insertSort_v2(int[] nums){
         int temp;
         for (int i = 1; i < nums.length; i++) {
