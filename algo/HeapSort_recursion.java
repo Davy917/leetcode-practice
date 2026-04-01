@@ -1,6 +1,6 @@
 //全遞歸版本
 import java.util.Arrays;
-public class HeapSort2 {
+public class HeapSort_recursion {
     static void heapify(int[] tree, int size, int parent){
         if (parent >= size){//返回條件不會寫
             return;

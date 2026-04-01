@@ -1,5 +1,4 @@
 import java.util.Arrays;
-
 /*
 只要开辟一个长度等同于两个数组长度之和的新数组，
 并使用两个指针来遍历原有的两个数组，
@@ -11,7 +10,7 @@ import java.util.Arrays;
 再将两个数组中较小的值不断添加到 result 中。其中，result 的当前下标等同于 index1 和 index2 之和。
 //result 的当前下标等同于 index1 和 index2 之和
  */
-public class MergeSort {
+public class MergeSort_basic {
     static int[] merge(int[] arr1, int[] arr2){
         //在 Java 中，要建立固定長度的陣列物件，本質上都需要配置新物件，所以離不開 new（直接或隱含）。
         int[] result = new int[arr1.length + arr2.length];
@@ -28,7 +27,6 @@ public class MergeSort {
                 index2++;
             }
         }
-
         while (index1 < arr1.length){
             result[index1 + index2] = arr1[index1];
             index1++;
@@ -47,11 +45,10 @@ public class MergeSort {
             return;
 
         int[] result = mergeSort(arr, 0, arr.length - 1);
-        System.out.println("test" + Arrays.toString(result));
 
-        for (int i = 0; i < result.length; i++)
-            arr[i] = result[i];
-        //System.arraycopy(result, 0, arr, 0, result.length);
+//        for (int i = 0; i < result.length; i++)
+//            arr[i] = result[i];
+        System.arraycopy(result, 0, arr, 0, result.length);
     }
     //2, 3, 5, 4, 6, 1 To understand
     private static int[] mergeSort(int[] arr, int start, int end){
@@ -70,7 +67,7 @@ public class MergeSort {
         //拆分右邊
         int[] right = mergeSort(arr, middle + 1, end);
         //合併兩邊
-        return merge(left, right);//尾遞歸??
+        return merge(left, right);
     }
 
     static void main(String[] args) {

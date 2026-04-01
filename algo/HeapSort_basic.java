@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-class HeapSort{
+class HeapSort_basic {
     /**
      * buildHeap: 將陣列原地調整為最大堆（max-heap）。
      * heapify: 指定子樹進行最大堆化，使其符合父大於子。
@@ -84,7 +84,7 @@ heapify 過程
     public static void main(String[] args) {
         int[] tree = {4, 10, 3, 5, 1, 2};
         int size = 6;
-        HeapSort heapSort = new HeapSort();
+        HeapSort_basic heapSort = new HeapSort_basic();
         
         System.out.println("====== Initial tree ======");
         System.out.println(Arrays.toString(tree));
