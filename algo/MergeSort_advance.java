@@ -59,7 +59,7 @@ public class MergeSort_advance {
             resultIndex++;
             index2++;
         }
-        if (end + 1 >= 0) System.arraycopy(result, 0, arr, 0, end + 1);
+        System.arraycopy(result, start, arr, start, end - start + 1);
     }
     //merge方法精簡版
     public static void merge_simplify(int[] arr, int start, int end, int[] result){
@@ -87,7 +87,7 @@ public class MergeSort_advance {
             index1++;
         }
         while (index2 <= end){
-            result[index1 + index2 - start2] = arr[index1];
+            result[index1 + index2 - start2] = arr[index2];
             index2++;
         }
         while (start <= end){
