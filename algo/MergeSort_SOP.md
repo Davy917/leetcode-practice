@@ -291,7 +291,99 @@ merge([1, 2, 6], [3, 4, 5])              -> [1, 2, 3, 4, 5, 6]
 
 ---
 
-## 九、效能注意事項
+## 十、實際跑一遍：arr = [2, 6, 1, 5, 3, 4] 右半邊遞迴（Optimized 版）
+
+> **情境**：整體 `mergeSort(arr, 0, 5)` 做完左半 `[0..2]` 後，輪到右半 `mergeSort(arr, 3, 5)`。  
+> 此節示範 `[3..5]` 裡每一層遞迴如何把 `arr` 對應區間逐步排好。
+
+```text
+測資：
+arr = [2, 6, 1, 5, 3, 4]
+idx    0  1  2  3  4  5
+右半邊 [3..5] = [5, 3, 4]
+```
+
+### Step 1：mergeSort(arr, 3, 5)
+
+```text
+start=3, end=5, middle=4
+→ 先做左半：mergeSort(arr, 3, 4)
+→ 再做右半：mergeSort(arr, 5, 5)
+→ 最後合併：merge(arr, 3, 5)
+```
+
+### Step 2：進入左半 mergeSort(arr, 3, 4)
+
+```text
+start=3, end=4, middle=3
+→ mergeSort(arr, 3, 3)  // start==end → return（單元素 [5]，天然有序）
+→ mergeSort(arr, 4, 4)  // start==end → return（單元素 [3]，天然有序）
+→ merge(arr, 3, 4)
+```
+
+執行 `merge(arr, 3, 4)`：合併 `arr[3..3]=[5]` 與 `arr[4..4]=[3]`，結果 `[3,5]` 回寫。
+
+```text
+merge 前：arr = [2, 6, 1, 5, 3, 4]
+                          ^  ^
+                        [3..4] = [5, 3]
+
+merge 後：arr = [2, 6, 1, 3, 5, 4]
+                          ^  ^
+                        [3..4] = [3, 5]  ← 已排序
+```
+
+### Step 3：進入右半 mergeSort(arr, 5, 5)
+
+```text
+start=5, end=5
+start==end → return（單元素 [4]，天然有序）
+```
+
+此時 `arr` 狀態：
+- `[3..4]` 已排序 = `[3, 5]`
+- `[5..5]` 天然有序 = `[4]`
+
+### Step 4：回到 Step 1，執行 merge(arr, 3, 5)
+
+```text
+合併左段 arr[3..4]=[3,5] 與右段 arr[5..5]=[4]，結果 [3,4,5] 回寫。
+
+merge 前：arr = [2, 6, 1, 3, 5, 4]
+                          ^  ^  ^
+                        [3..5] = [3, 5, 4]
+
+merge 後：arr = [2, 6, 1, 3, 4, 5]
+                          ^  ^  ^
+                        [3..5] = [3, 4, 5]  ← 已排序
+```
+
+### 遞迴拆分總覽
+
+```text
+mergeSort(arr, 3, 5)
+├─ mergeSort(arr, 3, 4)
+│   ├─ mergeSort(arr, 3, 3)  → return（base case，單元素 [5]，天然有序）
+│   ├─ mergeSort(arr, 4, 4)  → return（base case，單元素 [3]，天然有序）
+│   └─ merge(arr, 3, 4)      → arr[3..4] = [3, 5]
+├─ mergeSort(arr, 5, 5)      → return（base case，單元素 [4]，天然有序）
+└─ merge(arr, 3, 5)          → arr[3..5] = [3, 4, 5]
+```
+
+### 關鍵重點
+
+- **Optimized 版 base case 回傳 `void`**：`if (start == end) return;`  
+  單一元素的區間天然有序，不需要建立新陣列；直接 return 告訴上一層「這段 OK 了」。
+
+- **有序性是在「回溯時」由 `merge(...)` 建立的**：  
+  每次 `merge(arr, start, end, result)` 執行後，`result[start..end]` 被排序完成並回寫到 `arr[start..end]`，所以上一層接收到的左右子段都已是有序的。
+
+- **左半結果不受右半影響**：  
+  左半完成後，其排序結果已寫回 `arr[start..middle]`；右半遞迴只會讀寫 `arr[middle+1..end]` 這個不重疊的區間，兩段互不干擾。
+
+---
+
+## 十一、效能注意事項
 
 - **`System.out.println` 在遞迴中會大幅拖慢大型輸入**：每遞迴一層就印一行，陣列有 n 個元素時會印 O(n log n) 行。正式使用或提交 LeetCode 前務必移除或用條件開關控制。
 - Basic 版每次 `merge` 都 `new int[]`，若陣列很大（例如 10^6 個元素），GC 壓力明顯；此時 Optimized 版的單一 `result` buffer 優勢更顯著。
