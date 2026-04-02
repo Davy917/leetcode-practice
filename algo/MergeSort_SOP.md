@@ -291,6 +291,71 @@ merge([1, 2, 6], [3, 4, 5])              -> [1, 2, 3, 4, 5, 6]
 
 ---
 
+## 九、Q9：為什麼 basic 版 base case 會 `return new int[]{arr[start]}`，但 advance 版直接 `return;` 就夠了？
+
+### 版本對比（base case）
+
+**basic 版（回傳新陣列）**
+
+```java
+if (start == end) return new int[]{arr[start]};
+```
+
+- 子問題縮減到只剩 1 個元素時，**建立並回傳一個長度為 1 的新陣列**，代表「這段已排序完成」的結果。
+- 整個 basic 版的排序結果是透過 **回傳值往上傳遞** 的：每一層遞迴把左右兩段的回傳陣列（`left`、`right`）交給 `merge(left, right)` 合併後，再 `return` 給上一層；最外層拿到最終排序好的陣列。
+- 每次 `merge` 都會 `new int[]` 配置一個新的結果陣列，空間使用量為 O(n log n)。
+
+**advance 版（不回傳陣列）**
+
+```java
+if (start == end) return;
+```
+
+- 子問題縮減到只剩 1 個元素時，**什麼都不做，直接回到上一層**。
+- 長度為 1 的區間 `arr[start..end]` 本來就只有一個元素，天然有序，不需要任何操作，也不需要建立新陣列。
+
+---
+
+### advance 版如何做到「拆分」？
+
+advance 版的「拆分」不靠回傳新陣列，而是靠 **遞迴參數的區間 `(start, end)`** 來代表「目前正在處理的子陣列範圍」。
+
+每一層遞迴做兩件事：
+
+**① 用遞迴切割出子問題邊界**
+
+```java
+int middle = (start + end) / 2;
+mergeSort(arr, start, middle, result);       // 先完整處理左半段
+mergeSort(arr, middle + 1, end, result);     // 再完整處理右半段
+```
+
+- 左邊的呼叫 **完整跑完並返回** 後，才開始執行右邊（循序執行）。
+- 遞迴一路往下直到 `start == end`（單元素區間，天然有序），然後開始回溯。
+
+**② 在回溯階段（從小區間回到大區間）才真正把資料排好**
+
+```java
+merge(arr, start, end, result);
+```
+
+- 此時左半段 `arr[start..middle]` 和右半段 `arr[middle+1..end]` 都已各自有序（由更底層的 `merge` 保證）。
+- `merge` 把兩段合併後寫入共用 buffer：`result[start..end]`。
+- 再把結果回寫到原陣列：`System.arraycopy(result, start, arr, start, end - start + 1)`，使 `arr[start..end]` 變為有序。
+
+所以 advance 版的「排序結果」不是靠 `return` 往上傳遞，而是透過 **每一層 merge 直接把排序結果寫回 `arr[start..end]`** 來完成。
+
+---
+
+### 一句話記憶法
+
+| 版本 | 排序結果如何傳遞 | base case 需要做什麼 |
+|------|-----------------|----------------------|
+| **basic** | 透過 `return int[]` 往上傳（回傳值串起整個排序） | `return new int[]{arr[start]}`：建立並回傳長度 1 的陣列 |
+| **advance** | 透過 `merge` 回寫 `arr[start..end]`（區間 + 回寫串起整個排序） | `return;`：長度 1 的區間天然有序，無需任何操作 |
+
+---
+
 ## 十、實際跑一遍：arr = [2, 6, 1, 5, 3, 4] 右半邊遞迴（Optimized 版）
 
 > **情境**：整體 `mergeSort(arr, 0, 5)` 做完左半 `[0..2]` 後，輪到右半 `mergeSort(arr, 3, 5)`。  
