@@ -2,15 +2,17 @@ class quickSort:
     @staticmethod
     def quickSort(arr):
         quickSort.quickSort_advance(arr, 0, len(arr) - 1)
-        @staticmethod
+
+    @staticmethod
     def quickSort_advance(arr, start, end):
         if start >= end:
             return
         middle = quickSort.partition_advance(arr, start, end)
-        quickSort.quickSort_advance(arr, start, middle - 1)
-        quickSort.quickSort_advance(arr, middle + 1, end)
+        quickSort.partition_advance(arr, start, middle - 1)
+        quickSort.partition_advance(arr, middle + 1, end)
+
     @staticmethod
-    def quickSort_advance(arr, start ,end):
+    def partition_advance(arr, start ,end):
         left = start
         right = end
         while left < right:
@@ -53,6 +55,7 @@ if __name__ == "__main__":
         如果沒有等號，當 left 指針遇到一個等於 pivot 的元素時，它會停下來，而 right 指針也可能遇到一個等於 pivot 的元素停下來。
         這樣 left 和 right 都無法移動，但 left < right 仍然成立，導致無限循環。加上等號，可以確保指針在遇到等於 pivot 的元素時也能繼續移動，直到找到真正需要交換的元素，或者指針交叉。
     3. 交換後指針處理： 在 if left < right: 內部執行交換後，不需要額外移動 left 和 right。外層的 while left < right 迴圈會再次執行，並再次判斷內部 while 迴圈條件，自動讓指針繼續移動。
+
 2. 情況二：pivot = arr[start], left = start + 1 (quickSort_twopointers的版本)  
     1. 內部 while 迴圈條件：
         1.while left <= end and arr[left] < pivot: (左指針向右找 大於等於 pivot 的元素，遇到小於 pivot 的要繼續移動。)
