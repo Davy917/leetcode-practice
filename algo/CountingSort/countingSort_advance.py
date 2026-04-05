@@ -38,3 +38,7 @@ if __name__ == "__main__":
     arr = [8, 7, 1, 2, 8, 6, 8, 2]
     countingSort.countingSort_advance(arr)
     print(arr)
+"""
+代碼出處:
+https://leetcode.cn/leetbook/read/sort-algorithms/ozyo63/
+"""
