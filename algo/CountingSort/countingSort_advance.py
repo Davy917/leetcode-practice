@@ -1,7 +1,7 @@
 class countingSort:
     @classmethod
     def countingSort_advance(cls, arr):
-        if len(arr) == 0 or len(arr) == 1:
+        if arr is None or len(arr) <= 1:
             return arr
         max = arr[0]
         min = arr[0]
