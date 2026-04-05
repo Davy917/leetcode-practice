@@ -19,7 +19,7 @@ class countingSort:
         print(counting)
 
         precount = 0
-        for i in range(0, total): #why total??
+        for i in range(0, total_range): #why total_range??
             #注意, 自己想不出來
             precount += counting[i]
             counting[i] = precount - counting[i]
