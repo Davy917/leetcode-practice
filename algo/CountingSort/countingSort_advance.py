@@ -10,11 +10,11 @@ class countingSort:
                 max = arr[i]
             elif arr[i] < min:
                 min = arr[i]
-        total = max - min + 1
+        total_range = max - min + 1
 
-        counting = [0] * total
+        counting = [0] * total_range
         for element in arr:
-            idx = element - 1
+            idx = element - min
             counting[idx] += 1
         print(counting)
 
@@ -23,11 +23,11 @@ class countingSort:
             #注意, 自己想不出來
             precount += counting[i]
             counting[i] = precount - counting[i]
-
+        print(counting)
         # To Figure
         result = [0] * len(arr)
         for element in arr:
-            position = counting[element - min]
+            position = counting[element - min] #why min??
             result[position] = element
             counting[element - min] += 1
 
