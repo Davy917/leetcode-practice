@@ -104,3 +104,8 @@ for _ in range(9):
 4. 外面的 [...]（list comprehension）
     把這 9 次產生的 deque() 收集成一個 list。
 """
+
+"""
+代碼出處:
+https://leetcode.cn/leetbook/read/sort-algorithms/ozyo63/
+"""
