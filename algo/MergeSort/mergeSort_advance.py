@@ -16,7 +16,7 @@ class mergeSort:
         self.mergeSort_advance(arr, middle + 1, end, result)
 
         #擇一使用
-        # self.merge(arr, start, end, result)#why??
+        # self.merge(arr, start, end, result)
         self.merge_simply(arr, start, end, result)
       
     def merge(self, arr, start, end, result):
