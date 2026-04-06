@@ -15,7 +15,7 @@ class mergeSort:
         right: list = self.mergeSort(arr, middle + 1, end)
         return self.merge(left, right)
       
-    #推倒merge, 先想著把[2, 6, 1][3, 5, 4]變成[1, 2, 3, 4, 5 ,6]
+    #推倒merge, 先想著把[2, 6, 1][3, 5, 4] 變成 [1, 2, 3, 4, 5 ,6]
     def merge(self, arr1, arr2):
         result = []
         index1 = 0
