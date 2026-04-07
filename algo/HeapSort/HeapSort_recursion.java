@@ -1,4 +1,4 @@
-//全遞歸版本
+package HeapSort;//全遞歸版本
 import java.util.Arrays;
 public class HeapSort_recursion {
     static void heapify(int[] tree, int size, int parent){

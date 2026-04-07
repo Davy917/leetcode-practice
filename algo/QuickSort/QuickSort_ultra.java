@@ -1,4 +1,4 @@
-//尾遞歸 + 隨機基準數
+package QuickSort;//尾遞歸 + 隨機基準數
 import java.util.Arrays;
 import java.util.Random;
 
