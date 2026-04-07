@@ -11,12 +11,15 @@ public class CountingSort_advance {
             else if ((arr[i] < min))
                 min = arr[i];
         }
-        int total_range = max - min + 1;
-        int[] counting = new int[total_range];
+
+        final int total_range = max - min + 1;
+        int[] counting = new int[total_range]; //注意, 要記得counting的大小是用total_range
+
         for (int element: arr){
             counting[element - min] ++;
         }
         System.out.println(Arrays.toString(counting));
+
         int preSum = 0;
         for (int i = 0; i < total_range; i++) {
             int temp = counting[i];
@@ -24,6 +27,8 @@ public class CountingSort_advance {
             preSum += temp;
         }
         System.out.println(Arrays.toString(counting));
+
+        //寫第二次還是寫不出來
         int[] result = new int[arr.length];
         for (int element: arr){
             int position = counting[element - min];//element - min 才能映射出正確位置, 可以從上個迴圈推得
