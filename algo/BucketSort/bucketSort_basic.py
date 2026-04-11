@@ -14,7 +14,7 @@ class bucketSort:
         print(max_num, min_num)
 
         bucket_amount = 100
-        gap = true_range * 1 / (bucket_amount - 1)
+        gap = true_range / (bucket_amount - 1)
         buckets = [[0] * len(arr) for _ in range(bucket_amount)] #注意, 不是buckets = [[0] * len(arr)] * bucket_amount
         bucket_length = [0] * bucket_amount
 

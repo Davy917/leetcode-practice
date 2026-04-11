@@ -14,7 +14,7 @@
 | 比較項目 | **Advance（Start-index）** | **Reverse（Last-index）** |
 |----------|---------------------------|--------------------------|
 | **prefix 轉換目標** | 每格存「該值的起始位置（start index）」 | 每格存「該值的最後位置（last index）」 |
-| **prefix 寫法** | `precount += counting[i]`<br>`counting[i] = precount - counting[i]` | `for i in range(1, total_range):`<br>`counting[i] += counting[i-1]`<br>再整體 `-1` |
+| **prefix 寫法** | `precount += counting[i]`<br>`counting[i] = precount - counting[i]` | `for i in range(1, true_range):`<br>`counting[i] += counting[i-1]`<br>再整體 `-1` |
 | **填入 result 的掃描方向** | **正向**（left → right） | **反向**（right → left） |
 | **填入後指針動作** | `counting[idx] += 1`（往右推） | `counting[idx] -= 1`（往左退） |
 | **穩定性保證** | 正向掃 + start 往右推 → 同值保持原順序 | 反向掃 + last 往左退 → 同值保持原順序 |
@@ -95,7 +95,7 @@ for _ in range(9):
 
 ```python
 precount = 0
-for i in range(total_range):
+for i in range(true_range):
     precount += counting[i]          # precount = sum(counting[0..i])（含自己）
     counting[i] = precount - counting[i]  # sum(counting[0..i-1])  = start index
 ```
@@ -106,7 +106,7 @@ for i in range(total_range):
 
 ```python
 precount = 0
-for i in range(total_range):
+for i in range(true_range):
     temp = counting[i]        # 暫存舊次數
     counting[i] = precount    # 直接設為 start index
     precount += temp          # 再更新前綴和
@@ -151,7 +151,7 @@ for i in range(total_range):
 
 ```python
 counting[0] -= 1                          # 讓第 0 格少 1
-for i in range(1, total_range):
+for i in range(1, true_range):
     counting[i] += counting[i - 1]        # prefix sum 連帶把「少 1」傳遞出去
 ```
 
@@ -159,11 +159,11 @@ for i in range(1, total_range):
 
 ```python
 # 步驟 1：先算「≤ 該值的累計個數」
-for i in range(1, total_range):
+for i in range(1, true_range):
     counting[i] += counting[i - 1]
 
 # 步驟 2：整體減 1，轉成 last index（0-based）
-for i in range(total_range):
+for i in range(true_range):
     counting[i] -= 1
 ```
 
@@ -171,9 +171,9 @@ for i in range(total_range):
 
 ```python
 freq = counting[:]          # 保留原始次數（方便 debug）
-last_pos = [0] * total_range
+last_pos = [0] * true_range
 running = 0
-for i in range(total_range):
+for i in range(true_range):
     running += freq[i]
     last_pos[i] = running - 1   # 直接算出 last index
 
@@ -195,16 +195,16 @@ def counting_sort_advance(arr: list[int]) -> None:
     if not arr or len(arr) <= 1:
         return
     lo, hi = min(arr), max(arr)
-    total_range = hi - lo + 1
+    true_range = hi - lo + 1
 
     # 1. 統計次數
-    freq = [0] * total_range
+    freq = [0] * true_range
     for x in arr:
         freq[x - lo] += 1
 
     # 2. 轉成 start index（basic 可讀寫法）
     precount = 0
-    for i in range(total_range):
+    for i in range(true_range):
         temp = freq[i]
         freq[i] = precount      # freq[i] = 值 (lo+i) 的起始位置
         precount += temp
@@ -226,17 +226,17 @@ def counting_sort_reverse(arr: list[int]) -> None:
     if not arr or len(arr) <= 1:
         return
     lo, hi = min(arr), max(arr)
-    total_range = hi - lo + 1
+    true_range = hi - lo + 1
 
     # 1. 統計次數
-    freq = [0] * total_range
+    freq = [0] * true_range
     for x in arr:
         freq[x - lo] += 1
 
     # 2. 轉成 last index（兩步可讀寫法）
-    for i in range(1, total_range):
+    for i in range(1, true_range):
         freq[i] += freq[i - 1]  # 先算累計個數
-    for i in range(total_range):
+    for i in range(true_range):
         freq[i] -= 1             # 再轉成 0-based last index
 
     # 3. 反向掃 arr，依序填入 result

@@ -12,17 +12,17 @@ public class CountingSort_reverse {
                 max = arr[i];
         }
 
-        final int total_range = max - min + 1;
-        int[] counting = new int[total_range]; //注意, 要記得counting的大小是用total_range
+        final int true_range = max - min + 1;
+        int[] counting = new int[true_range]; //注意, 要記得counting的大小是用true_range
 
         for (int element : arr) {
             counting[element - min] ++;
         }
         System.out.println(Arrays.toString(counting));
 
-        for (int index = 1; index < total_range; index++)//注意是total_range, 而不是counting.length
+        for (int index = 1; index < true_range; index++)//注意是true_range, 而不是counting.length
             counting[index] += counting[index - 1];
-        for (int index = 0; index < total_range; index++)
+        for (int index = 0; index < true_range; index++)
             counting[index]--;
         System.out.println(Arrays.toString(counting));
 

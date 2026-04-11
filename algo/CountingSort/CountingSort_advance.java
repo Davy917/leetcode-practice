@@ -12,8 +12,8 @@ public class CountingSort_advance {
                 min = arr[i];
         }
 
-        final int total_range = max - min + 1;
-        int[] counting = new int[total_range]; //注意, 要記得counting的大小是用total_range
+        final int true_range = max - min + 1;
+        int[] counting = new int[true_range]; //注意, 要記得counting的大小是用true_range
 
         for (int element: arr){
             counting[element - min] ++;
@@ -21,7 +21,7 @@ public class CountingSort_advance {
         System.out.println(Arrays.toString(counting));
 
         int preSum = 0;
-        for (int i = 0; i < total_range; i++) {
+        for (int i = 0; i < true_range; i++) {
             int temp = counting[i];
             counting[i] = preSum;
             preSum += temp;
