@@ -35,14 +35,14 @@ class bucketSort:
 
         print("buckets = ", buckets)
 
-        lastSorted = 0
+        last_sorted = 0
         for i in range(0, self.bucket_amount):
             if buckets[index] is None:
                 continue
             insertSort.insertSort(buckets[i])
             print(f"bucket{i} = ", buckets[i])
-            arr[lastSorted: lastSorted + len(buckets[i])] = buckets[i]#注意, 不是buckets[:len(buckets[i])]
-            lastSorted += len(buckets[i])
+            arr[last_sorted: last_sorted + len(buckets[i])] = buckets[i]#注意, 不是buckets[:len(buckets[i])]
+            last_sorted += len(buckets[i])
 
         
 if __name__ == "__main__":
@@ -87,8 +87,8 @@ index = (val - min_val) // gap
     這樣可避免 max_val 因浮點誤差落到不存在的桶位。
 
 different between:說明兩者的差異
-arr[lastSorted: lastSorted + len(buckets[i])] = buckets[i]
-arr[lastSorted: lastSorted + len(buckets[i])] = buckets[:len(buckets[i])]
+arr[last_sorted: last_sorted + len(buckets[i])] = buckets[i]
+arr[last_sorted: last_sorted + len(buckets[i])] = buckets[:len(buckets[i])]
 
 buckets[i]
 是「第 i 個桶的內容」。
