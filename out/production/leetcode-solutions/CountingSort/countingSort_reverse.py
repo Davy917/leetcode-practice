@@ -10,9 +10,9 @@ class countingSort:
                 max = arr[i]
             elif arr[i] < min:
                 min = arr[i]
-        total_range = max - min + 1
+        true_range = max - min + 1
 
-        counting = [0] * total_range
+        counting = [0] * true_range
         for element in arr:
             idx = element - min #why min? 手動跑一次arr就知道了
             counting[idx] += 1
@@ -20,20 +20,20 @@ class countingSort:
 
         #精簡寫法
         counting[0] -= 1 #why? 見sop
-        for i in range(1, total_range):
+        for i in range(1, true_range):
             counting[i] += counting[i-1]
         print(counting)
 
         """
         直覺寫法如下:
         # 1) 先把 counting 變成「≤ 該值的累計個數」
-        for i in range(1, total_range):
+        for i in range(1, true_range):
             counting[i] = counting[i] + counting[i - 1]
         print(counting)
         
         # 2) 再把它變成「最後索引」（0-based）
         #    last_index = (累計個數) - 1
-        for i in range(total_range):
+        for i in range(true_range):
             counting[i] -= 1
         print(counting)
         """

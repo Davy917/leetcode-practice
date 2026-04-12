@@ -1,6 +1,9 @@
+package InsertSort;
+
 import java.util.Arrays;
-class InsertSort {
-      static void insertSort(int[] nums) {
+
+public class InsertSort {
+      public static void InsertSort_basic(int[] nums) {
           int temp;
           for (int i = 1; i < nums.length; i++){
               int j = i - 1;
@@ -30,7 +33,7 @@ class InsertSort {
     public static void main(String[] args) {
         int[] nums = {5, 2, 8, 6, 1, 7, 4, 3};
         int[] nums2 = {7, 5, 1, 2, 9, 6, 4, 3};
-        insertSort(nums);
+        InsertSort_basic(nums);
         insertSort_v2(nums2);
         System.out.println(Arrays.toString(nums));
         System.out.println(Arrays.toString(nums2));

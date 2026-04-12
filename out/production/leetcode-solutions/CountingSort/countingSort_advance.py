@@ -10,16 +10,16 @@ class countingSort:
                 max = arr[i]
             elif arr[i] < min:
                 min = arr[i]
-        total_range = max - min + 1
+        true_range = max - min + 1
 
-        counting = [0] * total_range
+        counting = [0] * true_range
         for element in arr:
             idx = element - min
             counting[idx] += 1
         print(counting)
 
         precount = 0
-        for i in range(0, total_range): #why total_range??
+        for i in range(0, true_range): #why true_range??
             #注意, 自己想不出來
             precount += counting[i]
             counting[i] = precount - counting[i]

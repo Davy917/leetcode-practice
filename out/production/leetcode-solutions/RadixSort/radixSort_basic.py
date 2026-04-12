@@ -1,4 +1,6 @@
-#底層用CountingSort實現
+"""
+底層用CountingSort實現
+"""
 class radixSort:
     @classmethod
     def radixSort_basic(cls, arr):
@@ -57,7 +59,7 @@ class radixSort:
 
 if __name__ == "__main__":
     arr = [520, 211, 438, 888, 7, 111, 985, 666, 996, 233, 168]
-    RadixSort.radixSort_basic(arr)
+    radixSort.radixSort_basic(arr)
     print("ans = ", arr)
 
 """

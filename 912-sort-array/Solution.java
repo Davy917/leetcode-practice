@@ -71,7 +71,7 @@ class Solution912 {
         //int[] nums = {5, 1, 1, 2, 0, 0};
         Solution912 sol = new Solution912();
         //sol.sortArray(nums);
-        //sol.insertSort(nums);
+        //sol.InsertSort_basic(nums);
         sol.shellSort(nums);
     }
 }
