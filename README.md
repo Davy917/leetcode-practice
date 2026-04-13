@@ -8,9 +8,9 @@
 
 ## 📁 專案結構
 每題都有獨立資料夾，按題號和題目名稱分類：
-003-length-of-longest-substring/ ├── Solution1122.java └── solution.py
+003-length-of-longest-substring/ ├── Solution.java └── solution.py
 
-020-is-valid/ ├── Solution1122.java └── solution.py
+020-is-valid/ ├── Solution.java └── solution.py
 
 ## 📊 統計
 - 總題數：60+ 題
@@ -19,7 +19,7 @@
 
 ## 💡 命名規則
 - 資料夾：`{題號}-{題目名稱}`（例如：`003-length-of-longest-substring/`）
-- Java 文件：`Solution1122.java`
+- Java 文件：`Solution.java`
 - Python 文件：`solution.py`
 
 ## 📂 額外資料夾
@@ -59,7 +59,7 @@
 1. 在專案根目錄上右鍵 → `New` → `Directory`
 2. 輸入資料夾名稱（例如：`234-is-palindrome`）
 3. 在新建的資料夾上右鍵 → `Mark Directory as` → `Sources Root`
-4. 在該資料夾中創建 `Solution1122.java` 文件
+4. 在該資料夾中創建 `Solution.java` 文件
 
 **如何確認設定正確：**
 - ✅ 資料夾圖示應為**藍色**
@@ -74,7 +74,7 @@
 即使每題都在不同的資料夾中，仍可能出現以下錯誤：
 ```
 java: duplicate class: ListNode
-java: duplicate class: Solution1122
+java: duplicate class: Solution
 在文件 'XXX.java' 中找到重复类
 ```
 
@@ -89,7 +89,7 @@ leetcode-solutions/
 ├── 707-my-linked-list/      [Source Root] ─┘
 ```
 
-因此，`ListNode` 和 `Solution1122` 在不同資料夾中，Java 仍認為它們在**同一個包**中 → **類名衝突**！
+因此，`ListNode` 和 `Solution` 在不同資料夾中，Java 仍認為它們在**同一個包**中 → **類名衝突**！
 
 ### ✅ 解決方案
 
@@ -98,7 +98,7 @@ leetcode-solutions/
 在每個 Java 文件的**第一行**添加唯一的包名：
 
 ```java
-// 234-is-palindrome/Solution1122.java
+// 234-is-palindrome/Solution.java
 package p234;  // ← 添加這行
 
 class ListNode {
@@ -107,7 +107,7 @@ class ListNode {
     ListNode(int val) { this.val = val; }
 }
 
-public class Solution1122 {
+public class Solution {
     // ...
 }
 ```
@@ -119,7 +119,7 @@ public class Solution1122 {
 將 `ListNode` 作為**內部靜態類**定義：
 
 ```java
-public class Solution1122 {
+public class Solution {
     // 內部類，不會與其他文件衝突
     static class ListNode {
         int val;

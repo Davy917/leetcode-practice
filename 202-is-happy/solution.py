@@ -1,4 +1,4 @@
-class Solution1122:
+class Solution:
     def isHappy(self, n: int) -> bool:
         main_set = set()
         while n not in main_set:
@@ -14,7 +14,7 @@ class Solution1122:
                 return True
         return False
 
-print(Solution1122().isHappy(19))
+print(Solution().isHappy(19))
 
 """
 注意事項:

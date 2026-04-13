@@ -22,7 +22,7 @@ class LinkedList:
         head = newNode0
         return head
       
-class Solution1122:
+class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
         if head is None:
             return None
@@ -53,7 +53,7 @@ class Solution1122:
 """
 
 if __name__ == "__main__":
-    sol = Solution1122()
+    sol = Solution()
     mainList = LinkedList()
     exampleNode = mainList.buildexample()
     sol.copyRandomList(exampleNode)

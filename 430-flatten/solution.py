@@ -38,7 +38,7 @@ class LinkedList:
         newNode2.prev = newNode1
         head = newNode1
         return head
-class Solution1122:
+class Solution:
     def flatten(self, head: 'Optional[Node]') -> 'Optional[Node]':
         if head is None:
             return None
@@ -71,7 +71,7 @@ class Solution1122:
             
         return head
 if __name__ == "__main__":
-    sol = Solution1122()
+    sol = Solution()
     mainList = LinkedList()
     examplehead = mainList.buildexample()
     sol.flatten(examplehead)

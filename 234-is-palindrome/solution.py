@@ -38,7 +38,7 @@ class linkedList:
             current = temp
         return pre
     
-class Solution1122:
+class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
         
         if head is None:
@@ -67,7 +67,7 @@ class Solution1122:
     
 if __name__ == "__main__":
     nums = [1, 3, 4, 3, 1]
-    sol = Solution1122()
+    sol = Solution()
     linkedList = linkedList()
     for i in nums:
         linkedList.addAtTail(i)

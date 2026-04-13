@@ -1,6 +1,6 @@
 #Python用列表,java用雙指針
 from typing import List
-class Solution1122:
+class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
 
         #寫一個從列表後面開始的迴圈
@@ -13,5 +13,5 @@ class Solution1122:
                 del nums[i]
             else:
                 continue
-result = Solution1122().removeDuplicates([1, 1, 2, 2, 6, 6, 6])
+result = Solution().removeDuplicates([1, 1, 2, 2, 6, 6, 6])
 print(result)

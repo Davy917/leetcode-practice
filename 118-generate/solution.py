@@ -1,5 +1,5 @@
 from typing import List
-class Solution1122:
+class Solution:
     def generate(self, numRows: int) -> List[List[int]]:
         
         main_list = [[1]]
@@ -21,7 +21,7 @@ class Solution1122:
         return main_list
 
 
-print(Solution1122().generate(7))
+print(Solution().generate(7))
 
 """
 输入: numRows = 5

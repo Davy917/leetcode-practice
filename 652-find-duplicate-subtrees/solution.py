@@ -14,7 +14,7 @@ class TreeNode:
         right_repr = "null" if self.right is None else repr(self.right)
         return f"{self.val}({left_repr},{right_repr})"
 
-class Solution1122:
+class Solution:
     def __init__(self):
         self.map: dict[str, TreeNode] = {}
         self.key_set: set[str] = set()
@@ -46,7 +46,7 @@ if __name__ == "__main__":
     n3 = TreeNode(3, n2b, TreeNode(4))
     root = TreeNode(1, n2a, n3)
 
-    sol = Solution1122()
+    sol = Solution()
     result = sol.findDuplicateSubtrees(root)
     print("result =", result)
     print("Found", len(result), "duplicate subtree(s):")

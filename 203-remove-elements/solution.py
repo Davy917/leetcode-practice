@@ -4,13 +4,13 @@ class ListNode(object):
         self.val = val
         self.next = next
 
-class Solution1122:
+class Solution:
 
     def __init__(self):
         self.head = None 
         """
         為甚麼不能寫成ListNode.head = None??
-        self.head 是 Solution1122 物件自己的屬性
+        self.head 是 Solution 物件自己的屬性
         ListNode.head 是 ListNode 類別屬性
         """
 
@@ -58,7 +58,7 @@ class Solution1122:
         print(val)
 
 if __name__ == "__main__":
-    sol = Solution1122()
+    sol = Solution()
     nums = [1, 1, 6, 3, 1, 5, 6]
     val = 1
     for i in nums:

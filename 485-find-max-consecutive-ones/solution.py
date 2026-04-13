@@ -1,5 +1,5 @@
 from typing import List
-class Solution1122:
+class Solution:
     def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
         if len(nums) == 0:
             return None
@@ -17,4 +17,4 @@ class Solution1122:
 
         return max_len
 
-print(Solution1122().findMaxConsecutiveOnes([1, 1, 0, 1, 1, 1]))
+print(Solution().findMaxConsecutiveOnes([1, 1, 0, 1, 1, 1]))

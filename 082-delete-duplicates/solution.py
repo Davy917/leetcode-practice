@@ -32,7 +32,7 @@ class linkedList:
             nums.append(current.val)
         print(nums)
 
-class Solution1122:
+class Solution:
     def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
 
         if head is None or head.next is None:
@@ -62,7 +62,7 @@ class Solution1122:
 if __name__ == "__main__":
     #nums = [1, 2, 3, 3, 4, 4, 5]
     nums = [2, 2, 2, 3]
-    sol = Solution1122()
+    sol = Solution()
     linkedList = linkedList()
     for i in nums:
         linkedList.addAtTail(i)

@@ -28,7 +28,7 @@ class LinkedList:
             nums.append(cur.val)
         print(nums)
         
-class Solution1122:
+class Solution:
     def oddEvenList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if not head:
             return head
@@ -45,7 +45,7 @@ class Solution1122:
         return head
 if __name__ == "__main__":
     nums = [2,1,3,5,6,4,7]
-    sol = Solution1122()
+    sol = Solution()
     mainList = LinkedList()
     for i in nums:
         newNode = ListNode(i, None)

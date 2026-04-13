@@ -1,4 +1,4 @@
-class Solution1122:
+class Solution:
     def firstUniqChar(self, s: str) -> int:
         map1 = {}
         
@@ -14,4 +14,4 @@ class Solution1122:
             counter += 1
         return -1
 
-print(Solution1122().firstUniqChar("dddccdbba"))
+print(Solution().firstUniqChar("dddccdbba"))

@@ -14,7 +14,7 @@ class LinkedList:
         while cur.next is not None:
             cur = cur.next
         cur.next = newNode
-class Solution1122:
+class Solution:
     def getDecimalValue(self, head: Optional[ListNode]) -> int:
         if head is None:
             return None
@@ -28,7 +28,7 @@ class Solution1122:
                 return ans
 if __name__ == "__main__":
     nums = [1, 0, 1]
-    sol = Solution1122()
+    sol = Solution()
     mainList = LinkedList()
     for i in nums:
         newNode = ListNode(i, None)

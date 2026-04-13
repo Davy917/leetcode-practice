@@ -1,4 +1,4 @@
-class Solution1122:
+class Solution:
     def isValid(self, s: str) -> bool:
         #如果輸入的是奇數,代表永遠不會全部都配對完
         if len(s) % 2 != 0:
@@ -31,5 +31,5 @@ class Solution1122:
         #最後檢查,如果stack空了,則印True
         return not stack
 
-result = Solution1122().isValid("([)]")
+result = Solution().isValid("([)]")
 print(result)

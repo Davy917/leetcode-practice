@@ -35,7 +35,7 @@ class LinkedList:
             nums.append(cur.val)
         print(nums)
 
-class Solution1122:
+class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
         if head is None or head.next is None:
             return False
@@ -63,4 +63,4 @@ if __name__ == "__main__":
     #手動製造環形鏈表
     mainList.tail.next = mainList.head.next
     #LinkedList.printList(mainList.head)
-    Solution1122().hasCycle(mainList.head)
+    Solution().hasCycle(mainList.head)

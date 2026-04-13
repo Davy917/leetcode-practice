@@ -1,5 +1,5 @@
 from typing import List
-class Solution1122:
+class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
         counter = 0
         for i in range(len(nums)-1, -1, -1):
@@ -15,7 +15,7 @@ class Solution1122:
             else:
                 continue
         return
-print(Solution1122().moveZeroes([0,1,0,3,12]))
+print(Solution().moveZeroes([0,1,0,3,12]))
 
 """
 给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。

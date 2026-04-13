@@ -1,4 +1,4 @@
-class Solution1122:
+class Solution:
     def lengthOfLastWord(self, s: str) -> int:
 
         #宣告計數器
@@ -22,5 +22,5 @@ class Solution1122:
         
         return Ans
 
-result = Solution1122().lengthOfLastWord("y")
+result = Solution().lengthOfLastWord("y")
 print(result)

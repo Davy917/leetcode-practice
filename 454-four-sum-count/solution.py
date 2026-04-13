@@ -1,5 +1,5 @@
 from typing import List
-class Solution1122:
+class Solution:
     def fourSumCount(self, nums1: List[int], nums2: List[int], nums3: List[int], nums4: List[int]) -> int:
         result = 0
         map: dict[int, int] = {}
@@ -20,7 +20,7 @@ if __name__ == "__main__":
     nums2 = [-2, -1]
     nums3 = [-1, 2]
     nums4 = [0, 2]
-    print(Solution1122().fourSumCount(nums1, nums2, nums3, nums4))
+    print(Solution().fourSumCount(nums1, nums2, nums3, nums4))
 
 
 """

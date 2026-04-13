@@ -26,7 +26,7 @@ class LinkedList:
             nums.append(cur.val)
         print(nums)
         
-class Solution1122:
+class Solution:
     def __init__(self) -> None:
         self.layer = 1
     def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
@@ -144,7 +144,7 @@ return newHead
 
 if __name__ == "__main__":
     nums = [1, 2, 3, 4]
-    sol = Solution1122()
+    sol = Solution()
     mainList = LinkedList()
     for i in nums:
         newNode = ListNode(i, None)

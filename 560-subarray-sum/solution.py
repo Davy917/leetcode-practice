@@ -1,5 +1,5 @@
 #from typing import Dict
-class Solution1122:
+class Solution:
     def subarraySum(self, nums: list[int], k: int) -> int:
         #初始化
         count = 0
@@ -23,7 +23,7 @@ class Solution1122:
         return count
 
 if __name__ == "__main__":
-    sol = Solution1122()
+    sol = Solution()
     #nums = [3, 4, 7, 2, -3, 1, 4, 2]
     nums = [1, 1, 1]
     k = 2

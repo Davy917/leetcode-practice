@@ -1,5 +1,5 @@
 from typing import List
-class Solution1122:
+class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         dict = {}
         for str in strs:
@@ -9,4 +9,4 @@ class Solution1122:
             dict[key].append(str)
         return dict
 
-print(Solution1122().groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
+print(Solution().groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))

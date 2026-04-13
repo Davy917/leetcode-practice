@@ -1,5 +1,5 @@
 from typing import List
-class Solution1122:
+class Solution:
     rowMap = {}
     columnMap = {}
     gridMap = {}
@@ -10,11 +10,11 @@ class Solution1122:
                 c = board[row][column]
                 if c == '.':
                     continue
-                if Solution1122().checkRow(row, c) == False:
+                if Solution().checkRow(row, c) == False:
                     return False
-                if Solution1122().checkColumn(column, c) == False:
+                if Solution().checkColumn(column, c) == False:
                     return False
-                if Solution1122().checkGrid(row, column, c) == False:
+                if Solution().checkGrid(row, column, c) == False:
                     return False
         return True
     
@@ -56,4 +56,4 @@ sodoku = [["5","3",".",".","7",".",".",".","."]
 ,[".",".",".","4","1","9",".",".","5"]
 ,[".",".",".",".","8",".",".","7","9"]]
 
-print(Solution1122().isValidSudoku(sodoku))
+print(Solution().isValidSudoku(sodoku))
