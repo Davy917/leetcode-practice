@@ -1,4 +1,3 @@
-from ..InsertSort.insertSort import insertSort as sort
 class bucketSort:
     @classmethod
     def bucketSort_basic(cls, arr):
@@ -6,14 +5,14 @@ class bucketSort:
         if arr is None or len(arr) == 0:
             return
         
-        max_val = arr[0]
-        min_val = arr[0]
+        max_num = arr[0]
+        min_num = arr[0]
         for i in range(1, len(arr)):
-            if arr[i] > max_val:
-                max_val = arr[i]
-            elif arr[i] < min_val:
-                min_val = arr[i]
-        true_range = max_val - min_val
+            if arr[i] > max_num:
+                max_num = arr[i]
+            elif arr[i] < min_num:
+                min_num = arr[i]
+        true_range = max_num - min_num
         if true_range == 0:  # 所有元素相同，無需排序
             return
 
@@ -23,7 +22,7 @@ class bucketSort:
         bucket_length = [0] * bucket_amount
 
         for val in arr:
-            index = int((val - min_val) / gap) #找val屬於哪一個桶
+            index = int((val - min_num) / gap) #找val屬於哪一個桶
             buckets[index][bucket_length[index]] = val #把val裝進桶中
             bucket_length[index] += 1
 
@@ -35,9 +34,19 @@ class bucketSort:
             if(bucket_length[i] == 0):
                 continue
             arr_in_bucket = buckets[i][:bucket_length[i]]
-            sort.insertSort(arr_in_bucket)
+            bucketSort.insertSort(arr_in_bucket)
             arr[index: index + bucket_length[i]] = arr_in_bucket
             index += bucket_length[i]
+
+    @staticmethod
+    def insertSort(arr):
+        for index in range(1, len(arr)):
+            visitor = index - 1
+            cur_val = arr[index]
+            while visitor >= 0 and arr[visitor] > cur_val:
+                arr[visitor + 1] = arr[visitor]
+                visitor -= 1
+            arr[visitor + 1] = cur_val
 
 if __name__ == "__main__":
     arr = [55, 80, 22, 60, 18, 90, 40, 5, 70, 30]
@@ -47,8 +56,4 @@ if __name__ == "__main__":
 """
 代碼出處:
 https://leetcode.cn/leetbook/read/sort-algorithms/phtz1j/
-
-執行方式:
-cd d:\Personal\Documents\GitHub\leetcode-solutions
-python -m algo.BucketSort.bucketSort_basic
 """
