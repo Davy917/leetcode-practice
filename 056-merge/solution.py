@@ -1,6 +1,6 @@
 from typing import List
 
-class Solution:
+class Solution1122:
     def P0056_merge(self, intervals: List[List[int]]) -> List[List[int]]:
 
         intervals.sort()
@@ -12,7 +12,7 @@ class Solution:
             else:#如果merged中, 最後一位比當前i[0]大, 則代表有重複, 需做比較
                 merged[-1][1] = max(merged[-1][1], i[1])
         return merged								
-sol = Solution()
+sol = Solution1122()
 list1 = [[1, 3], [2, 6], [8, 10], [15, 18]]
 result = sol.P0056_merge(list1)
 print(result)

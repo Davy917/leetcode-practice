@@ -1,5 +1,5 @@
 #這邊對於回文的定義是,正著唸跟反著唸都一樣就叫做回文,所以單一字符也是回文
-class Solution:
+class Solution1122:
     def P0005_longestPalindrome(self, s: str) -> str:    
         if not s:#如果是空字串的話,則回傳空值
             return ""
@@ -51,7 +51,7 @@ class Solution:
         return s[start:max_len + start]
 
 
-sol = Solution()
+sol = Solution1122()
 print(sol.P0005_longestPalindrome("QWEWQ"))
 
 """

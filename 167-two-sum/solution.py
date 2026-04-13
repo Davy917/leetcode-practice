@@ -1,5 +1,5 @@
 from typing import List
-class Solution:
+class Solution1122:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
         Sum = []
         left = 0
@@ -15,4 +15,4 @@ class Solution:
             else:
                 left += 1
         return None
-print(Solution().twoSum([2,3,4], 8))
+print(Solution1122().twoSum([2,3,4], 8))

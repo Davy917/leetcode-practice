@@ -1,5 +1,5 @@
 from typing import Dict
-class Solution:
+class Solution1122:
     def lengthOfLongestSubstring(self, s: str) -> int:
 
         max_str_len = 0
@@ -33,6 +33,6 @@ class Solution:
                 max_str_len = cur_str_len
 
         return max_str_len
-sol = Solution()
+sol = Solution1122()
 #print(sol.lengthOfLongestSubstring("abcaebcbb"))
 print(sol.lengthOfLongestSubstring("pwwkew"))

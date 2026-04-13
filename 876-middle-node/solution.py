@@ -16,7 +16,7 @@ class LinkedList:
             cur = cur.next
         cur.next = newNode
 
-class Solution:
+class Solution1122:
     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if head is None:
             return None
@@ -38,7 +38,7 @@ class Solution:
 
 if __name__ == "__main__":
     nums = [1,2]
-    sol = Solution()
+    sol = Solution1122()
     mainList = LinkedList()
     for i in nums:
         newNode = ListNode(i, None)

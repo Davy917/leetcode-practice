@@ -1,6 +1,6 @@
 from typing import List
 
-class Solution:
+class Solution1122:
     def longestCommonPrefix(self, strs: List[str]) -> str:
 
 
@@ -17,5 +17,5 @@ class Solution:
         #如果字串中的元素都一樣
         return strs[0]
     
-result = Solution().longestCommonPrefix(["flo", "flo", "flo"])
+result = Solution1122().longestCommonPrefix(["flo", "flo", "flo"])
 print(result)

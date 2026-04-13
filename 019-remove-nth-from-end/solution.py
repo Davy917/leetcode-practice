@@ -33,7 +33,7 @@ class LinkedList:
             nums.append(cur.val)
         print(nums)
 
-class Solution:
+class Solution1122:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         if head is None:
             return None
@@ -77,5 +77,5 @@ if __name__ == "__main__":
     for i in nums:
         newNode = ListNode(i, None, None)
         mainList.AddAtTail(newNode)
-    mainList.head = Solution().removeNthFromEnd(mainList.head, n)
+    mainList.head = Solution1122().removeNthFromEnd(mainList.head, n)
     mainList.printList(mainList.head)

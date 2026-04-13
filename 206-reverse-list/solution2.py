@@ -33,7 +33,7 @@ class LinkedList:
         print(nums)
         return
     
-class Solution:
+class Solution1122:
     def reverse(self, current: Optional[ListNode], pre: Optional[ListNode]) -> Optional[ListNode]:
         LinkedList().printList(pre)
         if (current is None):
@@ -50,7 +50,7 @@ class Solution:
 if __name__ == "__main__":
     nums = [1, 2, 3]
     list = LinkedList()
-    sol = Solution()
+    sol = Solution1122()
     for i in nums:
         list.addAtTail(i)
     sol.reverseList_v2(list.head)

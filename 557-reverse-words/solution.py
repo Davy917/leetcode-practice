@@ -1,4 +1,4 @@
-class Solution:
+class Solution1122:
     def reverseWords(self, s: str) -> str:
         reverse_string = ""
         word = ""
@@ -19,7 +19,7 @@ class Solution:
 
         return reverse_string
 
-print(Solution().reverseWords("Let's  take LeetCode contest"))
+print(Solution1122().reverseWords("Let's  take LeetCode contest"))
 
 """
 输入：s = "Let's take LeetCode contest"
@@ -47,7 +47,7 @@ print(Solution().reverseWords("Let's  take LeetCode contest"))
 
 另一路徑（保留連續空格）：直接用 split(' ') 與 join，無需特別處理最後字元。
 
-class Solution:
+class Solution1122:
     def reverseWords(self, s: str) -> str:
         return " ".join(w[::-1] for w in s.split(" "))
 """

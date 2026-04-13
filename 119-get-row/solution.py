@@ -1,5 +1,5 @@
 from typing import List
-class Solution:
+class Solution1122:
     def getRow(self, rowIndex: int) -> List[int]:
 
         mainList = [1]
@@ -16,4 +16,4 @@ class Solution:
 
         return mainList[rowIndex]
                 
-print(Solution().getRow(3))
+print(Solution1122().getRow(3))

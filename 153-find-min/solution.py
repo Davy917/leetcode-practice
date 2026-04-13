@@ -1,6 +1,6 @@
 #二分查找
 from typing import List
-class Solution:
+class Solution1122:
     def findMin(self, nums: List[int]) -> int:
         left = 0
         right = len(nums) - 1
@@ -23,7 +23,7 @@ class Solution:
 
         return min
 
-print(Solution().findMin([3,1,2]))
+print(Solution1122().findMin([3,1,2]))
 
 """
 mid = 2

@@ -1,5 +1,5 @@
 from typing import Dict
-class Solution:
+class Solution1122:
     def romanToInt(self, s: str) -> int:
 
         dict : Dict[str, int] = {
@@ -23,4 +23,4 @@ class Solution:
     
 if __name__ == "__main__":
     s = "MCMXCIV"
-    print(Solution().romanToInt(s))
+    print(Solution1122().romanToInt(s))

@@ -1,5 +1,5 @@
 from typing import List
-class Solution:
+class Solution1122:
     def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
         m = len(mat)#行
         n = len(mat[0])#列
@@ -38,7 +38,7 @@ class Solution:
                     
         return diagonal_mat
     
-sol = Solution()
+sol = Solution1122()
 mat = [
     [1, 2, 3, 4],
     [5, 6, 7, 8],

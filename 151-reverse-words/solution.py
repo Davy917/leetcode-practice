@@ -1,4 +1,4 @@
-class Solution:
+class Solution1122:
     def P0151_reverseWords(self, s: str) -> str:
         list1 = s.split(' ')
         print(type(list1))
@@ -11,7 +11,7 @@ class Solution:
         result = ' '.join(list1)
         return result
 
-sol = Solution()
+sol = Solution1122()
 print(sol.P0151_reverseWords("  hello world  "))
 
 """

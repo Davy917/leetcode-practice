@@ -1,5 +1,5 @@
 from typing import List
-class Solution:
+class Solution1122:
     def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
         nums1_set = set()        
         intersect = []
@@ -15,7 +15,7 @@ class Solution:
 
 nums1 = [4,9,5]
 nums2 = [9,4,9,8,4]
-print(Solution().intersection(nums1, nums2))
+print(Solution1122().intersection(nums1, nums2))
 
 """
 输入：nums1 = [4,9,5], nums2 = [9,4,9,8,4]

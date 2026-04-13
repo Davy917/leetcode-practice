@@ -1,5 +1,5 @@
 #雙指針 + while迴圈
-class Solution:
+class Solution1122:
     def strStr(self, haystack: str, needle: str) -> int:
 
         #宣告雙指針
@@ -34,5 +34,5 @@ class Solution:
         #沒找到匹配的下標
         return -1
 
-result = Solution().strStr("leetcode", "leeto")
+result = Solution1122().strStr("leetcode", "leeto")
 print(result)

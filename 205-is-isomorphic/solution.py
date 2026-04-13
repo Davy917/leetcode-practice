@@ -1,4 +1,4 @@
-class Solution:
+class Solution1122:
     def P0205_isIsomorphic(self, s: str, t: str) -> bool:
         map1 = {}
         map2 = {}
@@ -12,4 +12,4 @@ class Solution:
             map2[t[i]] = s[i]
         return True
 
-print(Solution().P0205_isIsomorphic("ego", "add"))
+print(Solution1122().P0205_isIsomorphic("ego", "add"))

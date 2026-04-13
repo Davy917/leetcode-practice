@@ -34,7 +34,7 @@ class LinkedList:
             nums.append(cur.val)
         print(nums)
 
-class Solution:
+class Solution1122:
     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
         fast = head
         slow = head
@@ -63,4 +63,4 @@ if __name__ == "__main__":
     #手動製造環形鏈表
     mainList.tail.next = mainList.head.next
     #LinkedList.printList(mainList.head)
-    Solution().detectCycle(mainList.head)
+    Solution1122().detectCycle(mainList.head)
