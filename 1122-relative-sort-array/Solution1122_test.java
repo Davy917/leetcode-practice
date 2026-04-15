@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap; // 使用 TreeMap 來自動排序不在 arr2 中的元素
 
-public class Solution1122 {
+public class Solution1122_test {
     public static int[] P1122_relativeSortArray(int[] arr1, int[] arr2) {
         if (arr1 == null || arr2 == null)
             return null;
