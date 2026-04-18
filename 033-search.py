@@ -27,9 +27,6 @@ if __name__ == "__main__":
     sol = solution()
     sol.search(nums, target)
 """
-sorted_nums = 0, 1, 2, 4, 5, 6, 7
-
-nums = 4, 5, 6, 7, 0, 1, 2
 在 Python 中，sort() 方法和 sorted() 函數都用於排序，但它們在使用方式、作用對象和返回結果上存在顯著的區別。
 list.sort() 方法
     1. 作用對象： 只能用於 列表 (list)。
@@ -42,4 +39,20 @@ sorted() 函數
     2. 操作方式： 非原地排序。它總是創建並返回一個新的已排序的列表，而不會修改原始的可迭代對象。
     3. 返回值： 返回一個 新的列表，其中包含所有已排序的元素。
     4. 用法： 作為一個內建函數調用。
+
+FAQ:
+為何 (middle + min_val_index) % len(nums) 可以映射出 middle 在原始nums中的真實位置
+
+sorted_nums = 0, 1, 2, 4, 5, 6, 7
+nums = 4, 5, 6, 7, 0, 1, 2
+既然 sorted_nums 是「從最小值開始」的序列，而最小值在 nums 的位置是 min_val_index，那麼：
+sorted_nums[0] 對應 nums[min_val_index]
+sorted_nums[1] 對應 nums[min_val_index + 1]
+...
+sorted_nums[middle] 對應 nums[min_val_index + middle]（但可能超出尾端）
+所以「對應回 nums」的 index 應該是：
+middle + min_val_index
+
+因為 min_val_index + middle 可能會 >= len(nums)，但旋轉陣列是「環狀」接回去的，所以要取模數做 wrap-around：
+ans = (middle + min_val_index) % len(nums)
 """
