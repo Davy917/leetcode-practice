@@ -6,7 +6,7 @@ class solution(object):
             middle = left + (right - left) // 2
             print(f"left = {left}, right = {right}, middle = {middle}")
             #判斷middle的左半邊是否排序好
-            if nums[left] < nums[middle]:#注意等號, 沒加的話[3, 1] 1 會出錯
+            if nums[left] <= nums[middle]:#注意等號, 沒加的話[3, 1] 1 會出錯
                 if nums[left] <= target < nums[middle]:
                     right = middle - 1
                 else:
