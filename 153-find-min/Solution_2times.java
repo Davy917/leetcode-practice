@@ -13,7 +13,7 @@ class Solution_2times {
             }
             //左邊沒排好, 往左邊找
             else{
-                right = middle - 1; //注意, 不能 - 1, test case[3, 1, 2]會有問題
+                right = middle; //注意, 不能 - 1, test case[3, 1, 2]會有問題
                 min = nums[left]; //不夠嚴謹
             }
         }
