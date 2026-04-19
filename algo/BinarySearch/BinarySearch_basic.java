@@ -1,5 +1,7 @@
 package BinarySearch;
-
+/*
+baisc 版本用的是「左右都閉」區間：[left, right]
+ */
 class BinarySearch_basic {
     public static int search(int[] nums, int target) {
         if (nums == null || nums.length == 0)

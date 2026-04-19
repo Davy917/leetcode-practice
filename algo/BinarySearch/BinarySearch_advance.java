@@ -1,22 +1,24 @@
 package BinarySearch;
-
+/*
+advance 版本用的是「左閉右開」區間：[left, right)
+ */
 public class BinarySearch_advance {
     public static int search(int[] nums, int target){
         if(nums == null || nums.length == 0)
             return -1;
 
         int left = 0, right = nums.length;
-        while (left < right){ //注意沒有等號
+        while (left < right){ //注意，沒有等號
             int middle = left + (right - left) / 2;
             System.out.printf("left = %d, right = %d, middle = %d%n", left, right, middle);
             if (nums[middle] < target)
                 left = middle + 1;
             else if (nums[middle] > target)
-                right = middle; //注意不用 + 1
+                right = middle; //注意，不用 - 1
             else
                 return middle;
         }
-        if(left != nums.length && nums[left] == target)//why?? 什麼情況下會用到這裡
+        if(left != nums.length && nums[left] == target)//什麼情況下會用到這裡??
             return left;
         return -1;
     }
