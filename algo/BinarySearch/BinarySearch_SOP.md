@@ -16,7 +16,7 @@
 | 項目 | Basic (`[left, right]`) | Advance (`[left, right)`) |
 |---|---|---|
 | 參考檔案 | `BinarySearch_basic.java` | `BinarySearch_advance.java` |
-| 初始值 | `left = 0, right = n - 1` | `left = 0, right = n` |
+| 初始值 | `left = 0, right = nums.length - 1` | `left = 0, right = nums.length` |
 | while 條件 | `left <= right` | `left < right` |
 | `nums[middle] < target` | `left = middle + 1` | `left = middle + 1` |
 | `nums[middle] > target` | `right = middle - 1` | `right = middle` |
