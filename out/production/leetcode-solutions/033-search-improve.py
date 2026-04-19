@@ -1,3 +1,7 @@
+"""
+代碼參考模板:
+algo/BinarySearch/BinarySearch_basic.java
+"""
 class solution(object):
     def search(self, nums : list, target : int):
         left = 0

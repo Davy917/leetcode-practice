@@ -10,7 +10,7 @@ class VersionControl {
       }
 }
 class Solution278 extends VersionControl {
-    public int firstBadVersion(int n) {
+    public int P0278_firstBadVersion(int n) {
         /*
         概念上寫成這樣才對:
         int left = 1, right = n + 1, ans = 0;
@@ -40,7 +40,7 @@ class Solution278 extends VersionControl {
     static void main(String[] args) {
         int curVersion = 2147483647;
         Solution278 sol = new Solution278();
-        int ans = sol.firstBadVersion(curVersion);
+        int ans = sol.P0278_firstBadVersion(curVersion);
         System.out.println("ans = " + ans);
     }
 }

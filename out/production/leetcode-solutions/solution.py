@@ -1,44 +1,73 @@
-def guess(num : int) -> int:
-    pick = 7
-    if num > pick:
-        return -1
-    elif num < pick:
-        return 1
-    else:
-        return 0
-        
+#二分查找
+from typing import List
 class Solution:
-    def guessNumber(self, n: int) -> int:
-        return self.guessNumberRec(1, n)
+    def findMin(self, nums: List[int]) -> int:
+        left = 0
+        right = len(nums) - 1
+        min = float('inf')
 
-    def guessNumberRec(self, left, right) -> int:
+        while left <= right:
 
-        middle = left + (right - left) // 2
-        result = guess(middle)
-        if result > 0:
-            left = middle + 1
-            print(f"left {left}, right {right}, middle {middle}")
-            return self.guessNumberRec(left, right) #注意要加上return
-        elif result < 0:
-            right = middle - 1
-            print(f"left {left}, right {right}, middle {middle}")
-            return self.guessNumberRec(left, right) #注意要加上return
-        else:
-            return middle
+            mid = left + (right - left) // 2
+            print("mid = ", mid)
+            if nums[mid] < min:
+                min = nums[mid]
+                print("min value= ", min)
 
-        
-if __name__ == "__main__":
-    upper_limit = 10
-    sol = Solution()
-    ans = sol.guessNumber(upper_limit)
-    print(ans)
+            if nums[mid] > nums[-1]:
+                left = mid + 1
+                print("left = ", left)
+            else:
+                right = mid - 1
+                print("right = ", right)
+
+        return min
+
+print(Solution().findMin([3,1,2]))
 
 """
-參考
-中文版, 分而治之, 遞歸BinarySearch
-https://www.youtube.com/watch?v=TWpumg75Kmo
+mid = 2
+min value = 3
+right = 2
 
-guess方法沒有寫在任何類別裡面, 在python中是可以被允許的嗎??
-現在寫在 solution.py:1 的 guess，是「模組層級函式」，
-也就是直接定義在檔案裡、不屬於任何 class。這種寫法在 Python 很常見，而且很正常。
+mid = 1
+min value = 2
+right = 1
+
+mid = 0
+min value = 1
+right = 0
+------------------
+mid = 2
+min value = 3
+right = 1
+
+mid = 0
+min value = 1
+right = -1
+
+
+输入：nums = [4,5,6,8,9,10,11,0,1,2]
+输出：0
+解释：原数组为 [8,7,0,1,2,4,5,6] ，旋转 4 次得到输入数组。
+
+输入：nums = [3,4,5,1,2]
+输出：1
+解释：原数组为 [1,2,3,4,5] ，旋转 3 次得到输入数组。
+
+最小的數會有一個特殊現象, 它的左邊會比它大
+        left = 0
+        right = len(nums) - 1
+        mid = (right + left) // 2
+        print("mid = ", nums[mid])
+        if(nums[0] < nums[-1]):
+            return nums[0]
+
+        while nums[mid-1] < nums[mid]:
+            left = mid
+            mid = (left + right) // 2
+            print("mid = ", nums[mid])
+
+
+        return nums[mid]
 """
