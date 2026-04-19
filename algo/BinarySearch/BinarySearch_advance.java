@@ -8,6 +8,12 @@ public class BinarySearch_advance {
             return -1;
 
         int left = 0, right = nums.length;
+        /*
+        代表搜尋範圍是 0..6，但你把右界寫成 7，意思是：
+        「搜尋到 right 前一格為止」，right=7 只是邊界標記，不是一個有效元素格子
+         */
+
+
         while (left < right){ //注意，沒有等號
             int middle = left + (right - left) / 2;
             System.out.printf("left = %d, right = %d, middle = %d%n", left, right, middle);
