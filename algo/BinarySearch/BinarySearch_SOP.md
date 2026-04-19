@@ -1,13 +1,13 @@
-# Binary Search SOP（5 分鐘速讀速查版）
+# Binary Search SOP (5 分鐘速讀速查版)
 
 ## 1) 先看這段：5 分鐘核心觀念
 
-- **Basic 版**：用 `algo/BinarySearch/BinarySearch_basic.java`，區間是 **`[left, right]`**（左右都包含）
-- **Advance 版**：用 `algo/BinarySearch/BinarySearch_advance.java`，區間是 **`[left, right)`**（左含右不含）
+- **Basic 版**： 用 `algo/BinarySearch/BinarySearch_basic.java`，區間是 **`[left, right]`**（左右都包含）
+- **Advance 版**： 用 `algo/BinarySearch/BinarySearch_advance.java`，區間是 **`[left, right)`**（左含右不含）
 - 兩版都在做同一件事：每輪用 `middle` 把搜尋區間縮小一半
 - 只要記住一句：
-  - `[]`：右界是「最後一個有效索引」
-  - `[)`：右界是「邊界（不含），有效到 right-1」
+  - `[]`： 右界是「最後一個有效索引」
+  - `[)`： 右界是「邊界（不含），有效到 right-1」
 
 ---
 
