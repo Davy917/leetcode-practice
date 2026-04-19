@@ -1,5 +1,6 @@
 /*
-使用 BinarySearch_basic 實現
+代碼參考模板:
+algo/BinarySearch/BinarySearch_basic.java
  */
 class Solution69 {
     public static int mySqrt(int x) {
@@ -21,8 +22,3 @@ class Solution69 {
         System.out.println(mySqrt(x));
     }
 }
-
-/*
-代碼參考
-algo/BinarySearch/BinarySearch_basic.java
- */

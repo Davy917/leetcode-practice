@@ -1,3 +1,7 @@
+/*
+代碼參考模板:
+algo/BinarySearch/BinarySearch_ultra.java
+ */
 class Solution704 {
     public static int search(int[] nums, int target) {
         int left = -1;

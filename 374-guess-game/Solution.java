@@ -1,3 +1,7 @@
+/*
+代碼參考模板:
+algo/BinarySearch/BinarySearch_basic.java
+ */
 class GuessGame{
     public static final int pick = 7;
     int guess(int n){
@@ -39,8 +43,4 @@ https://www.youtube.com/watch?v=xW4QsTtaCa4
 
 中文版, 分而治之, 遞歸BinarySearch
 https://www.youtube.com/watch?v=TWpumg75Kmo
- */
-
-/*
-1 2 3 4 5 6 7 8 9 10
  */
