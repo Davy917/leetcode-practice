@@ -1,4 +1,4 @@
-# Binary Search SOP（5 分鐘速讀版）
+# Binary Search SOP（5 分鐘速讀速查版）
 
 ## 1) 先看這段：5 分鐘核心觀念
 
@@ -72,7 +72,7 @@ index:  0   1   2   3   4   5   6   7
 
 ### Q3. 迴圈後 `if (left != nums.length && nums[left] == target)` 什麼情況會用到？
 
-- 在目前 `BinarySearch_advance.java` 的 `search()` 寫法中（迴圈內遇到相等就直接 `return middle`），這段幾乎不會觸發。
+- 在目前 `BinarySearch_advance.java` 的 `search()` 寫法中（迴圈內遇到相等就直接 `return middle`），這段在正常流程下**不會觸發**。
 - 這種「迴圈後再檢查」常見於**邊界型二分**：`lower_bound / upper_bound / 插入位置`。
 - 那類寫法通常不在相等時立即回傳，而是先把邊界收斂完，再用 `left` 做最後確認。
 
@@ -99,7 +99,7 @@ index:  0   1   2   3   4   5   6   7
 ### 這個 case 的關鍵差異
 
 - Basic：`right` 可能變成 `-1`
-- Advance：`right` 會收斂到 `left`（空區間），通常不會變成 `-1`
+- Advance：`right` 會收斂到 `left`（空區間），**不會變成 `-1`**
 
 ---
 
