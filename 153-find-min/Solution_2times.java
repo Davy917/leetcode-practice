@@ -13,7 +13,7 @@ class Solution_2times {
             }
             //左邊沒排好, 往左邊找
             else{
-                right = middle;
+                right = middle - 1; //注意, 不能 - 1, test case[3, 1, 2]會有問題
                 min = nums[left]; //不夠嚴謹
             }
         }
@@ -23,7 +23,8 @@ class Solution_2times {
         int[] nums = {7, 8, 9, 0, 1, 2, 4, 5, 6};
         int[] nums2 = {1, 2, 3, 4, 5, 6};
         int[] nums3 = {4, 5, 6, 7, 0, 1, 2};
-        int ans = P0153_findMin(nums2);
+        int[] nums4 = {3, 1, 2};
+        int ans = P0153_findMin(nums4);
         System.out.println("ans = " + ans);
     }
 }
