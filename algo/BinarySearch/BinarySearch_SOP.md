@@ -2,8 +2,8 @@
 
 ## 1) 先看這段：5 分鐘核心觀念
 
-- **Basic 版**：用 `BinarySearch_basic.java`，區間是 **`[left, right]`**（左右都包含）
-- **Advance 版**：用 `BinarySearch_advance.java`，區間是 **`[left, right)`**（左含右不含）
+- **Basic 版**：用 `algo/BinarySearch/BinarySearch_basic.java`，區間是 **`[left, right]`**（左右都包含）
+- **Advance 版**：用 `algo/BinarySearch/BinarySearch_advance.java`，區間是 **`[left, right)`**（左含右不含）
 - 兩版都在做同一件事：每輪用 `middle` 把搜尋區間縮小一半
 - 只要記住一句：
   - `[]`：右界是「最後一個有效索引」
@@ -72,7 +72,7 @@ index:  0   1   2   3   4   5   6   7
 
 ### Q3. 迴圈後 `if (left != nums.length && nums[left] == target)` 什麼情況會用到？
 
-- 在目前 `search()` 寫法中（迴圈內遇到相等就直接 `return middle`），這段幾乎不會觸發。
+- 在目前 `BinarySearch_advance.java` 的 `search()` 寫法中（迴圈內遇到相等就直接 `return middle`），這段幾乎不會觸發。
 - 這種「迴圈後再檢查」常見於**邊界型二分**：`lower_bound / upper_bound / 插入位置`。
 - 那類寫法通常不在相等時立即回傳，而是先把邊界收斂完，再用 `left` 做最後確認。
 
