@@ -23,18 +23,19 @@ class Solution34 {
                 right = middle;
 
             else
-                right = middle; //為什麼不是middle + 1
+                right = middle; //為什麼不是middle + 1?? 見下方FAQ
         }
 
+        //right交出來的候選人不符合資格, 就當作這個陣列裡面沒有target
         if (right >= nums.length || nums[right] != target)
             return new int[]{-1, -1};
 
         ans[0] = right;
         left = ans[0];
         right = nums.length - 1;
-
+        System.out.printf("Start from index %d, find tail%n", ans[0]);
         while (left < right){
-            int middle = left + (right - left + 1) / 2; //注意上取整避免死迴圈
+            int middle = left + (right - left) / 2; //注意向上取整避免死迴圈
             System.out.printf("left = %d, right = %d, middle = %d%n", left, right, middle);
             if (nums[middle] > target){
                 right = middle - 1;
@@ -77,4 +78,14 @@ FAQ:
 如果middle值與target相等, 因為要找起始位置, 所以往左找, 移動right這沒問題
 但right = middle 不就把middle本身也排除了嗎??
 middle本身也可能是答案, 為什麼不是寫成right = middle + 1
+
+答案:
+
+034-search-range/P034_searchRange_FAQ.md
+
+or
+
+034-search-range/BinarySearch_Copilot聊天紀錄.md
+search
+你觀察到的「矛盾」其實是因為你把兩件不同的事混在一起了：
  */

@@ -6,11 +6,9 @@ public class BinarySearch_ultra {
         int right = nums.length;
         while (left + 1 != right){
             int middle = (left + right) / 2;
-            System.out.println("middle = " + middle);
-            if (target > nums[middle]){
+            System.out.printf("left = %d, right = %d, middle = %d%n", left, right, middle);
+            if (target > nums[middle])
                 left = middle; // 為什麼不能寫成 left = middle + 1
-                System.out.println("left = " + left);
-            }
             else if (target < nums[middle])
                 right = middle;
             else
