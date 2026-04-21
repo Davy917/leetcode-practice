@@ -6,7 +6,7 @@ public class RadixSort_MSD {
     static void RadixSort(int[] arr){
         int max = Integer.MIN_VALUE;
         for (int val : arr)
-            if (Math.abs(val) > max)
+            if (Math.abs(val) > Math.abs(max))
                 max = Math.abs(val);
         int max_digit_length = 0;
         while (max != 0){

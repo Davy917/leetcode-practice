@@ -43,8 +43,8 @@ def radixSort(arr):
         return
     max_val = 0
     for val in arr:
-        if val > max_val:       # ⚠️ 只考慮正數最大值
-            max_val = val
+        if abs(val) > abs(max_val):
+            max_val = abs(val)
 
     max_digit_length = 0
     while max_val != 0:
@@ -55,7 +55,6 @@ def radixSort(arr):
 ```
 
 **重點：**
-- `max_val` 只取正數最大值（負數被跳過），所以如果陣列全是負數，`max_digit_length` 會是 0，不會進入排序。這是目前實作的已知限制。
 - `max_digit_length` 就是遞迴深度上限（從最高位往個位走）。
 
 ---

@@ -9,8 +9,8 @@ class radixSort:
         max_val = 0
         
         for val in arr:
-            if val > max_val:
-                max_val = val
+            if abs(val) > abs(max_val):
+                max_val = abs(val)
 
         max_digit_length = 0
         while max_val != 0:
