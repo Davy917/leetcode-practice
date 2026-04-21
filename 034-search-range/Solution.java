@@ -35,7 +35,7 @@ class Solution34 {
         right = nums.length - 1;
         System.out.printf("Start from index %d, find tail%n", ans[0]);
         while (left < right){
-            int middle = left + (right - left) / 2; //注意向上取整避免死迴圈
+            int middle = left + (right - left + 1) / 2; //注意向上取整避免死迴圈
             System.out.printf("left = %d, right = %d, middle = %d%n", left, right, middle);
             if (nums[middle] > target){
                 right = middle - 1;
