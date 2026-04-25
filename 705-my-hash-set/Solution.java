@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.LinkedList;
 
 class P0705_MyHashSet {
 
@@ -51,7 +52,7 @@ class P0705_MyHashSet {
         }
     }
 
-    static void main(String[] args) {
+    public static void main(String[] args) {
         String[] ops = {"MyHashSet","add","add","contains","contains","add","contains","remove","contains"};
         System.out.println(ops.length);
         int[][] vals = { {}, {1}, {2}, {1}, {3}, {2}, {2}, {2}, {2} };

@@ -1,6 +1,6 @@
 class Solution169 {
     public int majorityElement(int[] nums) {
-        QuickSort_basic.quickSort(nums);
+        QuickSort.quickSort(nums);
         int count = 1, cur = 1, prev = 0, len = nums.length;
 
         while (count <= len / 2){

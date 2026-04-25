@@ -1,4 +1,6 @@
 import java.util.*;
+import java.util.LinkedList;
+
 public class PracticeMyHashSet {
     List<Integer>[] bucketSet;
     private static final int CAPACITY = 10000;
