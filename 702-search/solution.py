@@ -1,3 +1,7 @@
+"""
+參考代碼模板
+algo/BinarySearch/BinarySearch_basic
+"""
 class ArrayReader:
     def get(self, index: int) -> int:
         secret = [-1,0,3,5,9,12]
