@@ -1,3 +1,7 @@
+"""
+參考代碼模板
+algo/BinarySearch/BinarySearch_basic
+"""
 class Solution(object):
     def isPerfectSquare(self, num):
         left = 1
