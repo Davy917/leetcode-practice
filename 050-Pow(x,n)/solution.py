@@ -1,6 +1,6 @@
 class Solution(object):
     #修正前
-    def myPow(self, x, n) -> float:
+    def myPow_original(self, x, n) -> float:
         result = 1
         half = abs(n) // 2
         if n < 0:
