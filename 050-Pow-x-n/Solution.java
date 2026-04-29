@@ -43,14 +43,14 @@ class Solution50 {
             double res = half * half;
             if ((n & 1) == 1) res *= x; // n 是奇數
 
-            System.out.printf("half = %s", half);
+            System.out.printf("half = %s, ", half);
             System.out.println("res = " + res);
             return res;
     }
     static void main(String[] args) {
         Solution50 sol = new Solution50();
         double x = 2.00000, ans = 0;
-        int n = 4;
+        int n = 10;
         //ans = sol.myPow_original(x, n);
         ans = sol.myPow(x, n);
         System.out.println("ans = " + ans);

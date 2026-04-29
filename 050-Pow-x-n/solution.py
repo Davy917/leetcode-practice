@@ -18,16 +18,18 @@ class Solution(object):
         if n < 0:
             x = 1 / x
             n = abs(n)
+        print(f"init\nn = {n}, x = {x}, result = {result}")
         while n > 0:
             if n & 1:
                 result *= x
             x *= x
             n //= 2
+            print(f"n = {n}, x = {x}, result = {result}")
         return result
         
 if __name__ == "__main__":
     x = 2.0
-    n = -200000000
+    n = 10
     print("result = ", Solution().myPow(x, n))
 
 """
