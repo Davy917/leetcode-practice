@@ -66,6 +66,10 @@ def convert_chat_json_to_md(src_path, dst_path):
 if __name__ == "__main__":
     # 依你的檔案名稱調整
     convert_chat_json_to_md(
-        "069-my-sqrt/solution.json",
-        "069-my-sqrt/solution-export.md"
+        "Local-IDE-Env-Setup-FAQ/VSCodeUserSetup-FAQ-no.2.json",
+        "Local-IDE-Env-Setup-FAQ/VSCodeUserSetup-FAQ-no.2.md"
     )
+"""
+執行方式：
+python3.12 convert_chat_json_to_md.py
+"""
