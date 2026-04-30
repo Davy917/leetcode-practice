@@ -1,4 +1,4 @@
-class Solution_2times {
+class Solution2 {
     public static int P0153_findMin(int[] nums) {
         int left = 0, right = nums.length - 1, min = nums[0];
         while (left < right){ //注意, 不加等號, 等號代表只剩一個數字時還要進迴圈, 這題不需要
