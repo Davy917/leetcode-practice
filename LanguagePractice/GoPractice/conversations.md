@@ -589,7 +589,7 @@ func mySqrt(x int) int { ... }
 func findMin(nums []int) int { ... }
 func myPow(x float64, n int) float64 { ... }
 
-// ❌ 不符 Go 規範
+// ❌ 不符 GoPractice 規範
 func MySqrt(x int) int { ... }
 func FindMin(nums []int) int { ... }
 ```

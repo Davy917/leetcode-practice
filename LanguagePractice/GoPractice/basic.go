@@ -23,9 +23,9 @@ func basic() {
 	/*
 		//if-else練習
 		if true {
-			fmt.Println("Go")
+			fmt.Println("GoPractice")
 		} else {
-			fmt.Println("Not Go")
+			fmt.Println("Not GoPractice")
 		}
 		var money int
 		fmt.Println("How much money do u want?")

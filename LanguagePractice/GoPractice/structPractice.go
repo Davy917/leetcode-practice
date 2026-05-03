@@ -15,7 +15,7 @@ type Contact struct {
 	Remark string
 }
 
-func Struct() {
+func structPractice() {
 	var u1 User = User{
 		Name: "張三",
 	}

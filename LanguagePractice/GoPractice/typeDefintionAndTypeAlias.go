@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func TypeDefintionAndTypeAlias() {
+func typeDefintionAndTypeAlias() {
 
 	fmt.Println("自訂義數據")
 	type mesType uint16 //創建一個新的型別
@@ -17,7 +17,7 @@ func TypeDefintionAndTypeAlias() {
 }
 
 /*
-%T 是 Go 格式化字符串中的一個動詞，用於輸出值的型別。
+%T 是 GoPractice 格式化字符串中的一個動詞，用於輸出值的型別。
 
 %v 輸出 textMes 的值
 %T 輸出 textMes 的型別名稱

@@ -22,6 +22,6 @@ func intersection2(nums1 []int, nums2 []int) (result []int) {
 }
 
 /*
-Python-like sets in Go with golang-set
+Python-like sets in GoPractice with golang-set
 https://www.youtube.com/watch?v=QNHOyOuLhFo
 */

@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 // map練習
-func Map() {
+func mapPractice() {
 	var m1 map[string]string
 	fmt.Print("m1 == nil ", m1 == nil)
 	m1 = make(map[string]string, 1)

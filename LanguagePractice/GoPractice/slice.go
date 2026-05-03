@@ -60,20 +60,20 @@ func selectByKey(text ...string) (key int) {
 /*
 FAQ
 什麼是nil??
-Go 的 `nil` 與 Java 的 `null` 及 Python 的 `None` 概念相似，但有差異：
+GoPractice 的 `nil` 與 Java 的 `null` 及 Python 的 `None` 概念相似，但有差異：
 
-			|  Go `nil` | Java `null` | Python `None` |
+			|  GoPractice `nil` | Java `null` | Python `None` |
 | 適用類型 	| slice、map、channel、pointer、function、interface | 所有引用類型 | 任何類型 |
 | 是否有類型 	| 有（帶類型的 nil） | 無類型 | 無類型（單例） |
 | 零值		| slice/map 等的零值就是 `nil` | 引用類型默認 `null` | 需顯式賦值 |
 
 **關鍵差異：**
 
-- Go 中 `nil` 是帶類型的，例如 `(*int)(nil) != ([]int)(nil)` 在 interface 比較時會有差異
-- Go 的 `nil` slice（如你代碼中的 `s3`）仍然可以對其執行 `len()`、`append()` 等操作，不會 panic，這點比 Java `null` 更安全
+- GoPractice 中 `nil` 是帶類型的，例如 `(*int)(nil) != ([]int)(nil)` 在 interface 比較時會有差異
+- GoPractice 的 `nil` slice（如你代碼中的 `s3`）仍然可以對其執行 `len()`、`append()` 等操作，不會 panic，這點比 Java `null` 更安全
 - Java `null` 呼叫任何方法都會拋 `NullPointerException`，Python `None` 也類似
 
-你代碼第 14\~15 行的 `var s3 []int` 就是 slice 的零值，等於 `nil`，這在 Go 中是完全合法的狀態。
+你代碼第 14\~15 行的 `var s3 []int` 就是 slice 的零值，等於 `nil`，這在 GoPractice 中是完全合法的狀態。
 
 什麼是make??
 

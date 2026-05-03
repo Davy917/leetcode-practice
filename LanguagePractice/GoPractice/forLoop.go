@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func For() {
+func forLoop() {
 	fmt.Println("infinity")
 	i := 1
 	for {

@@ -2,13 +2,13 @@ package main
 
 func main() {
 	//basic()
-	//Map()
-	//Array()
-	//For()
-	//TypeDefintionAndTypeAlias()
+	//mapPractice()
+	//array()
+	//forLoop()
+	//typeDefintionAndTypeAlias()
 	//fakePointer()
 	//realPointer()
 	//realPointer2()
-	//Struct()
+	//structPractice()
 	slice()
 }
