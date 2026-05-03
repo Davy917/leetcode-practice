@@ -43,7 +43,8 @@ func intersect(nums1 []int, nums2 []int) []int {
 func main() {
 	var nums1 = []int{1, 2, 2, 1}
 	var nums2 = []int{2, 2}
-	ans := intersect(nums1, nums2)
+	//ans := intersect(nums1, nums2)
+	ans := intersect2(nums1, nums2)
 	fmt.Println("ans = ", ans)
 }
 

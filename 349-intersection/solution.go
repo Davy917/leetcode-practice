@@ -1,3 +1,6 @@
+/*
+暴力解 + 二分查找
+*/
 package main
 
 import (
@@ -44,7 +47,11 @@ func intersection(nums1 []int, nums2 []int) []int {
 	return result
 }
 func main() {
-	var nums1 = []int{1, 2, 2, 1}
-	var nums2 = []int{2, 2}
-	fmt.Print("ans = ", intersection(nums1, nums2))
+	var (
+		nums1 = []int{1, 2, 2, 1}
+		nums2 = []int{2, 2}
+	)
+	//intersection(nums1, nums2)
+	var ans = intersection2(nums1, nums2)
+	fmt.Println("Ans = ", ans)
 }
