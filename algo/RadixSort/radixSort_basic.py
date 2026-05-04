@@ -45,7 +45,7 @@ class radixSort:
                 result[counting[val]] = arr[index]
                 counting[val] += 1
                 index += 1
-            改成如下精簡版
+            改成如下版本
             """
             result = [0] * len(arr)
             for index in range(len(arr)):

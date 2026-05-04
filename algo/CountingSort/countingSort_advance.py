@@ -16,15 +16,16 @@ class countingSort:
         for element in arr:
             idx = element - min
             counting[idx] += 1
-        print(counting)
+        print("Before prefix = ", counting)
 
-        precount = 0
+        presum = 0
         for i in range(0, true_range): #why true_range??
             #注意, 自己想不出來
-            precount += counting[i]
-            counting[i] = precount - counting[i]
-        print(counting)
-        # To Figure
+            presum += counting[i]
+            counting[i] = presum - counting[i]
+        print("After prefix = ", counting)
+
+
         result = [0] * len(arr)
         for element in arr:
             position = counting[element - min] #why min??
@@ -37,7 +38,7 @@ class countingSort:
 if __name__ == "__main__":
     arr = [8, 7, 1, 2, 8, 6, 8, 2]
     countingSort.countingSort_advance(arr)
-    print(arr)
+    print("Ans = ", arr)
 """
 代碼出處:
 https://leetcode.cn/leetbook/read/sort-algorithms/ozyo63/
