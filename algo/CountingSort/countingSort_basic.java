@@ -16,7 +16,9 @@ public class CountingSort_basic {
         int index = 0;
         for (int i = 0; i < arr.length; i++) {
             while (counting[i] > 0){
-                arr[index++] = record.get(i).remove();
+                arr[index] = record.get(i).remove();
+                System.out.println(record); //打印出來, 會清晰很多
+                index++;
                 counting[i]--;
             }
         }
