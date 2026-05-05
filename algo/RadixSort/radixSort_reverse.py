@@ -41,7 +41,7 @@ class radix_arrSort:
 
 if __name__ == "__main__":
     arr = [520, 211, 438, 888, 7, 111, 985, 666, 996, 233, 168]
-    radix_arrSort.radix_arrSort_basic_reverse(arr)
+    radix_arrSort.radix_arrSort_reverse(arr)
     print("ans = ", arr)
 
 """
