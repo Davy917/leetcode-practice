@@ -58,3 +58,11 @@ func absInt(value *int) int {
 	}
 	return *value
 }
+func main() {
+	// var arr = []int{3, 4, -4, 3, -6, 1, 5, -1, -9, 9, 1}
+	// fmt.Println("Ans = ", radixsort_basic(arr))
+	//var arr2 = []int{520, -211, 438, -888, 7, 111, 985, 666, -996, 233, 168}
+	var arr3 = []int{211, 221}
+	// fmt.Println("Ans = ", radixsort_advance(arr2))
+	fmt.Println("Ans = ", radixsort_reverse(arr3))
+}

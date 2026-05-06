@@ -44,9 +44,3 @@ func radixsort_advance(arr []int) (result []int) {
 	arr = result //只是讓 arr 指到 result 的底層 array。 並不是深拷貝
 	return
 }
-func main() {
-	var arr = []int{3, 4, -4, 3, -6, 1, 5, -1, -9, 9, 1}
-	fmt.Println("Ans = ", radixsort_basic(arr))
-	// var arr2 = []int{520, -211, 438, -888, 7, 111, 985, 666, -996, 233, 168}
-	// fmt.Println("Ans = ", radixsort_advance(arr2))
-}
