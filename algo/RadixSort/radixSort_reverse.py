@@ -1,9 +1,9 @@
 """
 底層用CountingSort_Reverse實現
 """
-class radix_arrSort:
+class radixSort:
     @classmethod
-    def radix_arrSort_basic_reverse(cls, arr):
+    def radixSort_reverse(cls, arr):
         if arr is None:
             return
         max_val = 0
@@ -17,32 +17,41 @@ class radix_arrSort:
             max_digit_length += 1
 
         dev = 1
-        radix_arr = [0] * len(arr)
-        for i in range(max_digit_length):
-            print("arr= ", arr)
-            counting = [0] * 10
-            for index in range(len(arr)):
-                radix_arr[index] = arr[index] // dev % 10
-                counting[radix_arr[index]] += 1
-            print("radix_arr = ", radix_arr)
+        for digit in range(max_digit_length):
+            counting = [0] * 19
+
+            for value in arr:
+                print("value", value // dev  % 10)
+                print("abs(value) ", abs(value) // dev % 10)
+                radix = abs(value) // dev % 10 * (-1 if value < 0 else 1) + 9
+                counting[radix] += 1
 
             counting[0] -= 1
             for index in range(1, len(counting)):
                 counting[index] += counting[index- 1]
-            print("counting = ", counting)
+            print("counting after prefix = ", counting)
 
             result = [0] * len(arr)
+
             for index in range(len(arr) - 1, -1, -1):
-                result[counting[radix_arr[index]]] = arr[index]
-                counting[radix_arr[index]] -= 1
+                radix = radix = abs(value) // dev % 10 * (-1 if value < 0 else 1) + 9
+                result[counting[radix]] = arr[index]
+                counting[radix] -= 1
+
+            # 由前往後遍歷會遇到什麼問題? 就用註解中的for迴圈跑{211, 221}, 就能夠看到問題
+            # for _, value in enumerate(arr):
+            #     radix = abs(value) // dev % 10 * (-1 if value < 0 else 1) + 9
+            #     result[counting[radix]] = value
+            #     counting[radix] -= 1
                 
             dev *= 10
             arr[0: len(arr)] = result[0: len(result)]
 
 if __name__ == "__main__":
     arr = [520, 211, 438, 888, 7, 111, 985, 666, 996, 233, 168]
-    radix_arrSort.radix_arrSort_reverse(arr)
-    print("ans = ", arr)
+    arr2 = [211, 221]
+    radixSort.radixSort_reverse(arr2)
+    print("ans = ", arr2)
 
 """
 代碼改編自:

@@ -19,7 +19,7 @@ class radixSort:
             max_digit_length += 1
 
         dev = 1
-        for i in range(max_digit_length):
+        for digit in range(max_digit_length):
             print("arr = ", arr)
             counting = [0] * 19 #注意
             for val in arr:
