@@ -69,7 +69,8 @@ func main() {
 	// fmt.Println("Result = ", countingsort_stage1(arr))
 	// fmt.Println("Result = ", countingsort_stage2(arr))
 	// fmt.Println("Result = ", countingsort_basic(arr))
-	fmt.Println("Result = ", countingsort_advance(arr))
+	// fmt.Println("Result = ", countingsort_advance(arr))
+	fmt.Println("Result = ", countingsort_reverse(arr))
 }
 
 /*
