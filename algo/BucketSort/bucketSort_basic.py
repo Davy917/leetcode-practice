@@ -45,10 +45,14 @@ if __name__ == "__main__":
     print(arr)
 
 """
+執行方式:
+cd C:/Users/USER/IdeaProjects/leetcode-practice
+python3.12 -m algo.BucketSort.bucketSort_basic
+
+sop:
+algo/BucketSort/BucketSort_SOP.md
 代碼出處:
 https://leetcode.cn/leetbook/read/sort-algorithms/phtz1j/
-
-執行方式:
-cd d:\Personal\Documents\GitHub\leetcode-solutions
-python -m algo.BucketSort.bucketSort_basic
+講解影片:
+https://www.youtube.com/watch?v=8uMEZ7aKICI
 """

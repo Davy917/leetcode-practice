@@ -10,5 +10,6 @@ func main() {
 	//realPointer()
 	//realPointer2()
 	//structPractice()
-	slice()
+	newPractice()
+	//slice()
 }

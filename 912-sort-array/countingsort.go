@@ -7,8 +7,8 @@ package main
 import "fmt"
 
 func countingsort(nums []int) []int {
-	minNum := minInt(nums)
-	maxNum := maxInt(nums)
+	minNum := arrMinInt(nums)
+	maxNum := arrMaxInt(nums)
 	trueRange := maxNum - minNum + 1
 
 	counting := make([]int, trueRange)
@@ -30,22 +30,17 @@ func countingsort(nums []int) []int {
 	}
 	return result
 }
-
-func minInt(arr []int) (minInt int) {
-	minInt = arr[0]
+func arrMaxInt(arr []int) (maxNum int) {
+	maxNum = arr[0]
 	for _, value := range arr {
-		if value < minInt {
-			minInt = value
-		}
+		maxNum = max(maxNum, value)
 	}
 	return
 }
-func maxInt(arr []int) (maxInt int) {
-	maxInt = arr[0]
+func arrMinInt(arr []int) (minNum int) {
+	minNum = arr[0]
 	for _, value := range arr {
-		if value > maxInt {
-			maxInt = value
-		}
+		minNum = min(minNum, value)
 	}
 	return
 }

@@ -1,12 +1,12 @@
 """
 空間複雜度優化版
 """
-from ..InsertSort.insertSort import insertSort
+from ..InsertSort.insertSort import insertSort as sort
 
 class bucketSort:
     def __init__(self):
         self.bucket_amount = 10
-
+        
     def bucketSort_advance(self, arr):
 
         if arr is None or len(arr) == 0:
@@ -37,9 +37,9 @@ class bucketSort:
 
         last_sorted = 0
         for i in range(0, self.bucket_amount):
-            if buckets[index] is None:
+            if not buckets[i]:
                 continue
-            insertSort.insertSort(buckets[i])
+            sort.insertSort(buckets[i])
             print(f"bucket{i} = ", buckets[i])
             arr[last_sorted: last_sorted + len(buckets[i])] = buckets[i]#注意, 不是buckets[:len(buckets[i])]
             last_sorted += len(buckets[i])
@@ -47,8 +47,8 @@ class bucketSort:
         
 if __name__ == "__main__":
     arr = [55, 80, 22, 60, 18, 90, 40, 5, 70, 30]
-    sort = bucketSort()
-    sort.bucketSort_advance(arr)
+    bucket_sort = bucketSort()
+    bucket_sort.bucketSort_advance(arr)
     print(arr)
 
 """
@@ -56,8 +56,8 @@ if __name__ == "__main__":
 https://leetcode.cn/leetbook/read/sort-algorithms/phtz1j/
 
 執行方式:
-cd d:\Personal\Documents\GitHub\leetcode-solutions
-python -m algo.BucketSort.bucketSort_advance
+cd C:/Users/USER/IdeaProjects/leetcode-practice
+python3.12 -m algo.BucketSort.bucketSort_advance
 
 #注意事項
 different between:
