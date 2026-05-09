@@ -50,11 +50,26 @@ func bucketsort_basic(arr []int) (result []int) {
 	return
 }
 func main() {
-	arr := []int{55, 12, 80, 22, 14, 60, 18, 90, 16, 40, 5, 70, 30, 17}
-	fmt.Println("Ans = ", bucketsort_basic(arr))
+	arr := []int{55, 12, 80, 22, 14, 60, 18, 90, 16, 40, 5, 70, 30, 17, 0, 99}
+	//fmt.Println("Ans = ", bucketsort_basic(arr))
+	fmt.Println("Ans = ", buckesort_advance(arr))
 }
 
 /*
 什麼是const?
 https://www.youtube.com/watch?v=WEoPj8HWqh8
+
+sop:
+algo/BucketSort/BucketSort_SOP.md
+
+0 ~ 9
+10 ~ 19
+20 ~ 29
+30 ~ 39
+40 ~ 49
+50 ~ 59
+60 ~ 69
+70 ~ 79
+80 ~ 89
+90 ~ 99
 */
