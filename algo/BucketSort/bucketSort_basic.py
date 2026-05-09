@@ -18,7 +18,7 @@ class bucketSort:
             return
 
         bucket_amount = 10
-        gap = true_range / (bucket_amount - 1) #為什麼-1, 見sop
+        gap = true_range / (bucket_amount - 1) #不一定要這樣寫, 可以參考 FAQ-what is gap.md
         buckets = [[0] * len(arr) for _ in range(bucket_amount)] #注意, 不是buckets = [[0] * len(arr)] * bucket_amount
         bucket_length = [0] * bucket_amount
 
@@ -30,19 +30,21 @@ class bucketSort:
             print(f"bucket_length = {bucket_length}")
 
         #排序每個桶中的數
-        index = 0
-        for i in range(0, bucket_amount):
-            if(bucket_length[i] == 0):
+        result_index = 0
+        result = [len(arr)]
+        for index in range(0, bucket_amount):
+            if(bucket_length[index] == 0):
                 continue
-            arr_in_bucket = buckets[i][:bucket_length[i]]
+            arr_in_bucket = buckets[index][:bucket_length[index]]
             sort.insertSort(arr_in_bucket)
-            arr[index: index + bucket_length[i]] = arr_in_bucket
-            index += bucket_length[i]
+            result[result_index : result_index + bucket_length[index]] = arr_in_bucket
+            result_index += bucket_length[index]
+        return result
 
 if __name__ == "__main__":
     arr = [55, 80, 22, 60, 18, 90, 40, 5, 70, 30]
-    bucketSort.bucketSort_basic(arr)
-    print(arr)
+    result = bucketSort.bucketSort_basic(arr)
+    print(result)
 
 """
 執行方式:
@@ -51,6 +53,8 @@ python3.12 -m algo.BucketSort.bucketSort_basic
 
 sop:
 algo/BucketSort/BucketSort_SOP.md
+algo/BucketSort/FAQ-what is gap.md
+
 代碼出處:
 https://leetcode.cn/leetbook/read/sort-algorithms/phtz1j/
 講解影片:

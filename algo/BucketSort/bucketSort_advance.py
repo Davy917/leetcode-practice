@@ -36,14 +36,13 @@ class bucketSort:
         print("buckets = ", buckets)
 
         last_sorted = 0
-        for i in range(0, self.bucket_amount):
-            if not buckets[i]:
+        for index in range(0, self.bucket_amount):
+            if not buckets[index]:
                 continue
-            sort.insertSort(buckets[i])
-            print(f"bucket{i} = ", buckets[i])
-            arr[last_sorted: last_sorted + len(buckets[i])] = buckets[i]#注意, 不是buckets[:len(buckets[i])]
-            last_sorted += len(buckets[i])
-
+            sort.insertSort(buckets[index])
+            print(f"bucket{index} = ", buckets[index])
+            arr[last_sorted: last_sorted + len(buckets[index])] = buckets[index]#注意, 不是buckets[:len(buckets[i])]
+            last_sorted += len(buckets[index])
         
 if __name__ == "__main__":
     arr = [55, 80, 22, 60, 18, 90, 40, 5, 70, 30]
