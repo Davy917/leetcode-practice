@@ -28,20 +28,23 @@ func bucketsort_basic(arr []int) (result []int) {
 		index := (value - minNum) / gap
 		buckets[index][bucketLength[index]] = value
 		bucketLength[index]++
-		fmt.Printf("bucket[%v] = %v\n", index, buckets[index])
-		fmt.Println("bucketLength = ", bucketLength)
 	}
+	//debug Printing
+	for index := 0; index < bucketAmount; index++ {
+		fmt.Printf("bucket[%v] = %v\n", index, buckets[index])
+	}
+	fmt.Println("bucketLength = ", bucketLength)
 
-	index := 0
+	resultindex := 0
 	result = make([]int, len(arr))
-	for i := 0; i < bucketAmount; i++ {
-		if bucketLength[i] == 0 {
+	for index := 0; index < bucketAmount; index++ {
+		if bucketLength[index] == 0 {
 			continue
 		}
-		arrInBuckets := buckets[i][:bucketLength[i]]
+		arrInBuckets := buckets[index][:bucketLength[index]]
 		gft.Insertsort(arrInBuckets)
-		copy(result[index:index+bucketLength[i]], arrInBuckets)
-		index += bucketLength[i]
+		copy(result[resultindex:resultindex+bucketLength[index]], arrInBuckets)
+		resultindex += bucketLength[index]
 		fmt.Println("result = ", result)
 	}
 	return
