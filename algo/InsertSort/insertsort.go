@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func insertsort(arr []int) {
+func insertsort(arr []int) (result []int) {
 	for index := 1; index < len(arr); index++ {
 		visitor := index - 1
 		tempVal := arr[index]
@@ -13,6 +13,8 @@ func insertsort(arr []int) {
 		arr[visitor+1] = tempVal
 		fmt.Println(arr)
 	}
+	result = arr
+	return
 }
 func main() {
 	arr := []int{5, 2, 8, 6, 1, 7, 4, 3}

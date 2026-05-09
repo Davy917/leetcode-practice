@@ -26,8 +26,8 @@ class bucketSort:
             index = int((val - min_val) / gap) #找val屬於哪一個桶
             buckets[index][bucket_length[index]] = val #把val裝進桶中
             bucket_length[index] += 1
-
             print(f"bucket{index} = ",buckets[index])
+            print(f"bucket_length = {bucket_length}")
 
         #排序每個桶中的數
         index = 0

@@ -14,3 +14,17 @@ func ArrMinInt(arr []int) (minNum int) {
 	}
 	return
 }
+
+func Insertsort(arr []int) (result []int) {
+	for index := 1; index < len(arr); index++ {
+		visitor := index - 1
+		tempVal := arr[index]
+		for visitor > -1 && arr[visitor] > tempVal {
+			arr[visitor+1] = arr[visitor]
+			visitor--
+		}
+		arr[visitor+1] = tempVal
+	}
+	result = arr
+	return
+}
