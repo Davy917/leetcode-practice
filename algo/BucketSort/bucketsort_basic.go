@@ -22,7 +22,7 @@ func bucketsort_basic(arr []int) (result []int) {
 	for index := range buckets {
 		buckets[index] = make([]int, len(arr))
 	}
-	gap := trueRange / (bucketAmount - 1)
+	gap := (trueRange + 1) / bucketAmount
 
 	for _, value := range arr {
 		index := (value - minNum) / gap
@@ -35,7 +35,7 @@ func bucketsort_basic(arr []int) (result []int) {
 	}
 	fmt.Println("bucketLength = ", bucketLength)
 
-	resultindex := 0
+	resultIndex := 0
 	result = make([]int, len(arr))
 	for index := 0; index < bucketAmount; index++ {
 		if bucketLength[index] == 0 {
@@ -43,16 +43,16 @@ func bucketsort_basic(arr []int) (result []int) {
 		}
 		arrInBuckets := buckets[index][:bucketLength[index]]
 		gft.Insertsort(arrInBuckets)
-		copy(result[resultindex:resultindex+bucketLength[index]], arrInBuckets)
-		resultindex += bucketLength[index]
+		copy(result[resultIndex:resultIndex+bucketLength[index]], arrInBuckets)
+		resultIndex += bucketLength[index]
 		fmt.Println("result = ", result)
 	}
 	return
 }
 func main() {
 	arr := []int{55, 12, 80, 22, 14, 60, 18, 90, 16, 40, 5, 70, 30, 17, 0, 99}
-	//fmt.Println("Ans = ", bucketsort_basic(arr))
-	fmt.Println("Ans = ", buckesort_advance(arr))
+	fmt.Println("Ans = ", bucketsort_basic(arr))
+	//fmt.Println("Ans = ", buckesort_advance(arr))
 }
 
 /*
@@ -62,6 +62,7 @@ https://www.youtube.com/watch?v=WEoPj8HWqh8
 sop:
 algo/BucketSort/BucketSort_SOP.md
 
+gap(bucketwidth)
 0 ~ 9
 10 ~ 19
 20 ~ 29
