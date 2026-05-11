@@ -1,4 +1,4 @@
-from ..InsertSort.insertSort import insertSort as sort
+from ..InsertSort.InsertSort import insertSort as sort
 class bucketSort:
     @classmethod
     def bucketSort_basic(cls, arr):
@@ -59,4 +59,12 @@ algo/BucketSort/FAQ-what is gap.md
 https://leetcode.cn/leetbook/read/sort-algorithms/phtz1j/
 講解影片:
 https://www.youtube.com/watch?v=8uMEZ7aKICI
+
+gap = true_range / (bucket_amount - 1)
+目的是讓 min 對應 0 桶、max 對應最後一桶（bucketAmount-1）。
+
+這種分桶公式下（index = (val - min) / gap）它很合理，但注意 3 件事：
+這是 浮點 gap
+bucketAmount 必須 > 1
+仍建議對 index 做 clamp（浮點誤差可能讓最大值算成 bucketAmount）
 """

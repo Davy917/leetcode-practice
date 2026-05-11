@@ -1,6 +1,6 @@
-class insertSort:
-    @staticmethod
-    def insertSort(arr):
+class InsertSort:
+    @classmethod
+    def sort(cls, arr: list[int]) -> list[int]:
         for index in range(1, len(arr)):
             visitor = index - 1
             cur_val = arr[index]
@@ -8,8 +8,8 @@ class insertSort:
                 arr[visitor + 1] = arr[visitor]
                 visitor -= 1
             arr[visitor + 1] = cur_val
+        return arr
 
 if __name__ == "__main__":
-    arr = [5, 8, 6, 3, 9, 1]
-    insertSort.insertSort(arr)
-    print(arr)
+    nums = [5, 8, 6, 3, 9, 1]
+    print(InsertSort.sort(nums))

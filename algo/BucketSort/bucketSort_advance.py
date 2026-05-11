@@ -1,7 +1,7 @@
 """
 空間複雜度優化版
 """
-from ..InsertSort.insertSort import insertSort as sort
+from ..InsertSort.InsertSort import insertSort as sort
 
 class bucketSort:
     def __init__(self):
