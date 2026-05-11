@@ -1,13 +1,12 @@
 """
 空間複雜度優化版
 """
-from ..InsertSort.InsertSort import insertSort as sort
+from InsertSort.insertsort import InsertSort
 
-class bucketSort:
+class BucketSort:
     def __init__(self):
         self.bucket_amount = 10
-        
-    def bucketSort_advance(self, arr):
+    def bucket_sort_advance(self, arr):
 
         if arr is None or len(arr) == 0:
             return
@@ -39,16 +38,16 @@ class bucketSort:
         for index in range(0, self.bucket_amount):
             if not buckets[index]:
                 continue
-            sort.insertSort(buckets[index])
+            InsertSort.sort(buckets[index])
             print(f"bucket{index} = ", buckets[index])
             arr[last_sorted: last_sorted + len(buckets[index])] = buckets[index]#注意, 不是buckets[:len(buckets[i])]
             last_sorted += len(buckets[index])
         
 if __name__ == "__main__":
-    arr = [55, 80, 22, 60, 18, 90, 40, 5, 70, 30]
-    bucket_sort = bucketSort()
-    bucket_sort.bucketSort_advance(arr)
-    print(arr)
+    nums = [55, 80, 22, 60, 18, 90, 40, 5, 70, 30]
+    bucket_sort = BucketSort()
+    bucket_sort.bucket_sort_advance(nums)
+    print(nums)
 
 """
 代碼出處:

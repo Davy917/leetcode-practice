@@ -1,5 +1,5 @@
-from datastructure.LinkedList.DoublyLinkedList import DoublyLinkedList
-from InsertSort.InsertSort import InsertSort
+from datastructure.LinkedList.doubly_linked_list import DoublyLinkedList
+from InsertSort.insertsort import InsertSort
 class BucketSort:
     def __init__(self):
         self.bucketAmount = 10

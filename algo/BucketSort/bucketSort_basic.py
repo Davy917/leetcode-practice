@@ -1,7 +1,7 @@
-from ..InsertSort.InsertSort import insertSort as sort
-class bucketSort:
+from InsertSort.insertsort import InsertSort
+class BucketSort:
     @classmethod
-    def bucketSort_basic(cls, arr):
+    def bucket_sort_basic(cls, arr):
 
         if arr is None or len(arr) == 0:
             return
@@ -36,15 +36,14 @@ class bucketSort:
             if(bucket_length[index] == 0):
                 continue
             arr_in_bucket = buckets[index][:bucket_length[index]]
-            sort.insertSort(arr_in_bucket)
+            InsertSort.sort(arr_in_bucket)
             result[result_index : result_index + bucket_length[index]] = arr_in_bucket
             result_index += bucket_length[index]
         return result
 
 if __name__ == "__main__":
-    arr = [55, 80, 22, 60, 18, 90, 40, 5, 70, 30]
-    result = bucketSort.bucketSort_basic(arr)
-    print(result)
+    nums = [55, 80, 22, 60, 18, 90, 40, 5, 70, 30]
+    print(BucketSort.bucket_sort_basic(nums))
 
 """
 執行方式:
