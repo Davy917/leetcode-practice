@@ -34,7 +34,7 @@ class radixSort:
             result = [0] * len(arr)
 
             for index in range(len(arr) - 1, -1, -1):
-                radix = radix = abs(value) // dev % 10 * (-1 if value < 0 else 1) + 9
+                radix = abs(arr[index]) // dev % 10 * (-1 if arr[index] < 0 else 1) + 9
                 result[counting[radix]] = arr[index]
                 counting[radix] -= 1
 
