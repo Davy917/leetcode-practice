@@ -1,3 +1,5 @@
+package JavaPractice;
+
 import java.util.*;
 
 public class Generic {
