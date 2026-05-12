@@ -41,6 +41,6 @@ LanguagePractice/PythonPractice/list_comprehension.py
 164-maximum-gap/list_comprehension.md
 
 gap 以及 bucket_amount的算法:
-
+164-maximum-gap/understanding_gap_in_bucket_sorting.md
 """
 
