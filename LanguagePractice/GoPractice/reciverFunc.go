@@ -46,13 +46,13 @@ https://www.youtube.com/watch?v=HE6tbWlymmk
 */
 
 //update tip[]
-func (b *bill) updateTip(tip float64){
-	b.tip = tip
+func (c *bill) updateTip(tip float64){
+	c.tip = tip
 }
 
 //add an item to the bill
-func(b *bill) addItem(name string, price float64){
-	b.items[name] = price
+func(c *bill) addItem(name string, price float64){
+	c.items[name] = price
 }
 
 /*

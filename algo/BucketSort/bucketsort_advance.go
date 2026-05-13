@@ -35,8 +35,6 @@ func buckesort_advance(arr []int) []int {
 
 /*
 {55, 12, 80, 22, 14, 60, 18, 90, 16, 40, 5, 70, 30, 17, 0, 99}
-trueRange = 85
-gap
 
 sop:
 algo/BucketSort/BucketSort_SOP.md

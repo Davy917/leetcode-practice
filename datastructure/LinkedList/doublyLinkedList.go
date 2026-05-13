@@ -1,8 +1,5 @@
-package main
+package linkedlist
 
-import (
-	"fmt"
-)
 type DoublyLinkedNode struct{
 	val int
 	next *DoublyLinkedNode
@@ -21,15 +18,33 @@ func NewDoublyLinkedList() *DoublyLinkedList {
 //func (接收者) 方法名(參數) 回傳型別
 func (dll *DoublyLinkedList) Append(val int) {
 	node := &DoublyLinkedNode{val: val}
-	if dll.head == nil:
-		
+	if dll.head == nil{
+		dll.head = node
+		dll.tail = node
+	}else{
+		node.prev = dll.tail
+		dll.tail.next = node
+		dll.tail = node
+	}
+	dll.size++	
 }
 
-func main() {
-	list := &DoublyLinkedList{}
-	dll := NewDoublyLinkedList()
-	fmt.Println(list, dll)
+func (dll *DoublyLinkedList) Len() int {
+	return dll.size
+}
+
+func (dll *DoublyLinkedList) ToSlice() (result []int){
+	curNode := dll.head
+	for curNode != nil{
+		result = append(result, curNode.val)
+		curNode = curNode.next
+	}
+	return
 }
 /*
-go run ./datastructure/LinkedList
+到 main.go 執行
+datastructure/LinkedList/demo/main.go
+
+接收器函式
+LanguagePractice/GoPractice/reciverFunc.go
 */

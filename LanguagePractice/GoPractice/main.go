@@ -8,7 +8,7 @@ func main() {
 	//array()
 	//forLoop()
 	//typeDefintionAndTypeAlias()
-	//fakePointer()
+	// fakePointer()
 	//realPointer()
 	//realPointer2()
 	//structPractice_v2()

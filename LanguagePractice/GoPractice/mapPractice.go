@@ -16,8 +16,8 @@ func mapPractice() {
 		"凌晨": "打電動",
 	}
 	fmt.Println("m2 = ", m2)
-	v, ok := m2["中午"]
-	if ok {
+	v, exist := m2["中午"]
+	if exist {
 		fmt.Println("v = ", v)
 	} else {
 		fmt.Println("key不存在")
@@ -30,3 +30,7 @@ func mapPractice() {
 		fmt.Printf("m1[%v] = %v\n", key, value)
 	}
 }
+
+/*
+19~24行, 檢查key是否存在map中
+*/

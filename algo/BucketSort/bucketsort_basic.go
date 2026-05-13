@@ -52,7 +52,8 @@ func bucketsort_basic(arr []int) (result []int) {
 func main() {
 	arr := []int{55, 12, 80, 22, 14, 60, 18, 90, 16, 40, 5, 70, 30, 17, 0, 99}
 	//fmt.Println("Ans = ", bucketsort_basic(arr))
-	fmt.Println("Ans = ", buckesort_advance(arr))
+	//fmt.Println("Ans = ", buckesort_advance(arr))
+	fmt.Println("Ans = ", buckesort_linkedlist(arr))
 }
 
 /*
@@ -74,4 +75,7 @@ bucket[6] 60 ~ 69
 bucket[7] 70 ~ 79
 bucket[8] 80 ~ 89
 bucket[9] 90 ~ 99
+
+執行方式
+go run ./algo/BucketSort
 */
