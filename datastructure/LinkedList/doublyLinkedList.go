@@ -43,11 +43,12 @@ func (dll *DoublyLinkedList) AppendLeft(val int){
 }
 
 func (dll *DoublyLinkedList) RemoveTail() {
-	if dll.head == nil{
+	if dll.tail == nil{
 		return
 	}
 	dll.tail = dll.tail.prev
 	dll.tail.next = nil
+	dll.size--
 }
 
 func (dll *DoublyLinkedList) RemoveHead(){
@@ -56,6 +57,7 @@ func (dll *DoublyLinkedList) RemoveHead(){
 	}
 	dll.head = dll.head.next
 	dll.head.prev = nil
+	dll.size--
 }
 
 
