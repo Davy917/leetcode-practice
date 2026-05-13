@@ -22,6 +22,31 @@ class DoublyLinkedList:
             self._tail = node
         self._size += 1
 
+    def append_left(self, val: int):
+        node = DoublyLinkedNode(val)
+        if self._head is None:
+            self._head = node
+            self._tail = node
+        else:
+            node.next = self._head
+            self._head.prev = node
+            self._head = self._head.prev
+        self._size += 1
+        
+    def remove_tail(self):
+        if self._tail is None:
+            return
+        self._tail = self._tail.prev
+        self._tail.next = None
+        self._size -= 1
+        
+    def remove_head(self):
+        if self._head is None:
+            return
+        self._head = self._head.next
+        self._head.prev = None
+        self._size -= 1
+        
     def __iter__(self):
         curr = self._head
         while curr:
@@ -37,6 +62,19 @@ class DoublyLinkedList:
             values.append(str(val))
         to_print = "<->".join(values)
         return "[" + to_print + "]"
+        
+if __name__ == "__main__":
+    dll = DoublyLinkedList()
+    dll.append(1)
+    dll.append(2)
+    dll.append(3)
+    dll.append_left(5)
+    print(dll)
+    dll.remove_tail()
+    print(dll)
+    dll.remove_head()
+    print(dll)
+    
 """
 FAQ:
 _head, _tail前面都有加_ 這個符號, 是什麼意思??
