@@ -29,6 +29,37 @@ func (dll *DoublyLinkedList) Append(val int) {
 	dll.size++	
 }
 
+func (dll *DoublyLinkedList) AppendLeft(val int){
+	node := &DoublyLinkedNode{val: val}
+	if dll.head == nil{
+		dll.head = node
+		dll.tail = node
+	}else{
+		node.next = dll.head
+		dll.head.prev = node
+		dll.head = node
+	}
+	dll.size++
+}
+
+func (dll *DoublyLinkedList) RemoveTail() {
+	if dll.head == nil{
+		return
+	}
+	dll.tail = dll.tail.prev
+	dll.tail.next = nil
+}
+
+func (dll *DoublyLinkedList) RemoveHead(){
+	if dll.head == nil{
+		return
+	}
+	dll.head = dll.head.next
+	dll.head.prev = nil
+}
+
+
+
 func (dll *DoublyLinkedList) Len() int {
 	return dll.size
 }
