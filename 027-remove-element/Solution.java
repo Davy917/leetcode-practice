@@ -1,9 +1,13 @@
+/*
+AI生成的解答, 不是很直接能想到的解法
+ */
 import java.util.*;
 
 class Solution27 {
     public int P0027_removeElement(int[] nums, int val) {
         int ans = 0;
         for (int i = 0; i < nums.length; i++){
+            System.out.printf("nums[ans] = %d, nums[i] = %d\n", nums[ans], nums[i]);
             if (nums[i] != val){
                 nums[ans] = nums[i];
                 ans++;
@@ -14,7 +18,7 @@ class Solution27 {
     }
     static void main() {
         Solution27 sol = new Solution27();
-        int[] nums = {3,2,2,3};
+        int[] nums = {3, 2, 2, 3, 3, 3, 7};
         int val = 3;
         System.out.println(sol.P0027_removeElement(nums, val));
     }
