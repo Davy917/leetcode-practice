@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
-	gft "gopractice/gofunctool"
 	linkedlist "gopractice/datastructure/LinkedList"
+	gft "gopractice/gofunctool"
 )
-func buckesort_linkedlist(arr []int) (result [] int) {  
+
+func buckesort_linkedlist(arr []int) (result []int) {
 	maxNum := gft.ArrMaxInt(arr)
 	minNum := gft.ArrMinInt(arr)
 
@@ -15,14 +16,14 @@ func buckesort_linkedlist(arr []int) (result [] int) {
 
 	for _, val := range arr {
 		index := val / gap
-		if _, exist := buckets[index]; !exist{
+		if _, exist := buckets[index]; !exist {
 			buckets[index] = linkedlist.NewDoublyLinkedList()
 		}
 		buckets[index].Append(val)
 	}
 	for key := 0; key < bucketAmount; key++ {
 		bucket, exist := buckets[key]
-		if !exist{
+		if !exist {
 			continue
 		}
 		arrInBucket := bucket.ToSlice()

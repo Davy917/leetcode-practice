@@ -1,7 +1,14 @@
+"""
+官方解答
+"""
 class Solution_v2:
     def maximumGap(self, nums: list[int]) -> int:
+        if len(nums) < 2:
+            return 0
         max_val = max(nums)
         min_val = min(nums)
+        if max_val - min_val == 0:
+            return 0
 
         gap = max(1, (max_val - min_val) // (len(nums) - 1)) #官方解法命名為d
         bucket_amount = (max_val - min_val) // gap + 1 #官方解法命名為bucket_size
@@ -31,7 +38,8 @@ class Solution_v2:
         return ans
 if __name__ == "__main__":
     arr = [55, 12, 80, 22, 14, 60, 18, 90, 16, 40, 5, 70, 30, 17, 0, 99]
-    print("Ans = ", Solution_v2().maximumGap(arr))
+    arr2 = [1, 1, 1, 1, 1, 5, 5, 5, 5, 5]
+    print("Ans = ", Solution_v2().maximumGap(arr2))
 """
 力扣題解:
 https://leetcode.cn/leetbook/read/sort-algorithms/ph60kd/

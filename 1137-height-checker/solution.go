@@ -1,3 +1,4 @@
+// 官方解答
 package main
 
 import "fmt"
@@ -30,5 +31,6 @@ func main() {
 }
 
 /*
-sorted = {1, 1, 1, 2, 3, 4}
+題解:
+https://leetcode.cn/leetbook/read/sort-algorithms/7fxr9j/
 */

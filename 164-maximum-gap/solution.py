@@ -1,4 +1,5 @@
 """
+自己寫的, 官方版本看solution.go 或 solution2.py
 參考代碼:
 algo/RadixSort/radixSort_reverse.py
 """

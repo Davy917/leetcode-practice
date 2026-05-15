@@ -1,3 +1,4 @@
+//官方解答
 import java.util.Arrays;
 
 class Solution1137 {
@@ -37,4 +38,7 @@ while (buckets[bucketsIndex]-- > 0)
 if (heights[heightsIndex++] != bucketsIndex)
 意思是：
     先用目前 heightsIndex 位置的元素來比較，比完後再把 heightsIndex 加 1。
+
+題解:
+https://leetcode.cn/leetbook/read/sort-algorithms/7fxr9j/
  */

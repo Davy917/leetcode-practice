@@ -1,3 +1,6 @@
+"""
+自己寫的, 官方解答見java, go版本
+"""
 from typing import List
 class Solution1137:
     def heightChecker(self, heights: List[int]) -> int:
