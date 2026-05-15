@@ -11,6 +11,7 @@ class Solution:
             #如果當前數字等於前一數字,刪掉當前數字
             if(nums[i] == nums[i-1]):
                 del nums[i]
+                print(nums)
             else:
                 continue
 result = Solution().removeDuplicates([1, 1, 2, 2, 6, 6, 6])
