@@ -66,8 +66,8 @@ def convert_chat_json_to_md(src_path, dst_path):
 if __name__ == "__main__":
     # 依你的檔案名稱調整
     convert_chat_json_to_md(
-        "350-intersect\setdefault vs getOrDefault",
-        "350-intersect\setdefault vs getOrDefault.md"
+        "027-remove-element\chat.json",
+        "027-remove-element\chat.md"
     )
 """
 執行方式：
