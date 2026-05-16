@@ -78,4 +78,7 @@ ptr := &x      // ptr 指向 x
 影片:
 指標介紹從3:40開始看, new介紹從13:00開始看
 https://www.youtube.com/watch?v=e2xxQBHg1aY&list=PLBjZhzRvV2ChPTPNDx_apHdKa9Ha7LVpN&index=7
+
+實作可以查看func Swap
+gofunctool/tool.go
 */
