@@ -1,3 +1,6 @@
+/*
+自己寫的暴力解, 官方解答看solution2.go
+*/
 package main
 
 import (
@@ -17,24 +20,8 @@ func moveZeroes(nums []int) {
 }
 
 func main() {
-	//nums := []int{0, 1, 0, 3, 12}
-	nums2 := []int{0, 0, 1}
-	moveZeroes(nums2)
-	fmt.Println("Ans = ", nums2)
+	nums := []int{0, 1, 0, 3, 12}
+	//moveZeroes(nums)
+	moveZeroes_v2(nums)
+	fmt.Println("Ans = ", nums)
 }
-
-/*
-0, 1, 0, 3, 12
-1, 0, 3, 12, 0
-1, 3, 12, 0, 0
-
-
-0, 1, 0, 3, 12
-1, 0, 0, 3, 12
-1, 0, 0, 3, 12
-1, 0, 3, 0, 12
-1, 0, 3, 12, 0
-
-1, 3, 0, 12, 0
-1, 3, 12, 0, 0
-*/
