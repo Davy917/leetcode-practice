@@ -5,7 +5,8 @@ import "fmt"
 func quicksort(arr []int) {
 	fmt.Println("init arr = ", arr)
 	//quicksort_basic(arr, 0, len(arr)-1)
-	quicksort_twopointers(arr, 0, len(arr)-1)
+	//quicksort_twopointers(arr, 0, len(arr)-1)
+	quicksort_advance(arr, 0, len(arr) - 1)
 }
 func quicksort_basic(arr []int, start int, end int) {
 	if start >= end {
@@ -84,4 +85,7 @@ func main() {
 /*
 代碼出處:
 https://leetcode.cn/leetbook/read/sort-algorithms/eul7hm/
+
+執行指令
+go run ./algo/QuickSort
 */

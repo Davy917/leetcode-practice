@@ -1,6 +1,6 @@
 # QuickSort 三版本比較文檔
 
-> **快速複習導向**：比較本 repo 內三種 QuickSort partition 實作的技術細節差異，隔一段時間回來能在 5 分鐘內重新上手。
+> **快速複習導向**：比較本 repo 內三種 QuickSort partition 實作的技術細節差異，建議先把三種版本都理解過再來看這份SOP, 比較好理解
 >
 > 原始碼參考：
 > - V1 / V2：[`algo/QuickSort_basic.java`](QuickSort_basic.java)
