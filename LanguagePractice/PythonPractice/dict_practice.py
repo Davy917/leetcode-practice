@@ -31,3 +31,17 @@ class dict_practice:
 if __name__ == "__main__":
     dp = dict_practice()
     dp.different_dict()
+
+"""
+工廠函數 (Factory Function) 的概念
+工廠函數是一個沒有參數的函數，它返回一個默認值。常見的工廠函數有：  
+
+    int: 返回 0 (整數的默認值)。
+    list: 返回 [] (空列表)。
+    dict: 返回 {} (空字典)。
+    set: 返回 set() (空集合)。
+
+你需要傳入一個可調用對象 (callable)，它在被調用時會返回一個默認值。
+最常見的可調用對象是內建類型（如 int, list, dict, set）或你自定義的無參函數。  
+defaultdict 的括號裡必須有一個參數，這個參數就是告訴 defaultdict 當遇到新鍵時，應該創建什麼樣的默認值。  
+"""
