@@ -48,7 +48,7 @@ func main(){
 	merge([]int{2, 6, 1}, []int{3, 5, 4})
 	*/
 	//arr := []int{2, 6, 1, 3, 5, 4}
-	arr2 := []int{7, 3, 2, 6, 0, 1, 5, 4}
+	arr2 := []int{7, 3, 6, 2, 0, 1, 5, 4}
 	mergesort(arr2)
 }
 

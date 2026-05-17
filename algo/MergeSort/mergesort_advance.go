@@ -42,37 +42,39 @@ func merge_advance(arr []int, start int, end int, result []int) {
 			index2++
 		}
 	}
-	if index1 <= end1 {
-		copy(result[resultIndex:], arr[index1:])
+	if index1 <= middle {
+		copy(result[resultIndex:end+1], arr[index1:middle+1])//注意這裡是result[resultIndex:end+1]
 	}
-	if index2 <= end2 {
-		copy(result[resultIndex:], arr[index2:])
+	if index2 <= end {
+		copy(result[resultIndex:end+1], arr[index2:end+1])
 	}
-	fmt.Println("result = ", result)
+	fmt.Printf("start = %d, end = %d, result = %v\n", start, end, result)
 	copy(arr[start:end+1], result[start:end+1])
 }
 
 func merge_simplfy(arr []int, start int, end int, result []int) {
 	middle := start + (end-start)/2
-	start2 := middle + 1
 	index1 := start
 	index2 := middle + 1
+	resultIndex := start
 	for index1 <= middle && index2 <= end {
 		if arr[index1] <= arr[index2] {
-			result[index1+index2-start2] = arr[index1]
+			result[resultIndex] = arr[index1]
+			resultIndex++
 			index1++
 		} else {
-			result[index1+index2-start2] = arr[index2]
+			result[resultIndex] = arr[index2]
+			resultIndex++
 			index2++
 		}
 	}
 	if index1 <= middle {
-		copy(result[index1+index2-start2:], arr[index1:])
+		copy(result[resultIndex:end+1], arr[index1:middle+1])//注意這裡是result[resultIndex:end+1]
 	}
 	if index2 <= end {
-		copy(result[index1+index2-start2:], arr[index2:])
+		copy(result[resultIndex:end+1], arr[index2:end+1])
 	}
-	fmt.Println("result = ", result)
+	fmt.Printf("start = %d, end = %d, result = %v\n", start, end, result)
 	copy(arr[start:end+1], result[start:end+1])
 }
 
@@ -81,4 +83,7 @@ func merge_simplfy(arr []int, start int, end int, result []int) {
 https://leetcode.cn/leetbook/read/sort-algorithms/euivj1
 
 執行後觀察result以及arr之間的變化
+
+這一版的merge_simplfy參數命名及使用上比python版本的更好懂, 之後應該以這版為主
+algo/MergeSort/mergeSort_advance.py
 */
