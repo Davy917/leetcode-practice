@@ -85,6 +85,9 @@ if __name__ == "__main__":
     print(arr)
 
 """
+代碼出處
+https://leetcode.cn/leetbook/read/sort-algorithms/euivj1/
+
 為什麼是index1 + index2 - start2 ?
 實際跑一次就知道
 假設初始:

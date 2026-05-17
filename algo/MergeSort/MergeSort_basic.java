@@ -74,3 +74,8 @@ public class MergeSort_basic {
         System.out.println(Arrays.toString(arr));
     }
 }
+
+/*
+代碼出處
+https://leetcode.cn/leetbook/read/sort-algorithms/euivj1/
+*/
