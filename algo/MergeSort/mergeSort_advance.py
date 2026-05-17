@@ -56,7 +56,7 @@ class mergeSort:
 
     def merge_simply(self, arr, start, end, result):
 
-        print("in merge lite")
+        print("in merge simply")
         middle = (start + end) // 2
         start2 = middle + 1
         index1 = start
