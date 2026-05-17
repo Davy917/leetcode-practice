@@ -11,6 +11,7 @@ class Solution:
         (p2, n - 1] == 2
         """
         i, p0, p2 = 0, 0, n - 1
+        print(f"init nums = {nums}\np0 = {p0}, i = {i}, p2 = {p2}")
         while (i <= p2):
             if nums[i] == 0:
                 nums[i], nums[p0] = nums[p0], nums[i]
@@ -21,8 +22,7 @@ class Solution:
             else:
                 nums[i], nums[p2] = nums[p2], nums[i]
                 p2 -= 1
-            print(f"p0 = {p0}, i = {i}, p2 = {p2}\n")
-            print(nums)
+            print(f"nums = {nums}\np0 = {p0}, i = {i}, p2 = {p2}")
 
 if __name__ == "__main__":
     nums = [2, 0, 2, 1, 1, 0]
