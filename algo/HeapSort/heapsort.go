@@ -28,6 +28,7 @@ func buildHeap(tree []int, size int) {
 	for i := lastNodeParent; i >= 0; i-- {
 		heapify(tree, size, i)
 	}
+	fmt.Println("MaxHeap = ", tree)
 }
 
 func HeapSort(tree []int, size int) []int{
@@ -35,6 +36,7 @@ func HeapSort(tree []int, size int) []int{
 	for i := size-1; i >= 0; i-- {
 		tree[i], tree[0] = tree[0], tree[i]
 		heapify(tree, i, 0)
+		fmt.Println(tree)
 	}
 	fmt.Println("result = ", tree)
 	return tree
@@ -42,11 +44,11 @@ func HeapSort(tree []int, size int) []int{
 
 func main(){
 	arr := []int{4, 10, 3, 5, 6, 1}
-	size := 6
+	arr2 := []int{2, 7, 6, 5, 3, 4, 1}
+	size := 7
 	heapify(arr, size, 0)
-	HeapSort(arr, size)
+	HeapSort(arr2, size)
 }
-
 /*
 執行
 go run ./algo/HeapSort

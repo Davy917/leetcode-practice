@@ -1,3 +1,7 @@
+/*
+插入排序法看這版, 堆排序看solution2.go
+插入排序會超時, 真正能通過的是堆排序
+*/
 package main
 
 import (
@@ -5,11 +9,17 @@ import (
 	//"math/rand"
 )
 
-func findKthLargest(nums []int, k int) (result int) {
+func findKthLargest(nums []int, k int) int {
 	fmt.Println("init arr = ", nums)
+
 	n := len(nums)
 	left , right, target := 0, n-1, n-k //第k大元素的下標是len - k
 	return quickselect(nums, left, right, target)
+
+	/*
+	堆排序實現
+	return findKth(nums, k)
+	*/
 }
 
 func quickselect(nums []int, left int, right int, target int) int {
@@ -17,7 +27,7 @@ func quickselect(nums []int, left int, right int, target int) int {
 		//基底：區間只剩一個元素，就是答案
 		return nums[left]
 	}
-	pivotIndex := partition(nums, left, right)
+	pivotIndex := partition_v2(nums, left, right)
 	if pivotIndex == target{
 		return nums[pivotIndex]
 	}else if pivotIndex < target{
@@ -28,7 +38,7 @@ func quickselect(nums []int, left int, right int, target int) int {
 }
 
 func partition(nums []int, start int, end int) int {
-	left, right, pivot := start+1, end, nums[start]
+	left, right, pivot := start, end, nums[start]
 	for left < right{
 		for left < right && nums[right] >= pivot{
 			right--
@@ -39,7 +49,7 @@ func partition(nums []int, start int, end int) int {
 		nums[left], nums[right] = nums[right], nums[left]
 	}
 	nums[start], nums[right] = nums[right], nums[start]
-	fmt.Printf("nums = %d, right = %d\n", nums, right)
+	fmt.Printf("nums = %v, right = %d\n", nums, right)
 	return right
 }
 
@@ -89,7 +99,4 @@ https://leetcode.cn/leetbook/read/sliding-window-and-two-pointers/rli5s3/
 	[left + 1 .. le] <= pivot；
 	(le..i] > pivot；
 	(i..right] 是程序没有看到的部分。
-
-	2, 1, 6, 5, 3, 4, 7
-	1, 2, 6, 5, 3, 4, 7
 */
