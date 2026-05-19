@@ -8,8 +8,8 @@ class quickSort:
         if start >= end:
             return
         middle = quickSort.partition_advance(arr, start, end)
-        quickSort.partition_advance(arr, start, middle - 1)
-        quickSort.partition_advance(arr, middle + 1, end)
+        quickSort.quickSort_advance(arr, start, middle - 1)
+        quickSort.quickSort_advance(arr, middle + 1, end)
 
     @staticmethod
     def partition_advance(arr, start ,end):
@@ -23,25 +23,7 @@ class quickSort:
             arr[left], arr[right] = arr[right], arr[left]
         arr[start], arr[right] = arr[right], arr[start]
         return right
-"""
-錯誤示範
-    @staticmethod
-    def partition_advance(arr, start, end):
-        pivot = arr[start]
-        left = start + 1
-        right = end
-        while left < right:
-            while left < right and arr[right] >= pivot:
-                right -= 1
-            while left < right and arr[left] <= pivot:
-                left += 1
-            if left < right:
-                arr[left], arr[right] = arr[right], arr[left]
-                left -= 1
-                right += 1
-        arr[start], arr[right] = arr[right], arr[start]
-        return right
-        """
+        
 if __name__ == "__main__":
     arr = [4, 2, 7, 1, 6, 3, 5]
     quickSort.quickSort(arr)

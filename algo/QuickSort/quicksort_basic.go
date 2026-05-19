@@ -78,7 +78,7 @@ func partition_twopointers(arr []int, start int, end int) int {
 	return right
 }
 func main() {
-	arr := []int{4, 2, 7, 1, 6, 3, 5}
+	arr := []int{2, 7, 6, 5, 3, 4, 1}
 	quicksort(arr)
 }
 

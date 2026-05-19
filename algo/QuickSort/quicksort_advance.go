@@ -1,5 +1,6 @@
 package main
 import "fmt"
+
 func quicksort_advance(arr []int, start int, end int){
 	if start >= end{
 		return
@@ -8,6 +9,7 @@ func quicksort_advance(arr []int, start int, end int){
 	quicksort_advance(arr, start, middle - 1)
 	quicksort_advance(arr, middle + 1, end)
 }
+
 func partition_advance(arr []int, start int, end int) int {
 	left, right := start, end
 	for left < right{
@@ -23,7 +25,7 @@ func partition_advance(arr []int, start int, end int) int {
 	}
 	arr[start], arr[right] = arr[right], arr[start]
 	fmt.Println(arr)
-	return  right
+	return right
 }
 
 /*

@@ -59,26 +59,7 @@ class quickSort:
             right -= 1
         arr[start], arr[right] = arr[right], arr[start]
         return right
-"""
-邏輯不正確, 但也找不到worse case
-    @classmethod
-    def partition_twopointers(cls, arr, start, end):
-        pivot = arr[start]
-        left = start + 1
-        right = end
-        while left < right:
-            if left < right and arr[left] < pivot:
-                left += 1
-            if left < right and arr[right] > pivot:
-                right -= 1
-            if arr[left] > pivot and arr[right] < pivot:
-                arr[left], arr[right] = arr[right], arr[left]
-                print(arr)
-        if left == right and arr[right] > pivot:
-            right -= 1
-        arr[start], arr[right] = arr[right], arr[start]
-        return right
-"""
+        
 if __name__ == "__main__":
     arr = [4, 2, 7, 1, 6, 3, 5]
     # quickSort.partition_twopointers(arr, 0, len(arr) - 1)
