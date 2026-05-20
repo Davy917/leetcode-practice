@@ -12,8 +12,7 @@ class Solution643 {
             if (index > k-1)
                 windowSum += nums[index];
             maxVal = Math.max(maxVal, windowSum);
-            windowSum -= nums[left];
-            left++;
+            windowSum -= nums[left++];
         }
         return (double)maxVal/k;
     }

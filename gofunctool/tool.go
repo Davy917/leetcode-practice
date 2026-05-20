@@ -47,6 +47,18 @@ func MinInt(nums ...int) (minNum int) {
 	return
 }
 
+// ArrSumInt 可單獨接收一個陣列, 並回傳該陣列的所有元素加總
+// ArrSumInt 也可接收陣列以及一個整數
+func ArrSumInt(arr []int, end ...int) (sum int) {
+	limit := len(arr)
+	if len(end) > 0 {
+		limit = end[0]
+	}
+	for i := 0; i < limit && i < len(arr); i++ {
+		sum += arr[i]
+	}
+	return
+}
 func Insertsort(arr []int) (result []int) {
 	for index := 1; index < len(arr); index++ {
 		visitor := index - 1
@@ -75,4 +87,14 @@ Q1:
 A1:
 不會，因為 ...int 在 Go 裡不是「真的只收 slice」，而是 可變參數 語法。
 Go 會幫你把外面傳進來的一堆 int 打包成 []int 給函式內部使用
+
+Q2:
+ArrSumInt 中的 可變參數：end ...int 是什麼意思
+A2:
+可以傳 0 個 end, 也可以傳 1 個或多個 end, 在函式內部，end 會是一個 []int
+	沒傳：len(end) == 0
+	有傳：取 end[0]
+
+可變參數練習:
+LanguagePractice/GoPractice/changeableParameter.go
 */
