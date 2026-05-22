@@ -8,6 +8,9 @@ class Solution1423 {
         for (int val: cardPoints)
             sum += val;
 
+        if (k == cardPoints.length) //判定邊界, 沒有寫的話底下test case會錯
+            return sum;
+            
         int windowSize = cardPoints.length - k;
         int windowMinVal = 0;
         for (int index = 0; index < windowSize; index++)
