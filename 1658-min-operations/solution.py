@@ -2,7 +2,7 @@ from typing import List
 class Solution:
     def minOperations(self, nums: List[int], x: int) -> int:
         nums_sum = sum(num for num in nums)
-        if nums_sum < x:
+        if nums_sum < x: #特殊情況檢查, 不寫會錯
             return -1
         target = nums_sum - x
         left = 0
