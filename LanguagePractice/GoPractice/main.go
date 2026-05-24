@@ -3,6 +3,7 @@ package main
 // import "fmt"
 
 func main() {
+	typePractice()
 	//basic()
 	//mapPractice()
 	//array()
@@ -16,7 +17,7 @@ func main() {
 	//newPractice()
 	//slice()
 	//printing()
-	changeableParameter()
+	// changeableParameter()
 	
 	//要執行reciverFunc(), 解除註解下四行
 	// mybill := newBill("Davy's bill")
