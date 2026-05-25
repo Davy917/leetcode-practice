@@ -40,7 +40,8 @@ func main(){
 	fmt.Println("Ans = ", findAnagrams(s, p))
 }
 /*
-寫到一半發現跟76題很像, 直接照抄竟然還過了
+寫到一半發現跟76題很像, 拿76題的code來改, 改了第24行那個判斷式, 就過了
+第24行沒寫一定會錯, 具體可以手推一次main當中的test case就會明白
 
 執行代碼:
 go run ./438-find-anagrams
