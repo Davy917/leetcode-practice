@@ -20,7 +20,7 @@ class Solution159 {
             maxLen = Math.max(maxLen, curLen);
             r++;
         }
-        return maxLength;
+        return maxLen;
     }
     static void main(String[] args) {
         String s = "eceba";
