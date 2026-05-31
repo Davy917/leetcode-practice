@@ -1,4 +1,4 @@
-//官方解答
+//這題是239題, 想要快速了解deque 及其用法, 就看這題
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
