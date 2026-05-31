@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 //官方解答
 class Solution467 {
-    public int findSubstringInWraproundString(String s) {
+    public static int findSubstringInWraproundString(String s) {
         int[] dp = new int[26];
         int n = s.length();
         int l = 0, r = 0;
