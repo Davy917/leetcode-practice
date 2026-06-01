@@ -1,3 +1,5 @@
+package LinkedList;
+
 public class DoublyListNode{
     int key;
     int val;
