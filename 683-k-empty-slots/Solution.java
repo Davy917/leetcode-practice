@@ -27,6 +27,8 @@ class Solution683 {
 }
 
 /*
+官解:
+https://leetcode.cn/problems/k-empty-slots/solutions/2478087/k-ge-guan-bi-de-deng-pao-by-leetcode-sol-2sqw/
 補充TreeSet常用方法
 lower(x) 返回小於 x 的最大元素
 floor(x) 返回小於或等於 x 的最大元素
