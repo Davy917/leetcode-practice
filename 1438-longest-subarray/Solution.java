@@ -1,16 +1,20 @@
 class Solution1438 {
     public static int longestSubarray(int[] nums, int limit) {
         int n = nums.length;
-        int maxCount = 0;
+        int maxLen = 0;
         for (int l = 0; l < n; l++) {
-            int r = l, curCount = 0;
-            while (r < n && Math.abs(nums[l] - nums[r]) <= limit){
-                curCount++;
+            int maxNum = nums[l], minNum = nums[l];
+            int curLen = 0;
+            int r = l;
+            while (r < n && Math.abs(maxNum - nums[r]) <= limit && Math.abs(minNum - nums[r]) <= limit){
+                maxNum = Math.max(maxNum, nums[r]);
+                minNum = Math.min(minNum, nums[r]);
+                curLen++;
                 r++;
             }
-            maxCount = Math.max(maxCount, curCount);
+            maxLen = Math.max(maxLen, curLen);
         }
-        return maxCount;
+        return maxLen;
     }
     static void main(String[] args) {
         int[] nums = {1,5,6,7,8,10,6,5,6};
@@ -18,9 +22,4 @@ class Solution1438 {
         System.out.println("Ans = " + longestSubarray(nums, limit));
     }
 }
-/*
-保證當前子數組中, 最大絕對差 <= limit
-
-6,7,8,10,6
-紀錄當前數組中的最大值, 一直拿這個值去扣新來的num
- */
+//暴力解超時, 試著優化這個解法
