@@ -1,11 +1,11 @@
 package linkedlist
 
-type DoublyLinkedNode struct{
-	val int
-	next *DoublyLinkedNode
+type DoublyLinkedNode struct {
+	val  int
+	next *DoublyLinkedNode //*DoublyLinkedNode：表示「指向 listNode 的指標型別」，這是 linked list 正確做法。
 	prev *DoublyLinkedNode
 }
-type DoublyLinkedList struct{
+type DoublyLinkedList struct {
 	head *DoublyLinkedNode
 	tail *DoublyLinkedNode
 	size int
@@ -15,26 +15,26 @@ func NewDoublyLinkedList() *DoublyLinkedList {
 	return &DoublyLinkedList{}
 }
 
-//func (接收者) 方法名(參數) 回傳型別
+// func (接收者) 方法名(參數) 回傳型別
 func (dll *DoublyLinkedList) Append(val int) {
 	node := &DoublyLinkedNode{val: val}
-	if dll.head == nil{
+	if dll.head == nil {
 		dll.head = node
 		dll.tail = node
-	}else{
+	} else {
 		node.prev = dll.tail
 		dll.tail.next = node
 		dll.tail = node
 	}
-	dll.size++	
+	dll.size++
 }
 
-func (dll *DoublyLinkedList) AppendLeft(val int){
+func (dll *DoublyLinkedList) AppendLeft(val int) {
 	node := &DoublyLinkedNode{val: val}
-	if dll.head == nil{
+	if dll.head == nil {
 		dll.head = node
 		dll.tail = node
-	}else{
+	} else {
 		node.next = dll.head
 		dll.head.prev = node
 		dll.head = node
@@ -43,7 +43,7 @@ func (dll *DoublyLinkedList) AppendLeft(val int){
 }
 
 func (dll *DoublyLinkedList) RemoveTail() {
-	if dll.tail == nil{
+	if dll.tail == nil {
 		return
 	}
 	dll.tail = dll.tail.prev
@@ -51,8 +51,8 @@ func (dll *DoublyLinkedList) RemoveTail() {
 	dll.size--
 }
 
-func (dll *DoublyLinkedList) RemoveHead(){
-	if dll.head == nil{
+func (dll *DoublyLinkedList) RemoveHead() {
+	if dll.head == nil {
 		return
 	}
 	dll.head = dll.head.next
@@ -60,20 +60,19 @@ func (dll *DoublyLinkedList) RemoveHead(){
 	dll.size--
 }
 
-
-
 func (dll *DoublyLinkedList) Len() int {
 	return dll.size
 }
 
-func (dll *DoublyLinkedList) ToSlice() (result []int){
+func (dll *DoublyLinkedList) ToSlice() (result []int) {
 	curNode := dll.head
-	for curNode != nil{
+	for curNode != nil {
 		result = append(result, curNode.val)
 		curNode = curNode.next
 	}
 	return
 }
+
 /*
 到 main.go 執行
 datastructure/LinkedList/demo/main.go

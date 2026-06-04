@@ -18,6 +18,10 @@ except StopIteration:
 教學影片:
 https://www.youtube.com/watch?v=J-BgmKvYY2o
 
+__iter__解釋:
+21:30開始看
+https://www.youtube.com/watch?v=qqp6QN20CpE&list=LL&index=1&t=2s
+
 FAQ:
 iter方法跟__iter__的差異在哪邊??
 
