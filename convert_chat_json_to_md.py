@@ -66,8 +66,8 @@ def convert_chat_json_to_md(src_path, dst_path):
 if __name__ == "__main__":
     # 依你的檔案名稱調整
     convert_chat_json_to_md(
-        "1438-longest-subarray\leetcode1438-footprint.json",
-        "1438-longest-subarray\leetcode1438-footprint.md"
+        "datastructure\LinkedList\golang_doubleLinkedList_discuss.json",
+        "datastructure\LinkedList\golang_doubleLinkedList_discuss.md"
     )
 """
 執行方式：

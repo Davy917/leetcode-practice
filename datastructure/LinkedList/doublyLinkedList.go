@@ -79,4 +79,7 @@ datastructure/LinkedList/demo/main.go
 
 接收器函式
 LanguagePractice/GoPractice/reciverFunc.go
+
+指標相關細節探討
+datastructure\LinkedList\golang_doubleLinkedList_discuss.md
 */
