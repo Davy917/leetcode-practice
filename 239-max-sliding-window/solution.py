@@ -8,7 +8,7 @@ class Solution:
             while dq and nums[r] >= nums[dq[-1]]: #注意這裡是while迴圈, 寫成if的話底下case會報錯
                 dq.pop()
             dq.append(r)
-            r += 1
+
         print(dq)
         n = len(nums)
         ans = [0] * (n-k+1)
