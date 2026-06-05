@@ -33,5 +33,6 @@ class Solution167 {
 }
 
 /*
-由於陣列是有序的, 如果當前數比target還要大, 後面的數都不用看了
+官方解答 雙指針法 5:00後開始看
+https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/solutions/337156/liang-shu-zhi-he-ii-shu-ru-you-xu-shu-zu-by-leet-2/
 */
