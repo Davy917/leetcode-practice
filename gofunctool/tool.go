@@ -5,6 +5,13 @@ gofunctool/Demo/main.go
 
 package gofunctool
 
+func AbsInt(num int) int {
+	if num > 0 {
+		return num
+	} else {
+		return -num
+	}
+}
 func ArrMaxInt(arr []int) (maxNum int) {
 	maxNum = arr[0]
 	for _, value := range arr {

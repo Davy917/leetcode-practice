@@ -2,7 +2,10 @@
 參考模板:
 algo/BinarySearch/BinarySearch_advance.java
 
-非官方解答, 官方解答會用其他語言寫
+相同寫法也可以看go版本
+658-find-closest-elements/solution.go
+
+非官方解答
  */
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -163,5 +166,4 @@ class Solution658_original {
     比較時改成 Math.abs(arr[left] - x) vs Math.abs(arr[right] - x) (不該犯錯)
     邊界改成 right < arr.length 與 right >= arr.length (不該犯錯)
     迴圈條件改成「直到取滿 k 個」：while (mainList.size() < k)
-
 */
