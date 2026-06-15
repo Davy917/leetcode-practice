@@ -1,11 +1,8 @@
+package Tree;
+
 import java.util.*;
 
-class TreeDebugger {
-    static class TreeNode {
-        int val;
-        TreeNode left, right;
-        TreeNode(int val) { this.val = val; }
-    }
+public class TreeDebugger {
     private static int index = 0;
 
     public static TreeNode buildTree(Integer[] preorder) {
@@ -33,15 +30,15 @@ class TreeDebugger {
         TreeNode root = new TreeNode(currentVal);
 
         System.out.println(indent + " -> 進入 " + currentVal + " 的左子樹");
-        root.left = myBuildTree(preorder, depth + 1);
+        root.setLeft(myBuildTree(preorder, depth + 1));
 
         System.out.println(indent + " -> 進入 " + currentVal + " 的右子樹");
-        root.right = myBuildTree(preorder, depth + 1);
+        root.setRight(myBuildTree(preorder, depth + 1));
 
         return root;
     }
     
-    public static void main(String[] args) {
+    static void main(String[] args) {
         Integer[] testCase = {1, 2, 4, null, null, null, 3, null, 5, null, null};
         buildTree(testCase);
         System.out.println("\n構建完成！");

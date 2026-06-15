@@ -1,4 +1,6 @@
+//官方解答
 import java.util.HashMap;
+
 class TreeNode {
     int val;
     TreeNode left;
@@ -12,6 +14,7 @@ class TreeNode {
         this.right = right;
     }
 }
+
 class Solution106 {
     public TreeNode buildTree(int[] inorder, int[] postorder) {
         var map = new HashMap<Integer, Integer>();
