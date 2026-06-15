@@ -18,7 +18,7 @@ class Solution998 {
             return new TreeNode(val);
         if (val > root.val)
             return new TreeNode(val, root, null);
-        root.right = insertIntoMaxTree(root, val);
+        root.right = insertIntoMaxTree(root.right, val);
         return root;
     }
 }

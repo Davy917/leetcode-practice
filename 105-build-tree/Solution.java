@@ -32,7 +32,7 @@ class Solution105 {
         int rootVal = preorder[preLeft];
         var root = new TreeNode(rootVal);
         int pIndex = map.get(rootVal);
-       System.out.printf("rootVal = %d, pIndex = %d\n", rootVal, pIndex);
+        System.out.printf("rootVal = %d, pIndex = %d\n", rootVal, pIndex);
         root.left = buildTree(preorder, preLeft + 1, pIndex - inLeft + preLeft, map, inLeft, pIndex-1);
         root.right = buildTree(preorder, pIndex - inLeft + preLeft + 1, preRight, map, pIndex + 1, inRight);
         return root;

@@ -24,13 +24,15 @@ class Solution106 {
     private TreeNode buildTree(int[] postorder, int postLeft, int postRight,
                                HashMap<Integer, Integer> map, int inLeft, int inRight)
     {
-        if (postLeft < postRight || inLeft < inRight)
+        if (postLeft > postRight || inLeft > inRight)
             return null;
         int rootVal = postorder[postRight];
         var root = new TreeNode(rootVal);
         int pIndex = map.get(rootVal);
         System.out.printf("rootVal = %d, pIndex = %d\n", rootVal, pIndex);
-
+        root.left = buildTree(postorder, postLeft, postLeft + pIndex - inLeft - 1, map, inLeft, pIndex-1);
+        root.right = buildTree(postorder, postLeft + pIndex - inLeft, postRight - 1, map, pIndex+1, inRight);
+        return root;
     }
     static void main(String[] args) {
         int[] postOrder = {9, 15, 7, 20, 3};
@@ -40,13 +42,10 @@ class Solution106 {
     }
 }
 /*
-inOrder:
-9 3 15 20 7
-l    p    r
-postOrder:
-9 15 7 20 3
-          p
-
-postRight = ??
-postRight =
+preorder:
+左子樹節點數 = pIndex - inLeft
+左子樹範圍:
+[postLeft, postLeft + 左子樹節點數 - 1]
+右子樹範圍:
+[postLeft + 左子樹節點數, postRight - 1]
 */
