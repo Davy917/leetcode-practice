@@ -1,3 +1,4 @@
+//改編自單鏈表 707-my-linked-list/LinkedList.java
 package LinkedList;
 
 public class DoublyListNode{

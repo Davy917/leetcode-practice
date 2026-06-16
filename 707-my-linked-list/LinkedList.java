@@ -9,13 +9,12 @@ class ListNode {
     int val;
     ListNode(int x){val = x;}//每當建立新node，從外面傳值進來
 }
-
-public class P0707_MyLinkedList{
+class LinkedList{
     /**
      * head; 是型別為 ListNode 的參考（reference）欄位，儲存「指向」鏈表第一個節點物件的參考；它本身不是節點物件。
      * 預設值為 null，只有在用 new 建立節點或將已有節點指派給 head 時，head 才會指向那個節點。
      */
-    ListNode head;
+    static ListNode head;
 
     public int get(int index){
 
@@ -129,8 +128,16 @@ head--->[A | -]---> [B | -]---> [C | -]---> [D | ]
         visitor.next = visitor.next.next;
     }
 
+    public static ListNode buildLinkedList(Integer[] nums) {
+        LinkedList myLinkedList = new LinkedList();
+        for (Integer num : nums) {
+            myLinkedList.addAtTail(num);
+        }
+        return head;
+    }
+
     static void main(String[] args) {
-        P0707_MyLinkedList myLinkedList = new P0707_MyLinkedList();
+        LinkedList myLinkedList = new LinkedList();
         myLinkedList.addAtHead(1);
         myLinkedList.addAtTail(3);
         myLinkedList.addAtIndex(1, 2);    // 链表变为 1->2->3
