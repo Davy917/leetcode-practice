@@ -45,6 +45,10 @@ public class TreeDebugger {
     }
 }
 /*
+使用方式:
+100-is-same-tree/Solution.java
+
+範例:
 1, 2, 4, null, null, null, 3, null, 5, null, null
       1
      / \
