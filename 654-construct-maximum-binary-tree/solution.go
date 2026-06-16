@@ -23,10 +23,10 @@ func buildTree(nums []int, l int, r int) *TreeNode {
 		}
 	}
 	fmt.Printf("l = %d, r = %d\n", l, r)
-	root := &TreeNode{maxNum, nil, nil}
-	root.Left = buildTree(nums, l, rootIndex-1)
-	root.Right = buildTree(nums, rootIndex+1, r)
-	return root
+	node := &TreeNode{maxNum, nil, nil}
+	node.Left = buildTree(nums, l, rootIndex-1)
+	node.Right = buildTree(nums, rootIndex+1, r)
+	return node
 }
 func main() {
 	nums := []int{3, 2, 1, 6, 0, 5}
