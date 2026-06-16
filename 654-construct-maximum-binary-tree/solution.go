@@ -1,6 +1,9 @@
 package main
 
-import "gopractice/datastructure/Tree"
+import (
+	"fmt"
+	"gopractice/datastructure/Tree"
+)
 
 type TreeNode = Tree.TreeNode
 
@@ -19,6 +22,7 @@ func buildTree(nums []int, l int, r int) *TreeNode {
 			rootIndex = i
 		}
 	}
+	fmt.Printf("l = %d, r = %d\n", l, r)
 	root := &TreeNode{maxNum, nil, nil}
 	root.Left = buildTree(nums, l, rootIndex-1)
 	root.Right = buildTree(nums, rootIndex+1, r)
