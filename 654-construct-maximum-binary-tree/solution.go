@@ -8,9 +8,9 @@ import (
 type TreeNode = Tree.TreeNode
 
 func constructMaximumBinaryTree(nums []int) *TreeNode {
-	return buildTree(nums, 0, len(nums)-1)
+	return construct(nums, 0, len(nums)-1)
 }
-func buildTree(nums []int, l int, r int) *TreeNode {
+func construct(nums []int, l int, r int) *TreeNode {
 	if l > r {
 		return nil
 	}
@@ -24,8 +24,8 @@ func buildTree(nums []int, l int, r int) *TreeNode {
 	}
 	fmt.Printf("l = %d, r = %d\n", l, r)
 	node := &TreeNode{maxNum, nil, nil}
-	node.Left = buildTree(nums, l, rootIndex-1)
-	node.Right = buildTree(nums, rootIndex+1, r)
+	node.Left = construct(nums, l, rootIndex-1)
+	node.Right = construct(nums, rootIndex+1, r)
 	return node
 }
 func main() {
