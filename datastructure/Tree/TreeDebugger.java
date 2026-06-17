@@ -17,7 +17,6 @@ public class TreeDebugger {
             sb.append("  ");
         }
         String indent = sb.toString();
-
         if (index >= preorder.length) return null;
 
         Integer currentVal = preorder[index];
