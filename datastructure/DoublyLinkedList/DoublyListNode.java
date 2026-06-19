@@ -1,5 +1,5 @@
 //改編自單鏈表 707-my-linked-list/LinkedList.java
-package LinkedList;
+package DoublyLinkedList;
 
 public class DoublyListNode{
     int key;
