@@ -39,8 +39,8 @@ class Solution16 {
         }
         return ans;
     }
-    static void main(String[] args) {
-        int[] nums = {4,0,5,-5,3,3,0,-4,-5};
+    public static void main(String[] args) {
+        //int[] nums = {4,0,5,-5,3,3,0,-4,-5};
         int[] nums2 = {1,1,1,1};
         System.out.println("Ans = " + threeSumClosest(nums2, 3));
     }

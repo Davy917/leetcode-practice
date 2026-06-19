@@ -1,4 +1,4 @@
-#迭代寫法，遞迴寫法見python
+//迭代寫法，遞迴寫法見python
 import java.util.ArrayList;
 class ListNode{
     int val;
@@ -74,7 +74,7 @@ class Solution24 {
         return dummy.next;
     }
 
-    static void main(String[] args) {
+    public static void main(String[] args) {
         Solution24 sol = new Solution24();
         int[] nums = {1, 2, 3, 4};
         ListNode newNode;

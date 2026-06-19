@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Solution1 {
+class Solution56 {
     public int[][] P0056_merge(int[][] intervals) {
         if (intervals.length == 0) {
             return intervals;
@@ -65,7 +65,7 @@ class Solution1 {
 
     public static void main(String[] args) {
 
-        Solution1 sol = new Solution1();
+        Solution56 sol = new Solution56();
         int [][] intervals = {{1,3}, {2,6}, {8,10}, {15,18}};
 
         //方法一, 用ArrayList實現

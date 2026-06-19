@@ -1,3 +1,5 @@
+import java.util.*;
+
 //Python用列表,java用雙指針
 //java有雙指針版本, 以及列表版本
 class Solution26 {
@@ -41,8 +43,8 @@ class Solution26 {
         }
         return mainList.size();
     }
-}
-public void main(String[] args){
-    System.out.println(new Solution26().removeDuplicates(new int[] {1, 1, 2, 2, 5}));
-//    System.out.println(new Solution26().removeDuplicatesWithList(new int[] {0,0,1,1,1,2,2,3,3,4}));
+    public static void main(String[] args) {
+        System.out.println(new Solution26().removeDuplicates(new int[] {1, 1, 2, 2, 5}));
+    //    System.out.println(new Solution26().removeDuplicatesWithList(new int[] {0,0,1,1,1,2,2,3,3,4}));
+    }
 }
