@@ -75,11 +75,11 @@ func (dll *DoublyLinkedList) ToSlice() (result []int) {
 
 /*
 到 main.go 執行
-datastructure/LinkedList/demo/main.go
+datastructure/DoublyLinkedList/demo/main.go
 
 接收器函式
 LanguagePractice/GoPractice/reciverFunc.go
 
 指標相關細節探討
-datastructure\LinkedList\golang_doubleLinkedList_discuss.md
+datastructure/DoublyLinkedList/golang_doubleLinkedList_discuss.md
 */
