@@ -7,9 +7,9 @@ class Solution606 {
         if (root.getLeft() == null && root.getRight() == null)
             return Integer.toString(root.getVal());
         if (root.getRight() == null)
-            return new StringBuilder().append(root.getVal()).append("(").append(tree2str(root.getLeft())).append(")").toString();
+            return root.getVal() + "(" + tree2str(root.getLeft()) + ")";
         //涵蓋了右有, 以及左右皆有
-        return new StringBuilder().append(root.getVal()).append("(").append(tree2str(root.getLeft())).append(")(").append(tree2str(root.getRight())).append(")").toString();
+        return root.getVal() + "(" + tree2str(root.getLeft()) + ")(" + tree2str(root.getRight()) + ")";
     }
     public static void main(String[] args) {
         Integer[] nums = {1, 2, 4, null, 3, null, null};
