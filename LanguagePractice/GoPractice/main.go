@@ -3,8 +3,8 @@ package main
 // import "fmt"
 
 func main() {
-	SwitchCase()
-	//packageString()
+	// SwitchCase()
+	packageString()
 	//typePractice()
 	//basic()
 	//mapPractice()

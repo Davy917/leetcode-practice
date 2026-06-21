@@ -8,6 +8,7 @@ func main() {
 	nums := []int{1, 5, 6, 7, 9, 5}
 	ll := test.NewLinkedList()
 	ll.BuildLinkedList(nums)
+	ll.PrintList(ll.Head)
 }
 
 /*

@@ -1,9 +1,11 @@
-package linkedlist
+package LinkedList
+
+import "fmt"
 
 type LinkedList struct{
-	head *ListNode
-	tail *ListNode
-	size int
+	Head *ListNode
+	Tail *ListNode
+	Size int
 }
 
 func NewLinkedList() *LinkedList {
@@ -12,20 +14,33 @@ func NewLinkedList() *LinkedList {
 
 func (ll *LinkedList) AddAtTail(val int) {
 	newNode := &ListNode{Val: val}
-	if ll.size == 0 {
-		ll.head = newNode
-		ll.tail = newNode
+	if ll.Size == 0 {
+		ll.Head = newNode
+		ll.Tail = newNode
+		ll.Size++
+		return
 	}
-	ll.tail.Next = newNode
-	ll.tail = newNode
-	ll.size++
+	ll.Tail.Next = newNode
+	ll.Tail = newNode
+	ll.Size++
 }
 
-func (ll *LinkedList) BuildLinkedList(nums []int) (head *ListNode){
-	ll.head = nil
+func (ll *LinkedList) BuildLinkedList(nums []int) (Head *ListNode) {
+	ll.Head = nil
+	ll.Tail = nil
+	ll.Size = 0
 	for _, num := range nums {
 		ll.AddAtTail(num)
-		ll.size++
 	}
-	return ll.head
+	return ll.Head
+}
+
+func (ll *LinkedList) PrintList(Head *ListNode) {
+	fmt.Print("[")
+	visitor := Head
+	for visitor != nil{
+		fmt.Printf("%d ", visitor.Val)
+		visitor = visitor.Next
+	}
+	fmt.Print("]\n")
 }

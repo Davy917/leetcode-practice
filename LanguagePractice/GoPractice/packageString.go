@@ -6,7 +6,8 @@ import (
 )
 
 func packageString() {
-	str := "helloll"
+	str := "hellol,l"
+	fmt.Println(strings.Split(str, ","))
 	fmt.Println(strings.Contains(str, "o"))        //檢查str有沒有包含o
 	fmt.Println(strings.Index(str, "ll"))          //子串第一次出現的位置, 沒有則返回-1
 	fmt.Println(strings.LastIndex(str, "ll"))      //子串最後一次出現的位置, 沒有則返回-1
@@ -25,4 +26,8 @@ https://www.youtube.com/watch?v=ZhepRnrS84A&list=PLBjZhzRvV2ChPTPNDx_apHdKa9Ha7L
 
 檢查字符是否在'a' ~ 'z'這區間
 125-is-palindrome/solution.go
+
+strconv.Atoi(val)
+strings.Split()使用方式
+1367-is-sub-path/solution.go
 */
