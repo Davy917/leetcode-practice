@@ -30,4 +30,9 @@ FAQ:
 TreeNode 被使用在:
 100-is-same-tree/Solution.java
 datastructure/Tree/TreeDebugger.java
+
+前序遍歷:
+144-preorder-traversal/Solution.java
+中序遍歷:
+094-inorder-traversal
  */

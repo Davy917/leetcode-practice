@@ -54,4 +54,9 @@ public class TreeDebugger {
     2   3
    /     \
   4       5
+  
+前序遍歷:
+144-preorder-traversal/Solution.java
+中序遍歷:
+094-inorder-traversal
  */
