@@ -25,7 +25,7 @@ class Solution1367 {
         Integer[] root = {1};
         Integer[] head = {1};
          */
-        var rootNode = TreeDebugger.buildTree(root);
+        var rootNode = TreeDebugger.buildPreorderTree(root);
         var headNode = LinkedList.buildLinkedList(head);
         System.out.println("Ans = " + isSubPath(headNode, rootNode));
     }

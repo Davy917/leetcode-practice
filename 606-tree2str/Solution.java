@@ -13,7 +13,7 @@ class Solution606 {
     }
     public static void main(String[] args) {
         Integer[] nums = {1, 2, 4, null, 3, null, null};
-        var node = TreeDebugger.buildTree(nums);
+        var node = TreeDebugger.buildPreorderTree(nums);
         System.out.println("Ans = " + tree2str(node));
     }
 }

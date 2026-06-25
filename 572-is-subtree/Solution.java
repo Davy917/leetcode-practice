@@ -31,8 +31,8 @@ class Solution572 {
         //TestCase2:
         Integer[] root = {1, 1, null};
         Integer[] subRoot = {1, null, null};
-        var rootNode = TreeDebugger.buildTree(root);
-        var subRootNode = TreeDebugger.buildTree(subRoot);
+        var rootNode = TreeDebugger.buildPreorderTree(root);
+        var subRootNode = TreeDebugger.buildPreorderTree(subRoot);
         System.out.println("Ans = " + isSubtree(rootNode, subRootNode));
     }
 }

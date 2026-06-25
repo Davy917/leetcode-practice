@@ -1,6 +1,7 @@
 package main
 
 import "fmt"
+
 //type 結構名稱 struct
 
 type User struct {
@@ -80,4 +81,9 @@ User: &User{...} 的 & 不是「加在型別前面」，而是：
 	&User{...} → 型別是 *User
 
 & 是取址運算子，讓 User 值變成 *User 指標值。
+
+相關內容:
+(看底下FAQ)
+datastructure/Tree/TreeDebugger.go
+LanguagePractice/GoPractice/pointer.go
 */

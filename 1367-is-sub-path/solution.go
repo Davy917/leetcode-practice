@@ -1,35 +1,37 @@
 package main
-import(
+
+import (
 	"fmt"
 	"gopractice/datastructure/LinkedList"
 	"gopractice/datastructure/Tree"
 )
+
 type ListNode = LinkedList.ListNode
-type TreeNode = Tree.TreeNode	
+type TreeNode = Tree.TreeNode
 
 func isSubPath(head *ListNode, root *TreeNode) bool {
-	if root == nil{
-		return  false
+	if root == nil {
+		return false
 	}
 	return isSamePath(head, root) || isSubPath(head, root.Left) || isSubPath(head, root.Right)
 }
 
 func isSamePath(head *ListNode, root *TreeNode) bool {
 	if head == nil {
-		return  true
+		return true
 	} else if root == nil {
-		return  false
+		return false
 	} else if head.Val != root.Val {
 		return false
 	}
 	return isSamePath(head.Next, root.Left) || isSamePath(head.Next, root.Right)
 }
 
-func main(){
+func main() {
 	head := []int{4, 2, 8}
 	root := []any{1, 4, nil, 2, 1, nil, nil, nil, 4, 2, 6, nil, nil, 8, 1, nil, nil, 3, nil, nil, nil}
 	headNode := LinkedList.NewLinkedList().BuildLinkedList(head)
-	rootNode := Tree.BuildTree(root)
+	rootNode := Tree.BuildPreorderTree(root)
 	fmt.Println(isSubPath(headNode, rootNode))
 }
 

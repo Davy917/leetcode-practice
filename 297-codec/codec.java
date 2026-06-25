@@ -1,5 +1,6 @@
 //官方解答
-import Tree.*;
+import Tree.TreeNode;
+import Tree.TreeDebugger;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,7 +53,7 @@ class Codec {
         Codec deser = new Codec();
 
         Integer[] nums = {1, 2, 3, null, null, 4, 5};
-        TreeNode root = TreeDebugger.buildTree(nums);
+        TreeNode root = TreeDebugger.buildPreorderTree(nums);
         deser.deserialize(ser.serialize(root));
     }
 }

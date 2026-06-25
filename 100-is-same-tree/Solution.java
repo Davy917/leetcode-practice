@@ -26,8 +26,8 @@ class Solution100 {
         Integer[] p = {1, 1, null, null, 2};
         Integer[] q = {1, 1, null, null, 2};
 
-        var pNode = TreeDebugger.buildTree(p);
-        var qNode = TreeDebugger.buildTree(q);
+        var pNode = TreeDebugger.buildPreorderTree(p);
+        var qNode = TreeDebugger.buildPreorderTree(q);
         System.out.println("Ans = " + isSameTree(pNode, qNode));
     }
 }

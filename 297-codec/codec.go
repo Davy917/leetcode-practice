@@ -8,32 +8,33 @@ import (
 	"gopractice/datastructure/Tree"
 	"strings"
 )
+
 type TreeNode = Tree.TreeNode
 type Codec struct {
 }
 
 func Constructor() Codec {
-    return Codec{}
+	return Codec{}
 }
 
 func (this *Codec) serialize(root *TreeNode) string {
 	if root == nil {
-		return  "null"
+		return "null"
 	}
 	left := this.serialize(root.Left)
 	right := this.serialize(root.Right)
 	return fmt.Sprintf("%d,%s,%s", root.Val, left, right)
 }
 
-func (this *Codec) deserialize(data string) *TreeNode {    
-    if data == "" {
+func (this *Codec) deserialize(data string) *TreeNode {
+	if data == "" {
 		return nil
 	}
 	list := strings.Split(data, ",")
 	fmt.Println("list = ", list)
 	return this.rdeserialize(&list)
 }
-func (this *Codec) rdeserialize(list *[]string) *TreeNode {    
+func (this *Codec) rdeserialize(list *[]string) *TreeNode {
 	if len(*list) == 0 {
 		return nil
 	}
@@ -43,19 +44,20 @@ func (this *Codec) rdeserialize(list *[]string) *TreeNode {
 		return nil
 	}
 	valInt, _ := strconv.Atoi(val)
-    root := &TreeNode{Val: valInt}
-    root.Left = this.rdeserialize(list)
-    root.Right = this.rdeserialize(list)
-    return root
+	root := &TreeNode{Val: valInt}
+	root.Left = this.rdeserialize(list)
+	root.Right = this.rdeserialize(list)
+	return root
 }
-func main(){
-	nums := []any {1, 2, nil, nil, 3, 4, nil, nil, 5, nil, nil}
-	root := Tree.BuildTree(nums)
+func main() {
+	nums := []any{1, 2, nil, nil, 3, 4, nil, nil, 5, nil, nil}
+	root := Tree.BuildPreorderTree(nums)
 	ser := Constructor()
 	deser := Constructor()
 	data := ser.serialize(root)
 	deser.deserialize(data)
 }
+
 /*
 照抄java版本並改寫
 297-codec/codec.java
@@ -70,10 +72,10 @@ strings.Split() 實際上是把字串分割成若干個「子字串」，然後�
 3. 優先級問題： 在 Go 語言中，索引運算子 [] 的優先級比解引用運算子 * 還要高。
 		1. 如果你寫 *list[0]，Go 會解讀成 *(list[0])。這代表「先去拿指標 list 的第 0 個元素，然後對它做解引用」。但 list 只是個指標，根本沒有第 0 個元素，所以編譯會報錯。
 		2. 為了強迫 Go 先做解引用，我們必須用括號把 *list 包起來，寫成 (*list)，然後再去拿它的第 0 個元素 [0]。
-所以 (*list)[0] 的意思就是：「先取得 list 指向的那個切片，再拿出該切片的第 0 個元素」。  
+所以 (*list)[0] 的意思就是：「先取得 list 指向的那個切片，再拿出該切片的第 0 個元素」。
 
 45 行是什麼意思
-這行程式碼的作用是將字串轉成整數，並處理 Go 語言的多重回傳值。  
+這行程式碼的作用是將字串轉成整數，並處理 Go 語言的多重回傳值。
 我們拆解成三個部分來看：
 1. strconv.Atoi(val)
 	1. strconv 是 Go 的標準庫，專門處理字串轉換（String Conversion）。
@@ -82,13 +84,13 @@ strings.Split() 實際上是把字串分割成若干個「子字串」，然後�
 	1. 轉換後的整數（int）
 	2. 錯誤訊息（error）—— 如果你傳入一個不能轉成數字的字串（例如 "abc"），它就會回傳錯誤。
 
-	它的函數宣告長這樣：  
+	它的函數宣告長這樣：
 	func Atoi(s string) (int, error)
 
 3. 為什麼要用底線 _？
-在 Go 語言中，所有宣告的變數都必須被使用，否則編譯會失敗。 
-如果我們寫 valInt, err := strconv.Atoi(val)，但後面沒有用到 err，編譯器就會報錯。 
+在 Go 語言中，所有宣告的變數都必須被使用，否則編譯會失敗。
+如果我們寫 valInt, err := strconv.Atoi(val)，但後面沒有用到 err，編譯器就會報錯。
 	1. 底線 _ 是 Go 的「空白識別碼（Blank Identifier）」。它就像一個垃圾桶，用來接收我們「不需要、不想處理」的回傳值。
 	2. 在 LeetCode 這題中，我們很確定除了 "nil" 之外，其他的字串一定都是合法的數字字串（例如 "1", "2"），轉換絕對不會失敗。
-	3. 因此，我們用 valInt 接收轉換後的整數，並用 _ 直接丟棄錯誤訊息（error）。 
+	3. 因此，我們用 valInt 接收轉換後的整數，並用 _ 直接丟棄錯誤訊息（error）。
 */
