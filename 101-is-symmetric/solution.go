@@ -12,7 +12,7 @@ func isSymmetric(root *TreeNode) bool {
 	rightside := rightSide(root.Right)
 	fmt.Println("leftside = ", leftside)
 	fmt.Println("rightside = ", rightside)
-
+	
 	if len(leftside) != len(rightside){ //要先檢查長度是否相等, 否則會報錯
 		return false
 	}
@@ -26,7 +26,7 @@ func isSymmetric(root *TreeNode) bool {
 
 func leftSide(root *TreeNode) []interface{} {
 	if root == nil{
-		return  nil
+		return []interface{}{}
 	}
 	var result []interface{}
 	queue := []*TreeNode{root}
@@ -46,7 +46,7 @@ func leftSide(root *TreeNode) []interface{} {
 
 func rightSide(root *TreeNode) []interface{} {
 	if root == nil{
-		return  nil
+		return []interface{}{}
 	}
 	var result []interface{}
 	queue := []*TreeNode{root}
