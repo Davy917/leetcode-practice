@@ -1,23 +1,25 @@
-//這版本是拿java版本來改的, 還是鏡像遍歷, 但是改用for迴圈來寫
+// 這版本是拿java版本來改的, 還是鏡像遍歷, 但是改用for迴圈來寫
 package main
 
 import "fmt"
 import "gopractice/datastructure/Tree"
+
 type TreeNode = Tree.TreeNode
+
 func isSymmetric(root *TreeNode) bool {
-	if root == nil{ //理論上不會走到這裡
-		return  false
-	}
-	leftside := leftSide(root.Left)
-	rightside := rightSide(root.Right)
-	fmt.Println("leftside = ", leftside)
-	fmt.Println("rightside = ", rightside)
-	
-	if len(leftside) != len(rightside){ //要先檢查長度是否相等, 否則會報錯
+	if root == nil { //理論上不會走到這裡
 		return false
 	}
-	for i := 0; i < len(leftside); i++ {
-		if leftside[i] != rightside[i] {
+	Lefts := leftSide(root.Left)
+	Rights := rightSide(root.Right)
+	fmt.Println("Lefts = ", Lefts)
+	fmt.Println("Rights = ", Rights)
+
+	if len(Lefts) != len(Rights) { //要先檢查長度是否相等, 否則會報錯
+		return false
+	}
+	for i := 0; i < len(Lefts); i++ {
+		if Lefts[i] != Rights[i] {
 			return false
 		}
 	}
@@ -25,7 +27,7 @@ func isSymmetric(root *TreeNode) bool {
 }
 
 func leftSide(root *TreeNode) []interface{} {
-	if root == nil{
+	if root == nil {
 		return []interface{}{}
 	}
 	var result []interface{}
@@ -45,7 +47,7 @@ func leftSide(root *TreeNode) []interface{} {
 }
 
 func rightSide(root *TreeNode) []interface{} {
-	if root == nil{
+	if root == nil {
 		return []interface{}{}
 	}
 	var result []interface{}
@@ -63,15 +65,41 @@ func rightSide(root *TreeNode) []interface{} {
 	}
 	return result
 }
-func main(){
-	nums := []any {1,0}
-	root := Tree.BuildLevelOrderTree(nums)
-	fmt.Println("Ans = ", isSymmetric(root))
+func main() {
+	//nums := []any{1, 0}
+	//root := Tree.BuildLevelOrderTree(nums)
+	//fmt.Println("Ans = ", isSymmetric(root))
+	nums2 := []any{1, 2, 2, 3, 4, 4, 3}
+	root2 := Tree.BuildLevelOrderTree(nums2)
+	fmt.Println("Ans = ", isSymmetric_v2(root2))
 }
+
 /*
 建議先看過102題, 了解層序遍歷是如何運作的
 102-level-order
 
 執行代碼
 go run ./101-is-symmetric
+
+interface教學
+LanguagePractice/GoPractice/interfacePractice/interfacePractice.go
+
+golang deque說明
+datastructure/deque/deque-practice-list.md
+
+[FAQ]:
+[]interface{} vs []any
+本质相同：
+	any 是 interface{} 的类型别名（从 Go 1.18 开始引入）
+	[]any 和 []interface{} 完全等价，编译后生成相同的代码
+
+Go 1.18 之前只能写：
+var list []interface{}
+
+Go 1.18+ 可以写（更简洁）：
+var list []any
+
+如果使用 Go 1.18+，推荐用 []any（代码更简洁易读）
+如果需要兼容旧版本，用 []interface{}
+当前代码用 []interface{} 完全正确，只是语法风格上的选择。
 */

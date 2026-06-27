@@ -40,3 +40,6 @@ queue = queue[1:]
         為什麼用 slice？
         時間與空間複雜度為何？
         出佇列時 queue = queue[1:] 會創建新的切片（slice header），但底層仍共享同一個陣列。
+
+golang deque實戰
+101-is-symmetric/solution.go
