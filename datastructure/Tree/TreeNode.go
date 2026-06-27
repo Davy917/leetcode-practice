@@ -7,6 +7,8 @@ type TreeNode struct {
 }
 
 /*
+import寫
+import "gopractice/datastructure/Tree"
 import 之後要再加上這行
 type TreeNode = Tree.TreeNode
 */

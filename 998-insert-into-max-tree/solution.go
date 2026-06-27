@@ -1,7 +1,6 @@
 package main
 
 import "gopractice/datastructure/Tree"
-
 type TreeNode = Tree.TreeNode
 
 func insertIntoMaxTree(root *TreeNode, val int) *TreeNode {
