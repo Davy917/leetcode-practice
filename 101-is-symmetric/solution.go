@@ -66,9 +66,9 @@ func rightSide(root *TreeNode) []interface{} {
 	return result
 }
 func main() {
-	//nums := []any{1, 0}
-	//root := Tree.BuildLevelOrderTree(nums)
-	//fmt.Println("Ans = ", isSymmetric(root))
+	nums := []any{1, 0}
+	root := Tree.BuildLevelOrderTree(nums)
+	fmt.Println("Ans = ", isSymmetric(root))
 	nums2 := []any{1, 2, 2, 3, 4, 4, 3}
 	root2 := Tree.BuildLevelOrderTree(nums2)
 	fmt.Println("Ans = ", isSymmetric_v2(root2))
