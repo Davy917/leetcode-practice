@@ -1,7 +1,11 @@
 #K神題解
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent))
 from typing import Optional
 from datastructure  import TreeNode
 from datastructure import TreeDebugger
+
 class Solution:
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
         if root is None: #基本不會走到這裡
@@ -26,11 +30,6 @@ if __name__ == "__main__":
 
     兩個版本都看完, 再用自己的理解寫一遍
     
-        1
-       / \
-      2   2
-     / \ / \
-    3  4 4  3
     
     recursion(2, 2)  ← 初始调用
         ├─ recursion(3, 3)  ← L.left vs R.right

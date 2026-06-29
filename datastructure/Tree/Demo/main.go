@@ -8,6 +8,6 @@ func main() {
 	//test.BuildPreorderTree(testCase)
 	//fmt.Println("\n構建完成！")
 
-	testCase := []any{3, 9, 20, nil, nil, 15, 7}
+	testCase := []any{5, 4, 8, 11, nil, 13, 4, 7, 2, nil, nil, nil, 1}
 	test.BuildLevelOrderTree(testCase)
 }

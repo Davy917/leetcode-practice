@@ -4,4 +4,7 @@ class TreeNode:
         self.left = left
         self.right = right
 
-#要匯入可以直接寫 from datastructure import TreeNode
+"""
+正確import方式請看
+101-is-symmetric/solution.py
+"""

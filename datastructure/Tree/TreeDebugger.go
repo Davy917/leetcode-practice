@@ -42,8 +42,7 @@ func BuildLevelOrderTree(levelOrder []any) *TreeNode {
 		return nil
 	}
 	root := &TreeNode{Val: levelOrder[0]}
-	nodes := []*TreeNode{} //空切片
-	nodes = append(nodes, root)
+	nodes := []*TreeNode{root} //空切片
 
 	for i := 1; i < len(levelOrder); i++ {
 		var newNode *TreeNode
@@ -52,6 +51,12 @@ func BuildLevelOrderTree(levelOrder []any) *TreeNode {
 		}
 		parentIndex := (i - 1) / 2
 		parent := nodes[parentIndex]
+
+		if parent == nil {
+			nodes = append(nodes, nil)
+			continue
+		}
+
 		if i%2 == 1 {
 			parent.Left = newNode
 		} else {

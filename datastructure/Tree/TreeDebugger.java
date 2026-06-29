@@ -53,6 +53,13 @@ public class TreeDebugger {
 
             int parentIndex = (i - 1) / 2;
             TreeNode parent = nodes.get(parentIndex);
+
+            // 修正：檢查父節點是否存在
+            if (parent == null) {
+                nodes.add(null);
+                continue;
+            }
+
             if (i % 2 == 1)
                 parent.setLeft(newNode);
             else
@@ -65,7 +72,7 @@ public class TreeDebugger {
 //        Integer[] testCase = {1, 2, 4, null, null, null, 3, null, 5, null, null};
 //        buildPreorderTree(testCase);
 //        System.out.println("\n構建完成！");
-        Integer[] levelOrder = {3, 9, 20, null, null, 15, 7};
+        Integer[] levelOrder = {5, 4, 8, 11, null, 13, 4, 7, 2, null, null, null, 1};
         buildLevelOrderTree(levelOrder);
     }
 }

@@ -27,7 +27,7 @@ class Solution105 {
     private TreeNode buildTree(int[] preorder, int preLeft, int preRight,
                                HashMap<Integer, Integer> map, int inLeft, int inRight)
     {
-        if (preLeft > preRight || inLeft > inRight) //遞歸終止條件
+        if (preLeft > preRight || inLeft > inRight)
             return null;
         int rootVal = preorder[preLeft];
         var root = new TreeNode(rootVal);
@@ -45,26 +45,57 @@ class Solution105 {
     }
 }
 /*
-输入: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
-输出: [3,9,20,null,null,15,7]
-
-前序遍历：遍历顺序为 父节点 -> 左子节点 -> 右子节点
-后续遍历：遍历顺序为 左子节点 -> 父节点 -> 右子节点
-
 官方視頻題解:
 04:30開始看
 https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/solutions/255811/cong-qian-xu-yu-zhong-xu-bian-li-xu-lie-gou-zao-9/
 
-遞迴樹:
-build(pre[0..4], in[0..4])  root=3
-├─ left:  build(pre[1..1], in[0..0])  root=9
-│  ├─ left:  build(pre[2..1], in[0..-1]) -> null
-│  └─ right: build(pre[2..1], in[1..0])  -> null
-└─ right: build(pre[2..4], in[2..4])  root=20
-   ├─ left:  build(pre[3..3], in[2..2])  root=15
-   │  ├─ left:  build(pre[4..3], in[2..1]) -> null
-   │  └─ right: build(pre[4..3], in[3..2]) -> null
-   └─ right: build(pre[4..4], in[4..4])  root=7
-      ├─ left:  build(pre[5..4], in[4..3]) -> null
-      └─ right: build(pre[5..4], in[5..4]) -> null
+preorder
+[preLeft][preLeft + 1, pIndex - inLeft + preLeft][pIndex - inLeft + preLeft + 1, preRight]
+
+inorder
+[inLeft, pIndex - 1][pIndex][pIndex + 1, inRight]
+
+[遞迴樹]
+buildTree(pre=[3,9,20,15,7], preL=0, preR=4, inL=0, inR=4)
+│
+├─ root = 3 (preorder[0])
+│  pIndex = 1 (inorder中3的位置)
+│
+├─ 左子树: buildTree(pre, 1, 1, inL=0, inR=0)
+│  │
+│  ├─ root = 9 (preorder[1])
+│  │  pIndex = 0
+│  │
+│  ├─ 左子树: buildTree(pre, 2, 1, ...) → null (preL > preR)
+│  │
+│  └─ 右子树: buildTree(pre, 2, 1, ...) → null (preL > preR)
+│  │
+│  └─ return TreeNode(9)
+│
+└─ 右子树: buildTree(pre, 2, 4, inL=2, inR=4)
+   │
+   ├─ root = 20 (preorder[2])
+   │  pIndex = 3
+   │
+   ├─ 左子树: buildTree(pre, 3, 3, inL=2, inR=2)
+   │  │
+   │  ├─ root = 15 (preorder[3])
+   │  │  pIndex = 2
+   │  │
+   │  ├─ 左: null | 右: null
+   │  │
+   │  └─ return TreeNode(15)
+   │
+   └─ 右子树: buildTree(pre, 4, 4, inL=4, inR=4)
+      │
+      ├─ root = 7 (preorder[4])
+      │  pIndex = 4
+      │
+      ├─ 左: null | 右: null
+      │
+      └─ return TreeNode(7)
+   │
+   └─ return TreeNode(20, left=15, right=7)
+
+└─ return TreeNode(3, left=9, right=20)
 */

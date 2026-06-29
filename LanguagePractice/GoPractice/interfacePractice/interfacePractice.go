@@ -110,6 +110,9 @@ https://www.youtube.com/watch?v=QD6u_aWTfaM
 空接口的類型轉換
 https://www.youtube.com/watch?v=PRY6uDyyDNY
 
-空接口實戰案例
+interface{} 實戰案例:
 101-is-symmetric/solution.go
+
+空接口類型轉換:
+112-has-path-sum/solution.go
 */
