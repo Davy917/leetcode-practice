@@ -10,7 +10,7 @@ class Node {
     public Node(int _val) {
         val = _val;
     }
-};
+}
 
 class Solution116 {
     public Node connect(Node root) {
