@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+//connect 標準的層續遍歷, connect_v2就是優化到不用deque的版本
 import java.util.*;
 
 class Node {
@@ -30,7 +30,7 @@ class Solution116 {
                     curNode.right.next = dq.peekFirst().left;
                 else if (i >= curLevelSize-1 && curNode.right != null)
                     curNode.right.next = null;
-                
+
                 if (curNode.left != null)
                     dq.add(curNode.left);
                 if (curNode.right != null)
@@ -42,14 +42,25 @@ class Solution116 {
     public Node connect_v2(Node root) {
         if (root == null)
             return null;
-        Node curNode = root;
-        curNode.next = null;
-        Node l = null, r = null;
-        while (){
-            r.next = null;
-            l= curNode.left;
-            r = curNode.right;
-            l.next = r;
+        Node leftMost = root;
+        leftMost.next = null;
+
+        if (leftMost.left != null && leftMost.right != null){
+            leftMost.left.next = leftMost.right;
+            leftMost.right.next = null;
+        }
+        while (leftMost.left != null){
+            Node curNode = leftMost.left;
+            while (curNode != null){
+                if (curNode.left != null){
+                    curNode.left.next = curNode.right;
+                }
+                if (curNode.right != null && curNode.next != null) {
+                    curNode.right.next = curNode.next.left;
+                }
+                curNode = curNode.next;
+            }
+            leftMost = leftMost.left;
         }
         return root;
     }
@@ -66,5 +77,18 @@ pollFirst會把下一個節點拉出來, 導致下一輪循環無法處理到該
 把上面多餘的if 合併整理後再提交
 https://leetcode.cn/problems/populating-next-right-pointers-in-each-node/submissions/
 
-怎麼優化到不用deque
+怎麼優化到不用deque?
+請看connect_v2
+
+connect_v2 思路:
+最重要的等式先解出來
+curNode.left.next = curNode.right;
+curNode.right.next = curNode.next.left;
+
+leftMost 指的是該層最左邊那個節點
+curNode 的起始位置就是 leftMost 下一層最左邊
+此時就可以把上面列出來的公式進行套用
+
+先看過官解, 再用自己的理解寫一遍
+https://leetcode.cn/problems/populating-next-right-pointers-in-each-node/solutions/446938/tian-chong-mei-ge-jie-dian-de-xia-yi-ge-you-ce-2-4/
 */
