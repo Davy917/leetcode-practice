@@ -55,7 +55,7 @@ peek vs get:
 peek, peekFirst, peekLast
 只看不取。若容器為空，回傳 null（不拋例外）。
 getFirst, getLast
-若容器為空，會拋 NoSuchElementException。
+也是只看不取, 但是容器為空，會拋 NoSuchElementException。
 所以在這段 Deque 單調佇列邏輯中，用 peekLast 是較安全、常見的寫法。
 
 deque方法速講:
