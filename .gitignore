@@ -15,11 +15,23 @@ __pycache__/
 .Python
 venv/
 env/
+*.egg-info/                 # ← 补充：Python 包信息
+.pytest_cache/              # ← 补充：pytest 缓存
+
+# Node.js / JavaScript
+node_modules/
+npm-debug.log*              # ← 补充：npm 错误日志
+.env                        # ← 补充：环境变量（如果使用）
+.env.local
+dist/                       # ← 补充：构建输出（如果有）
+build/
 
 # IDE
 .vscode/
 .DS_Store
+*.swp                       # ← 补充：vim 临时文件
+*.swo
+*~
 
 # Build artifacts
 out/
-
