@@ -50,3 +50,73 @@ var sayHi = function (name){
     console.log(s)
     return s //注意
 })('Peter')
+
+
+// 箭頭函式寫法
+const add = (a, b) => a + b; 
+
+// 傳統寫法
+const add = function(a, b) {
+  return a + b;
+};
+
+/*
+Python 寫法
+double_num = lambda x: x * 2
+
+Java 寫法
+Function<Integer, Integer> doubleNum = x -> x * 2;
+
+在計算機科學中，這種「匿名、簡短、可傳遞的函式」通常統稱為 Lambda 表達式（Lambda Expressions） 或 匿名函式（Anonymous Functions)
+許多語言也同樣使用 => 或 -> 符號來表達。  
+*/
+
+const obj = {element1: 1, element2: 2}
+function myFunc1(){
+    console.log("output 1 ", this.element1)
+    setTimeout(function(){
+        console.log("output 2 ", this.element1) // 會得到undefined
+    }, 1000)
+}
+
+myFunc1.call(obj) // call(obj) 的作用是將 myFunc1 內部的 this 強制綁定（bind）為 obj 物件。
+
+/*
+為什麼會得到undfined ?
+關鍵點： 在非嚴格模式（non-strict mode）下，由 setTimeout 延遲呼叫的普通回呼函式，其內部的 this 預設會指向全域物件（Global Object）
+，在瀏覽器環境中是 window，在 Node.js 環境中是 global。
+
+可以透過以下幾種函式寫法來修正
+
+箭頭函式（Arrow Function）
+箭頭函式沒有自己的 this，它會繼承外層（定義時所在環境）的 this。此時外層的 this 是 obj。  
+*/
+function myFunc1(){
+    console.log("output 1 ", this.element1)
+    setTimeout(() => {
+        // 這裡的 this 會繼承外層 myFunc1 的 this (即 obj)
+        console.log("output 2 ", this.element1) 
+    }, 1000)
+}
+/*
+使用 .bind(this)
+在傳入 setTimeout 的函式後面使用 .bind(this)，將當前的 this（即 obj）綁定到該函式中。  
+*/
+function myFunc1(){
+    console.log("output 1 ", this.element1)
+    setTimeout(function(){
+        console.log("output 2 ", this.element1)
+    }.bind(this), 1000) // 強制綁定外層的 this
+}
+
+/*
+使用變數暫存 this（傳統做法）
+在進入 setTimeout 之前，先用一個變數（通常命名為 self 或 that）把 this 存起來。  
+*/
+function myFunc1(){
+    const self = this; // 這裡的 this 是 obj
+    console.log("output 1 ", this.element1)
+    setTimeout(function(){
+        console.log("output 2 ", self.element1) // 使用暫存的變數
+    }, 1000)
+}

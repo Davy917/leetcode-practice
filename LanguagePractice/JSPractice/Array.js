@@ -65,3 +65,13 @@ let found = arr.find(function (num){
     return num === 6
 })
 console.log("found = " + found)
+
+/*
+Array.reduce() 介紹
+*/
+let numbers = [1,2,3,4,5,6]
+let result = numbers.reduce(function(sum, current){
+    sum += current
+    return sum
+}, 0)
+console.log(result)

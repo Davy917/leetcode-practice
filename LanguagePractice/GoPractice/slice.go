@@ -80,6 +80,12 @@ GoPractice 的 `nil` 與 Java 的 `null` 及 Python 的 `None` 概念相似，�
 make([]int, 3, 5)
 make([]Type, len, cap)
 
+Go 語言中的 ... 符號（在 Go 官方術語中稱為 Ellipsis，省略號） 1 2，
+在功能與概念上與 JavaScript 的擴展運算子（Spread）以及其餘運算子（Rest）非常相似。  
+
+詳細內容可以直接看
+LanguagePractice/JSPractice/basic.js
+
 影片:
 https://www.youtube.com/watch?v=pnwNpeH_06I&list=PLBjZhzRvV2ChPTPNDx_apHdKa9Ha7LVpN&index=20
 */
