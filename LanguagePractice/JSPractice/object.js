@@ -20,3 +20,8 @@ dog.bow = function (){
     console.log('bow!! bow!!')
 }
 dog.bow()
+
+/*
+閱讀文檔
+LanguagePractice/JSPractice/MDLibrary/class and Prototype.md
+ */

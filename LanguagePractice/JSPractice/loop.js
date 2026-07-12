@@ -85,5 +85,5 @@ func main() {
     
 #補充
 var是什麼, let是什麼 ?
-LanguagePractice/JSPractice/MDLibrary/var vs let變數作用範圍.md
+LanguagePractice/JSPractice/Compare4Language/var vs let變數作用範圍.md
 */

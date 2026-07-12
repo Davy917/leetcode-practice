@@ -51,7 +51,7 @@ let 不能在宣告前存取，會報 ReferenceError
 let 的「暫時死區」(TDZ)
     let 從進入作用域到實際執行宣告行，這段期間存取會報錯（不是 undefined）
 md文檔
-LanguagePractice/JSPractice/MDLibrary/var vs let變數作用範圍.md
+LanguagePractice/JSPractice/Compare4Language/var vs let變數作用範圍.md
  */
 
 //const 宣告常數之後是不能修改值的

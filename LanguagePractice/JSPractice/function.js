@@ -53,10 +53,10 @@ var sayHi = function (name){
 
 
 // 箭頭函式寫法
-const add = (a, b) => a + b; 
+const add = (a, b) => a + b;
 
 // 傳統寫法
-const add = function(a, b) {
+const originAdd = function(a, b) {
   return a + b;
 };
 
@@ -68,7 +68,7 @@ Java 寫法
 Function<Integer, Integer> doubleNum = x -> x * 2;
 
 在計算機科學中，這種「匿名、簡短、可傳遞的函式」通常統稱為 Lambda 表達式（Lambda Expressions） 或 匿名函式（Anonymous Functions)
-許多語言也同樣使用 => 或 -> 符號來表達。  
+許多語言也同樣使用 => 或 -> 符號來表達。
 */
 
 const obj = {element1: 1, element2: 2}
@@ -89,7 +89,7 @@ myFunc1.call(obj) // call(obj) 的作用是將 myFunc1 內部的 this 強制綁�
 可以透過以下幾種函式寫法來修正
 
 箭頭函式（Arrow Function）
-箭頭函式沒有自己的 this，它會繼承外層（定義時所在環境）的 this。此時外層的 this 是 obj。  
+箭頭函式沒有自己的 this，它會繼承外層（定義時所在環境）的 this。此時外層的 this 是 obj。
 */
 function myFunc1(){
     console.log("output 1 ", this.element1)
@@ -100,7 +100,7 @@ function myFunc1(){
 }
 /*
 使用 .bind(this)
-在傳入 setTimeout 的函式後面使用 .bind(this)，將當前的 this（即 obj）綁定到該函式中。  
+在傳入 setTimeout 的函式後面使用 .bind(this)，將當前的 this（即 obj）綁定到該函式中。
 */
 function myFunc1(){
     console.log("output 1 ", this.element1)
@@ -111,7 +111,7 @@ function myFunc1(){
 
 /*
 使用變數暫存 this（傳統做法）
-在進入 setTimeout 之前，先用一個變數（通常命名為 self 或 that）把 this 存起來。  
+在進入 setTimeout 之前，先用一個變數（通常命名為 self 或 that）把 this 存起來。
 */
 function myFunc1(){
     const self = this; // 這裡的 this 是 obj
@@ -120,3 +120,26 @@ function myFunc1(){
         console.log("output 2 ", self.element1) // 使用暫存的變數
     }, 1000)
 }
+
+/*
+閉包函式 closure function
+必看影片
+https://www.youtube.com/watch?v=aHrvi2zTlaU
+實戰
+278-first-bad-version/solution.js
+ */
+function human(name) {
+    function sayHi() {
+        console.log(`Hi I am ${name}`)
+    }
+    function sayHowYouFeel() {
+        console.log(`${name} is feeling good!`)
+    }
+    return{
+        sayHi,
+        sayHowYouFeel
+    }
+}
+const sina = human('Sina')
+const qoli = human('Qoli') //此時 qoli = 函式，會「記住」傳進去的 'Qoli'，可以稍後執行。
+qoli.sayHi()
