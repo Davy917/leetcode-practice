@@ -88,4 +88,8 @@ LanguagePractice/JSPractice/basic.js
 
 影片:
 https://www.youtube.com/watch?v=pnwNpeH_06I&list=PLBjZhzRvV2ChPTPNDx_apHdKa9Ha7LVpN&index=20
+
+什麼是...符號?
+詳見擴展運算子說明
+LanguagePractice/Compare4Language/Spread operator.md
 */
