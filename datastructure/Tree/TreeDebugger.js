@@ -6,7 +6,7 @@ class TreeDebugger {
             return null
         const root = new TreeNode(levelOrder[0]);
         const nodes = []
-        nodes.push(nodes)
+        nodes.push(root)
 
         for (let i = 1; i < levelOrder.length; i++) {
             let newNode = null
@@ -37,3 +37,9 @@ class TreeDebugger {
 if (require.main === module) {
     TreeDebugger.main();
 }
+module.exports = TreeDebugger;
+
+/*
+import
+const TreeDebugger = require('../datastructure/Tree/TreeDebugger')
+ */

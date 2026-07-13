@@ -127,7 +127,9 @@ function myFunc1(){
 https://www.youtube.com/watch?v=aHrvi2zTlaU
 實戰
 278-first-bad-version/solution.js
- */
+
+閉包（Closure） 的核心是：內部函式「記住」了外部函式的變數，即使外部函式已經執行完畢。
+*/
 function human(name) {
     function sayHi() {
         console.log(`Hi I am ${name}`)
@@ -143,3 +145,31 @@ function human(name) {
 const sina = human('Sina')
 const qoli = human('Qoli') //此時 qoli = 函式，會「記住」傳進去的 'Qoli'，可以稍後執行。
 qoli.sayHi()
+/*
+
+human 執行完畢後，name 並沒有被銷毀，而是被回傳的 sayHi 和 sayHowYouFeel 各自閉包住了。
+而且每次呼叫 human() 都會建立獨立的閉包，所以 sina 和 qoli 各自記住不同的 name。
+
+sina 實際上就是這個物件：
+{
+    sayHi: [Function],
+    sayHowYouFeel: [Function]
+}
+
+你可以這樣理解 JS 引擎底層發生的事：
+human('Sina') 執行時，建立了一個環境：
+
+const sina = {
+    sayHi: function() { 記住 name='Sina' },
+sayHowYouFeel: function() { 記住 name='Sina' }
+}
+
+而 qoli 也是同樣的結構，但它們記住的是另一份 name='Qoli'：
+const qoli = {
+    sayHi: function() { 記住 name='Qoli' },
+sayHowYouFeel: function() { 記住 name='Qoli' }
+}
+所以 sina 和 qoli 看起來結構一樣，但各自閉包了不同的資料，互不干擾。
+這也是為什麼閉包常被用來模擬「私有變數」——name 從外面是改不到的，
+只能透過 sayHi 和 sayHowYouFeel 來讀取。
+*/

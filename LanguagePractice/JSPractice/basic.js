@@ -1,12 +1,5 @@
-if (1 === 2)
-    console.log('good')
-else
-    console.log('bad')
-
 //三元運算子
 3 > 1 ? console.log("true"): console.log("false")
-
-var x = 1; //賦值運算子
 
 // == vs ===
 console.log("111 == '111", 111 == '111')
@@ -77,7 +70,11 @@ let name = 'Tom'
 let str = `hello ${name}`
 console.log(str)
 
-//...擴展運算子
+/*...擴展運算子
+見文檔
+LanguagePractice/Compare4Language/Spread operator.md
+*/
+
 let arr1 = [1,2,3,4,5]
 console.log(Math.min(arr1)) // 會印出NaN因為 Math.min 不接受 Array
 console.log(Math.min(...arr1)) // 相當於把 1, 2, 3, 4, 5 拆出來，放進新陣列中,才能得到預期中的最小值

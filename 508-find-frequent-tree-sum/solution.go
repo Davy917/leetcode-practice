@@ -10,8 +10,7 @@ type TreeNode = Tree.TreeNode
 func findFrequentTreeSum(root *TreeNode) []int {
 	count := map[int]int{}
 	dfs(root, count)
-	ans := findMaxFreq(count)
-	return ans
+	return findMaxFreq(count)
 }
 func dfs(root *TreeNode, count map[int]int) int {
 	if root == nil {
