@@ -15,7 +15,7 @@ class TreeDebugger {
 
             let parentIndex = Math.floor((i - 1) / 2)
             let parent = nodes[parentIndex]
-            if (newNode === null) {
+            if (parent === null) {
                 nodes.push(null)
                 continue
             }
