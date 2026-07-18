@@ -19,7 +19,7 @@ public class StackFuncPractice {
 stack相關題目看331題
 331-is-valid-serialization/Solution.java
 
-如果你在 Stack 已經沒有任何元素 的情況下呼叫 pop()，程式會直接崩潰並拋出異常（Exception）：  
+如果你在 Stack 已經沒有任何元素 的情況下呼叫 pop()，程式會直接崩潰並拋出異常（Exception）
 
     如果你用的是 java.util.Stack：會拋出 EmptyStackException。
     如果你用的是 ArrayDeque 或 LinkedList：會拋出 NoSuchElementException。
