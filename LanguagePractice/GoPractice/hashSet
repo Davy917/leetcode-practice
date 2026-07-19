@@ -1,2 +1,25 @@
-golang hashSet實戰用法看這題
+
+var set = map[型別]struct{}{}
+/*
+[FAQ]
+1. struct{}{} 是什麼？
+
+struct{} 是一個沒有任何欄位的結構體型別。
+{} 是這個結構體的實體值（空值）。
+所以 struct{}{} 就是「一個空結構體的實例」。
+
+2. 為什麼用它來做 Set？
+Go 沒有內建的 Set，所以用 map 來模擬：
+
+map[*TreeNode]struct{}{}
+//  key 型別    value 型別   初始值
+
+Key 存放 Set 的元素（這裡是 *TreeNode）
+Value 用 struct{}{}，因為它不佔任何記憶體（大小為 0 byte）
+
+簡單來說，struct{}{} 就是 Go 裡表達「我只在乎 key，value 不重要」的一種優雅且高效的方式。
+
+golang hashSet實戰用法
 142-detect-cycle/solution.go
+652-find-duplicate-subtrees/solution.go
+*/

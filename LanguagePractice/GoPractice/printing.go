@@ -24,4 +24,7 @@ func printing(){
 影片教學:
 Sprintf直接從10:25開始看
 https://www.youtube.com/watch?v=m1Uy0WQ2Xns&list=PL4cUxeGkcC9gC88BEo9czgyS72A3doDeM&index=4
+
+Sprintf 實戰用法
+652-find-duplicate-subtrees/solution.go
 */
