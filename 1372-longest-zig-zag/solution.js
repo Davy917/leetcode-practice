@@ -25,6 +25,7 @@ var longestZigZag = function(root) {
     return maxLen
 };
 /*
+
         A(1)
           \
           B(1)
@@ -54,4 +55,15 @@ dfs(A, 1, 0) (A 準備往右)
 │           ├── dfs(null, 1, 2) -> return 0 (F 往左走，成功轉彎，撞到 null)
 │           └── dfs(null, 0, 1) -> return 0 (F 往右走，重置，撞到 null)
 └── dfs(null, 1, 1) -> return 0 (A 往左走，重置，撞到 null)
+
+
+自己想不到, 看官解之後再自行理解
+https://leetcode.cn/problems/longest-zigzag-path-in-a-binary-tree/solutions/147425/er-cha-shu-zhong-de-zui-chang-jiao-cuo-lu-jing-b-2/
+
+思路:
+首先要想到, 可以利用direction來控制方向
+
+接著, 如果碰壁了怎麼辦?
+1. 往另一個方向走
+2. 重置curLen
 */ 
