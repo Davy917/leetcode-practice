@@ -16,6 +16,78 @@ require()（CommonJS 規範）與 import（ES6 模組規範）最核心的差異
 * import 綁定（Binding）參照：匯出的是唯讀的記憶體參照。模組內部修改該值，外部會同步更新。
 
 ------------------------------
+### 基本用法
+
+```javascript
+// 引入內建模組
+const fs = require('fs');
+const path = require('path');
+
+// 引入第三方套件
+const express = require('express');
+
+// 引入自訂檔案（同目錄）
+const helper = require('./helper');
+```
+
+### 核心功能
+
+| 功能 | 說明 |
+|---|---|
+| 載入模組 | 讀取並執行目標檔案，回傳其 `module.exports` |
+| 快取機制 | 同一模組只會載入一次，後續從快取取 |
+| 同步執行 | `require` 是同步的，會阻塞後續程式碼 |
+
+### 搭配 `module.exports`
+
+```javascript
+// helper.js
+module.exports = {
+  add: (a, b) => a + b,
+};
+
+// main.js
+const { add } = require('./helper');
+add(1, 2); // 3
+```
+
+### 與 ES Module 的 `import` 對比
+
+| | `require` (CommonJS) | `import` (ES Module) |
+|---|---|---|
+| 語法 | `const x = require('./x')` | `import x from './x'` |
+| 時機 | 執行時動態載入 | 編譯時靜態分析 |
+| 條件引入 | ✅ 可以放在 `if` 中 | ❌ 必須在頂層 |
+| 環境 | Node.js | 瀏覽器 & Node.js (新版) |
+
+```javascript
+// require 可以動態引入
+if (condition) {
+  const mod = require('./mod');
+}
+
+// import 不行（語法錯誤）
+if (condition) {
+  import mod from './mod'; // ❌
+}
+```
+## 什麼是require.main?
+這是 Node.js 特有的檢查：
+* require.main：指向被直接執行的檔案
+* module：指向目前這個檔案
+* 如果相等，代表這個檔案是被直接執行的（例如 node solution.js）
+* 如果不相等，代表這個檔案是被其他檔案 require 的
+
+```javascript
+if (require.main === module){
+    .....
+}
+```
+可參考: 993-is-cousins/solution.js
+
+這樣做的好處是：你可以把 solution.js 當成模組 import 到其他檔案，不會自動執行測試代碼。
+
+------------------------------
 ## 語法對照表
 
 | 功能 | require() 語法 (CommonJS) | import 語法 (ES6) |

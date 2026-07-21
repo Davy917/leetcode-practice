@@ -17,7 +17,7 @@ console.log(fruits)
 console.log(fruits.slice(0, 2))
 
 /*
-Array.map() 介紹
+Array.map()
 https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 
 map() 會回傳新陣列，所以可以賦值
@@ -30,7 +30,7 @@ let fruitsMap = fruits.map(function (element){
 console.log(fruitsMap)
 
 /*
-Array.foreach() 介紹
+Array.foreach()
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 
 forEach() 只執行循環，不回傳任何值（void）
@@ -46,7 +46,7 @@ fruits.forEach(function (element) {
 })
 
 /*
-Array.filter() 介紹
+Array.filter()
 返回 Array 中全部符合條件的元素
  */
 
@@ -57,7 +57,7 @@ let newArr = arr.filter(function (element){
 console.log("newArr = " + newArr)
 
 /*
-Array.find() 介紹
+Array.find()
 就算 Array 中有多筆符合條件, 也只會返回一筆
 */
 
@@ -67,7 +67,7 @@ let found = arr.find(function (num){
 console.log("found = " + found)
 
 /*
-Array.reduce() 介紹
+Array.reduce()
 */
 let numbers = [1,2,3,4,5,6]
 let result = numbers.reduce(function(sum, current){
@@ -75,3 +75,49 @@ let result = numbers.reduce(function(sum, current){
     return sum
 }, 0)
 console.log(result)
+
+/*
+Array.indexOf() — 查找元素的索引
+ */
+let arr = [1, 2, 3, 4];
+arr.indexOf(3); // 2
+arr.indexOf(5); // -1（找不到）
+
+/*
+includes() — 判斷是否存在
+ */
+arr.includes(3); // true
+arr.includes(5); // false
+
+/*
+findIndex() — 根據條件找到索引
+findIndex() 會遍歷陣列，回傳第一個符合條件的元素的索引；找不到則回傳 -1。
+
+arr.findIndex(callback(當前元素, 當前索引, 陣列本身))
+ */
+
+    // 1. 找第一個偶數
+    [1, 3, 4, 6].findIndex(n => n % 2 === 0); // 2（元素 4 的索引）
+
+    // 2. 找第一個大於 10 的數
+    [5, 8, 12, 15].findIndex(n => n > 10); // 2（元素 12）
+
+    // 3. 找不到回傳 -1
+    [1, 2, 3].findIndex(n => n > 10); // -1
+
+    // 4. 搭配物件陣列
+    const nodes = [
+        { val: 1, depth: 0 },
+        { val: 2, depth: 1 },
+        { val: 3, depth: 1 },
+    ];
+    nodes.findIndex(n => n.val === 3); // 2
+
+    // 5. 用 index 參數
+    [10, 20, 30].findIndex((_, i) => i === 1); // 1
+
+/*
+some() / every() — 判斷是否有/全部符合
+ */
+arr.some(n => n > 3);  // true（至少一個）
+arr.every(n => n > 0); // true（全部）

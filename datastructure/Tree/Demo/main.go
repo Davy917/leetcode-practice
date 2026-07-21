@@ -9,5 +9,6 @@ func main() {
 	//fmt.Println("\n構建完成！")
 
 	testCase := []any{5, 4, 8, 11, nil, 13, 4, 7, 2, nil, nil, nil, 1}
-	test.BuildLevelOrderTree(testCase)
+	//test.BuildLevelOrderTree(testCase)
+	test.BuildLevelOrderTree_v2(testCase)
 }
