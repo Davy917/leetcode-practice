@@ -1,5 +1,5 @@
 const TreeNode = require('../datastructure/Tree/TreeNode')
-const TreeDebugger = require('../datastructure/Tree/TreeDebugger_v2')
+const buildLevelOrderTree_v2 = require('../datastructure/Tree/TreeDebugger_v2')
 /**
  * @param {TreeNode} root
  * @param {number} x
@@ -34,7 +34,7 @@ if (require.main === module){
     // 如果是 require('./solution.js')，這段不會跑
     // 這樣做的好處是：你可以把 solution.js 當成模組 import 到其他檔案，不會自動執行測試代碼。
     const levelOrder = [1,2,3,null,4,null,5]
-    const root = TreeDebugger.buildLevelOrderTree(levelOrder)
+    const root = buildLevelOrderTree_v2(levelOrder)
     console.log("Ans = ", isCousins(root, 5, 4))
 }
 /*

@@ -36,4 +36,9 @@ function buildLevelOrderTree_v2(levelOrder){
     }
     return root
 }
-module.exports = TreeDebugger
+module.exports = buildLevelOrderTree_v2
+
+/*
+正確import方式看
+993-is-cousins/solution.js
+ */
