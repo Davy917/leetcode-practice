@@ -79,7 +79,7 @@ console.log(result)
 /*
 Array.indexOf() — 查找元素的索引
  */
-let arr = [1, 2, 3, 4];
+arr = [1, 2, 3, 4];
 arr.indexOf(3); // 2
 arr.indexOf(5); // -1（找不到）
 
@@ -121,3 +121,18 @@ some() / every() — 判斷是否有/全部符合
  */
 arr.some(n => n > 3);  // true（至少一個）
 arr.every(n => n > 0); // true（全部）
+
+/*
+Array.from(), Array.fill()
+Array.from() 用來「製造陣列」的工具
+Array.fill() 用來「填充陣列」的工具
+
+實戰用法看
+655-print-tree/solution.js
+
+底下那一行可以建出這樣的陣列
+[["","",""],["","",""]]
+*/
+let [m, n] = [2, 3]
+let Ans = Array.from({ length: m }, () => Array(n).fill(""));
+console.log(Ans)

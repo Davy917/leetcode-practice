@@ -173,3 +173,7 @@ sayHowYouFeel: function() { 記住 name='Qoli' }
 這也是為什麼閉包常被用來模擬「私有變數」——name 從外面是改不到的，
 只能透過 sayHi 和 sayHowYouFeel 來讀取。
 */
+/*
+隱式return看這題
+655-print-tree/solution.js
+*/
