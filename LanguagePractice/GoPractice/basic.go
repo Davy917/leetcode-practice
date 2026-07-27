@@ -19,26 +19,22 @@ func basic() {
 	fmt.Println("!true = ", !true)
 	fmt.Println("true && false = ", true && false)
 	fmt.Println("true || false", true || false)
+	/*Go 沒有內建的次方運算子（不像 Python 的 **）。常見做法有兩種：
+		1. 整數次方（特別是 2 的冪）→ 位元移位
+		1 << k   // 等於 2^k，僅適用於整數
 
-	/*
-		//if-else練習
-		if true {
-			fmt.Println("GoPractice")
-		} else {
-			fmt.Println("Not GoPractice")
-		}
-		var money int
-		fmt.Println("How much money do u want?")
-		fmt.Scanln(&money)
-		if money < 100{
-			fmt.Println("Too few")
-		}else if money <= 100000{
-			fmt.Println("OK")
-		}else{
-			fmt.Println("too much")
-		}
-		fmt.Println("Done.")
-	*/
+		2. 一般次方 → math.Pow
+		import "math"
+		math.Pow(2, 3)  // 2^3 = 8，回傳 float64
+		若需要整數結果，需手動轉型：int(math.Pow(2, 3))
+
+		簡單原則：
+		2^k → 優先用 1 << k
+		x^y（任意底數）→ 用 math.Pow(x, y)
+
+		實戰用法:
+		655-print-tree/solution.go
+		*/
 	//for loop pracice
 	var x = 0
 	for x < 3 {

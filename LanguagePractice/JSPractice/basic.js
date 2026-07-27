@@ -47,6 +47,7 @@ md文檔
 LanguagePractice/JSPractice/Compare4Language/var vs let變數作用範圍.md
  */
 
+//const 實戰,詳細說明 863-distanceK/solution.js
 //const 宣告常數之後是不能修改值的
 const dog = 'Peter'
 //const 也可以用來定義物件, 而且可以改變物件中的屬性
@@ -56,6 +57,7 @@ const person = {
 }
 person['name'] = 'Jason'
 console.log(person)
+
 
 // 解構賦值, 能夠一次給多個變數賦值
 // 常數

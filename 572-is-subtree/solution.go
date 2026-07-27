@@ -38,3 +38,4 @@ func main() {
 	subRootNode := Tree.BuildPreorderTree(subRoot)
 	fmt.Println("Ans = ", isSubtree(rootNode, subRootNode))
 }
+//寫第二次還是沒有寫出來
