@@ -115,4 +115,8 @@ interface{} 實戰案例:
 
 空接口類型轉換:
 112-has-path-sum/solution.go
+
+接口的多態性:
+PriorityQueue的實現方式
+703-kth-largest\solution.go
 */

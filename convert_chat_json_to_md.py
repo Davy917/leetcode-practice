@@ -66,8 +66,8 @@ def convert_chat_json_to_md(src_path, dst_path):
 if __name__ == "__main__":
     # 依你的檔案名稱調整
     convert_chat_json_to_md(
-        "572-is-subtree\chat.json",
-        "572-is-subtree\chat.md"
+        "703-kth-largest\interface and PriorityQueue deep dive.json",
+        "703-kth-largest\interface and PriorityQueue deep dive.md"
     )
 """
 執行方式：

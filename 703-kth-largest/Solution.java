@@ -1,10 +1,15 @@
+import java.util.Arrays;
+import java.util.PriorityQueue;
+
 class KthLargest {
     PriorityQueue<Integer> pq;
+    int k;
     public KthLargest(int k, int[] nums) {
         this.k = k;
         pq = new PriorityQueue<>(k);
         for(int num: nums)
             add(num);
+        System.out.println(Arrays.toString(nums));
     }
     public int add(int val) {
         pq.add(val);
