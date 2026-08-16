@@ -1,3 +1,4 @@
+//官解
 class QuickUnion{
     int[] root;
     private int count; //紀錄省份的數量
