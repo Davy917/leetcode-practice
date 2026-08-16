@@ -1,4 +1,4 @@
-package QuickUnion;
+package UnionFind;
 
 public class QuickFind {
     int[] root;
