@@ -18,6 +18,7 @@ public class StackFuncPractice {
 /*
 stack相關題目看331題
 331-is-valid-serialization/Solution.java
+797-all-path-source-target/Solution.java
 
 如果你在 Stack 已經沒有任何元素 的情況下呼叫 pop()，程式會直接崩潰並拋出異常（Exception）
 
