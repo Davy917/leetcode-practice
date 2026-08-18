@@ -1,31 +1,31 @@
 package UnionFind;
 public class QuickUnionBySize {
-    int[] root;
+    int[] parent;
     int[] rank;
     QuickUnionBySize(int size){
-        root = new int[size];
+        parent = new int[size];
         rank = new int[size];
         for (int i = 0; i < size; i++) {
-            root[i] = i;
+            parent[i] = i;
             rank[i] = 1;
         }
     }
     int find(int x){
-        if (root[x] == x)
+        if (parent[x] == x)
             return x;
-        return root[x] = find(root[x]);
+        return parent[x] = find(parent[x]);
     }
     void union(int x, int y){
-        int rootX = find(x);
-        int rootY = find(y);
-        if (rootX != rootY){
-            if (rank[rootX] > rank[rootY])
-                root[rootY] = rootX; // 為什麼不是 root[y] = rootX
-            else if (rank[rootY] > rank[rootX])
-                root[rootX] = rootY;
+        int parentX = find(x);
+        int parentY = find(y);
+        if (parentX != parentY){
+            if (rank[parentX] > rank[parentY])
+                parent[parentY] = parentX; // 為什麼不是 parent[y] = parentX
+            else if (rank[parentY] > rank[parentX])
+                parent[parentX] = parentY;
             else {
-                root[rootY] = rootX;
-                rank[rootX]++;
+                parent[parentY] = parentX;
+                rank[parentX]++;
             }
         }
     }
@@ -34,7 +34,11 @@ public class QuickUnionBySize {
     }
 }
 /*
-find 路徑壓縮優化
+
+什麼是路徑壓縮??
+find 路徑未壓縮, 每個人的老大都是自己的前一位
+parent = [0, 0, 1, 2], count = 1
+
 1 (根節點)
  ^
  |
@@ -46,21 +50,24 @@ find 路徑壓縮優化
  |
 4
 
-
+find 路徑壓縮優化, 每個人的老大都是最前面那一位
+parent = [0, 0, 0, 0], count = 1
     1 (根節點)
   / | \
  2  3  4  <-- 所有節點都直接指向根節點了！
 
-第22行為什麼不是 root[y] = rootX ??
+count 代表連通分量總數, 路徑壓縮不會影響連通分量總數, 但會影響當前圖的畫法, 也就是parent
+
+第22行為什麼不是 parent[y] = parentX ??
 核心概念：我們合併的是「集合（樹）」，而不是「單個節點」
     Union-Find 的底層是一棵棵的樹。
-    1. x 的根節點是 rootX（代表 x 所在的整個幫派的老大）。
-    2. y 的根節點是 rootY（代表 y 所在的整個幫派的老大）。
+    1. x 的根節點是 parentX（代表 x 所在的整個幫派的老大）。
+    2. y 的根節點是 parentY（代表 y 所在的整個幫派的老大）。
 
 當我們執行 union(x, y) 時，我們的目標是把這兩個幫派合併成一個幫派。
 最有效率且正確的方法是：讓其中一個幫派的老大，認另一個幫派的老大當老大。
 
 也就是說：
-1. 正確寫法：root[rootY] = rootX; （y 的老大 rootY 指向 x 的老大 rootX）
-2. 這樣一來，原本歸 rootY 管轄的所有小弟，在呼叫 find() 向上追溯時，都會順著 rootY -> rootX 找到新的總老大 rootX。整個幫派成功合併。
+1. 正確寫法：parent[parentY] = parentX; （y 的老大 parentY 指向 x 的老大 parentX）
+2. 這樣一來，原本歸 parentY 管轄的所有小弟，在呼叫 find() 向上追溯時，都會順著 parentY -> parentX 找到新的總老大 parentX。整個幫派成功合併。
 */

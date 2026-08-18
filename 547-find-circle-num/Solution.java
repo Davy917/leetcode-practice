@@ -1,23 +1,23 @@
 //官解
 class QuickUnion{
-    int[] root;
+    int[] parent;
     private int count; //紀錄省份的數量
     QuickUnion(int size){
-        root = new int[size];
+        parent = new int[size];
         for (int i = 0; i < size; i++)
-            root[i] = i;
+            parent[i] = i;
         this.count = size; //初始count, 每個城市本身都是一個省
     }
     int find(int x){
-        if (x == root[x])
+        if (x == parent[x])
             return x;
-        return root[x] = find(root[x]);
+        return parent[x] = find(parent[x]);
     }
     void union(int x, int y){
-        int rootX = find(x);
-        int rootY = find(y);
-        if (rootX != rootY){
-            root[rootY] = rootX;
+        int parentX = find(x);
+        int parentY = find(y);
+        if (parentX != parentY){
+            parent[parentY] = parentX;
             count--;
         }
     }
@@ -65,8 +65,7 @@ for (int i = 0; i < n; i++)
 返回結果：最後剩下的集合數量，就是省份的總數。
 
 Example:
-初始root [0, 1, 2, 3]
-Union   [0, 0, 2, 1]
+parent  [0, 0, 2, 1]
 城市      1, 2, 3, 4
 索引      0, 1, 2, 3
 */

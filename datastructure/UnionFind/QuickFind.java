@@ -1,24 +1,24 @@
 package UnionFind;
 
 public class QuickFind {
-    int[] root;
+    int[] parent;
 
     public QuickFind(int size){
-        root = new int[size];
+        parent = new int[size];
         for(int i = 0; i < size; i++)
-            root[i] = i;
+            parent[i] = i;
     }
 
     int find(int x){
-        return root[x];
+        return parent[x];
     }
     void union(int x, int y){
-        int rootX = find(x);
-        int rootY = find(y);
-        if (rootX != rootY)
-            for (int i = 0; i < root.length; i++)
-                if (root[i] == rootY)
-                    root[i] = rootX;
+        int parentX = find(x);
+        int parentY = find(y);
+        if (parentX != parentY)
+            for (int i = 0; i < parent.length; i++)
+                if (parent[i] == parentY)
+                    parent[i] = parentX;
     }
 
     boolean connected(int x, int y){
