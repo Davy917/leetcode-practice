@@ -6,25 +6,37 @@ public class TreeDebugger_v2 {
         if (levelOrder.length == 0)
             return null;
         TreeNode root = new TreeNode(levelOrder[0]);
-        int n = levelOrder.length;
-        Queue<TreeNode> queue = new ArrayDeque<>(root);
+        Deque<TreeNode> deque = new ArrayDeque<>();
+        deque.add(root);
         int index = 1;
-        for (int i = 0; i < n; i++) {
-            root.setLeft();
+
+        while (!deque.isEmpty() && index < levelOrder.length){
+            int levelSize = deque.size();
+            for (int i = 0; i < levelSize; i++) {
+                TreeNode curNode = deque.pollFirst();
+                if (curNode != null && index < levelOrder.length){
+                    if (levelOrder[index] != null){
+                        var newNode = new TreeNode(levelOrder[index]);
+                        curNode.setLeft(newNode);
+                        deque.addLast(newNode);
+                    }
+                    index++;
+                }
+                if (index < levelOrder.length){
+                    if (levelOrder[index] != null){
+                        var newNode = new TreeNode(levelOrder[index]);
+                        curNode.setRight(newNode);
+                        deque.addLast(newNode);
+                    }
+                    index++;
+                }
+            }
         }
         return root;
     }
-    public static void main(String[] args) {
-        Integer[] levelOrder = {5, 4, 8, 11, null, 13, 4, 7, 2, null, null, null, 1};
-        buildLevelOrderTree_v2(levelOrder);
-    }
 }
 /*
-          5
-        /   \
-       4     8
-      /     / \
-     11    13  4
-    /  \        \
-   7    2        1
+20, 28行會有黃底, 因為curNode 如果是 null 那麼呼叫 setLeft, setRight 就會報錯
+如果在17, 25行加上 curNode != null 可以解決
+但實際上 if (levelOrder[index] != null) 已經確保了curNode不會有null, 所以curNode != null 也不用加
 */
