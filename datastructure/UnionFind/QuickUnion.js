@@ -37,6 +37,8 @@ if (require.main === module){
 }
 module.exports = QuickUnion
 /*
+並查集（Union-Find）主要解決的是無向圖的連通分量與合併問題。
+
 實戰:
 323-count-components/solution.js
 

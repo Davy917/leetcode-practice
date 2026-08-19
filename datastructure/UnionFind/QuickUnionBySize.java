@@ -34,6 +34,7 @@ public class QuickUnionBySize {
     }
 }
 /*
+並查集（Union-Find）主要解決的是無向圖的連通分量與合併問題。
 
 什麼是路徑壓縮??
 find 路徑未壓縮, 每個人的老大都是自己的前一位

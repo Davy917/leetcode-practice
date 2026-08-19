@@ -27,7 +27,7 @@ class Solution797 {
 }
 /*
 官解
-testcase = [[1,2],[3],[3],[]]
+graph = [[1,2],[3],[3],[]]
 [遞迴樹]
 dfs(0, 3)    stack = [0]
 │
