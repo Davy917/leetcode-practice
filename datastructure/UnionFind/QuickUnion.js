@@ -1,7 +1,7 @@
-function QuickUnion(n){
+function QuickUnion(size){
     this.parent = []
-    this.count = n
-    for (let i = 0; i < n; i++)
+    this.count = size
+    for (let i = 0; i < size; i++)
         this.parent[i] = i;
     console.log("parent = ", this.parent)
 }
@@ -27,6 +27,11 @@ QuickUnion.prototype.union = function (x, y){
         this.count--
     }
 }
+
+QuickUnion.prototype.isConnected = function (x, y){
+    return this.find(x) === this.find(y)
+}
+
 if (require.main === module){
     new QuickUnion(4)
 }
@@ -69,6 +74,6 @@ parent = [0, 0, 0, 0]
 
 回答第18行的問題
 return this.parent[x] //為什麼不是return x ??
-先看上面遞迴樹, 如果是 return x 那麼遞迴樹中第59, 62, 65就不會回傳0, 而是回傳當層 x 值
+先看上面遞迴樹, 如果是 return x 那麼遞迴樹中第64, 67, 70就不會回傳0, 而是回傳當層 x 值
 會導致路徑無法被壓縮
 */
