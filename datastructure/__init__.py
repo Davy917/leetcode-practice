@@ -4,3 +4,4 @@
 """
 from .Tree import TreeNode
 from .Tree import TreeDebugger
+from .UnionFind import quick_union
