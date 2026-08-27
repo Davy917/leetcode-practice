@@ -3,15 +3,13 @@ class Solution:
     def isBipartite(self, graph: List[List[int]]) -> bool:
         def dfs(graph, color, cur, expect) -> bool:
             if color[cur] != 0:
-                if color[cur] == expect:
-                    return True
-                else:
-                    return False
+                return color[cur] == expect
             color[cur] = expect
             for next in graph[cur]:
                 if not dfs(graph, color, next, 3 - expect):
                     return False
             return True
+
         n = len(graph)
         color = [0] * n
         for i in range(n):
@@ -24,5 +22,6 @@ if __name__ == "__main__":
     print("Ans = ", Solution().isBipartite(graph))
     
 """
-210, 785, 802容易搞混
+相似題:
+207, 210, 785, 802
 """

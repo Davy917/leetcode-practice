@@ -10,10 +10,8 @@ class Solution:
         return sorted(result)
     
     def dfs(self, graph, color, cur, result) -> bool:
-        if color[cur] == 1:
-            return False
-        if color[cur] == 2:
-            return True
+        if color[cur] != 0:
+            return color[cur] == 2
         color[cur] = 1
         for next in graph[cur]:
             if not self.dfs(graph, color, next, result):
@@ -26,5 +24,6 @@ if __name__ == "__main__":
     print("Ans = ", Solution().eventualSafeNodes(graph))
     
 """
-210, 785, 802容易搞混
+相似題:
+207, 210, 785, 802
 """
