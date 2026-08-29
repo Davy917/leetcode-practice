@@ -6,7 +6,8 @@
             684-find-redundant-connection/solution.js
     二分圖:
         染色法:
-            785-is-bipartite/solution.js
+            785-is-bipartite/solution.js ---> 不用自己轉鄰接表
+            886-possible-bipartition/solution.py ---> 要自己轉鄰接表
 
 有向圖:
     有環圖:
