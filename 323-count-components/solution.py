@@ -1,3 +1,7 @@
+"""
+BFS看Go
+並查集看js, py
+"""
 from typing import List
 from datastructure.UnionFind.QuickUnion import quick_union as union_find
 class Solution:

@@ -20,4 +20,7 @@ if (require.main === module){
 UnionFind還是無法自己寫出來, 但已經能想到這題要怎麼解
 無向圖, 每個edge中的元素, [0,1], [1, 2], [3, 4]
 都可以看成 union(0,1),union(1,2), union(3,4)
+
+BFS看Go
+並查集看js, py
 */
