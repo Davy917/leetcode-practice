@@ -1,3 +1,7 @@
+/*
+bfs 看 Go (使用二維座標)
+dfs 看 java
+ */
 package main
 
 import "fmt"
@@ -36,7 +40,7 @@ func maxAreaOfIsland(grid [][]int) int {
 * @param cols    grid的總列數
 * @param color 標記是否訪問過
 * @return 當前連通分量的個數
-							左		右		上		下
+							上		下		左		右
 */
 var directions = [][]int{{-1, 0}, {1, 0}, {0, -1}, {0, 1}}
 
@@ -89,4 +93,6 @@ func main() {
 /*
 Leetbook 二維座標 BFS 解答:
 https://leetcode.cn/leetbook/read/bfs/e60fld/
+
+一維座標法, 可以再找時間練習
 */

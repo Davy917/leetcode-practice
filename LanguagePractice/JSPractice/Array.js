@@ -130,9 +130,51 @@ Array.fill() 用來「填充陣列」的工具
 實戰用法看
 655-print-tree/solution.js
 
-底下那一行可以建出這樣的陣列
+底下那一行可以建出這樣的陣列, 用於需要創建二維陣列的情境
 [["","",""],["","",""]]
+
+實例:
+1091-shortest-path-binary-matrix
 */
 let [m, n] = [2, 3]
 let Ans = Array.from({ length: m }, () => Array(n).fill(""));
 console.log(Ans)
+
+
+/*
+逐步拆解這句代碼：
+let color = Array(rows).fill(null).map(() => Array(cols).fill(0))
+
+第1步：Array(rows)
+Array(3)
+結果：[ <3 empty items> ]
+創建長度為 3 的空陣列
+
+
+第2步：.fill(null)
+Array(3).fill(null)
+結果：[ null, null, null ]
+填充每個位置為 null（準備做 map）
+
+
+第3步：.map(() => Array(cols).fill(0))
+Array(3).fill(null).map(() => Array(cols).fill(0))
+遍歷每個 null，用新陣列替換它
+若 cols = 4，結果：
+[
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
+  [0, 0, 0, 0]
+]
+
+
+完整流程圖：
+
+Array(rows)        →  [ <empty>, <empty>, <empty> ]
+   ↓
+.fill(null)        →  [ null, null, null ]
+   ↓
+.map(...)          →  [ [0,0,0,0], [0,0,0,0], [0,0,0,0] ]
+   ↓
+color 結果         →  3×4 的二維陣列，全是 0
+ */
