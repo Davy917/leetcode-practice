@@ -95,4 +95,7 @@ Leetbook 二維座標 BFS 解答:
 https://leetcode.cn/leetbook/read/bfs/e60fld/
 
 一維座標法, 可以再找時間練習
+
+相似題:
+200-num-Islands/solution.js
 */

@@ -1,4 +1,9 @@
 無向圖:
+    無權圖:
+        廣度優先, 深度優先:
+            200-num-Islands/solution.js
+            695-max-area-of-island/solution.go
+            1091-shortest-path-binary-matrix/solution.js
     無環圖:
         並查集:
             323-count-components/solution.js
@@ -10,9 +15,14 @@
             886-possible-bipartition/solution.py ---> 要自己轉鄰接表
 
 有向圖:
+    無權圖:
+        廣度優先, 深度優先:
+            417-pacific-atlantic/solution.py
     有環圖:
         染色法:
+            207-can-finish/solution.py
             210-find-order/Solution.java
+            1136-minimum-semesters/solution.py
     無環圖:
         797-all-path-source-target/Solution.java
         染色法:
