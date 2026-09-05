@@ -65,4 +65,7 @@ bfs需要往 8 個方向搜索, 只有當搜索到 0 才需要處理
 if (inGrid(newX, newY) && grid[newX][newY] === 0 && color[newX][newY] === 0)
 
 有把這層防護寫好, 上面那個突破點就是水到渠成, 所以 bfs 拿來解最短路徑題型特別適合
+
+延伸題:
+934-shortest-bridge/solution.py
 */
