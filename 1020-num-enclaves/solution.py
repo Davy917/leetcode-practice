@@ -27,7 +27,8 @@ class Solution:
                         new_x = cur_x + direction[0]
                         new_y = cur_y + direction[1]
                         if in_grid(new_x, new_y) and grid[new_x][new_y] == 1 :
-                            near_ocean = is_edge(new_x, new_y) # 如果該座標在邊上, near_ocean就會是True
+                            if near_ocean is False:
+                                near_ocean = is_edge(new_x, new_y) # 如果該座標在邊上, near_ocean就會是True
                             dq.append([new_x, new_y])
                             grid[new_x][new_y] = 0 #走過的地方改0, 等下就不會再走到
                             temp += 1
@@ -36,16 +37,16 @@ class Solution:
         count = 0
         for i in range(self.rows):
             for j in range(self.cols):
-                if in_grid(i, j) and grid[i][j] == 1 and not is_edge(i, j):
+                if grid[i][j] == 1 and not is_edge(i, j):
                     bfs(grid, i, j)
         return count
 if __name__ == "__main__":
-    grid = [[0,0,0,1,1,1,0,1,0,0],[1,1,0,0,0,1,0,1,1,1],[0,0,0,1,1,1,0,1,0,0],[0,1,1,0,0,0,1,0,1,0],[0,1,1,1,1,1,0,0,1,0],[0,0,1,0,1,1,1,1,0,1],[0,1,1,0,0,0,1,1,1,1],[0,0,1,0,0,1,0,1,0,1],[1,0,1,0,1,1,0,0,0,0],[0,0,0,0,1,1,0,0,0,1]]
+    grid = [[0,0,0,0],[1,0,1,0],[0,1,1,0],[0,0,0,0]]
     print("Ans = ", Solution().numEnclaves(grid))
     """
     自己寫的
     什麼情境要做bfs?
-    grid[i][j]是不在邊上的土地 -> 才值得做bfs
+    grid[i][j]是不臨海的土地 -> 才值得做bfs
 
     進入bfs中:
     走過的土地, 一定不需要再走一次, 所以走過的地方就把值改為 0
@@ -54,4 +55,8 @@ if __name__ == "__main__":
     題目希望我們回傳飛地單元格的數量
     因為我們對每個值為 1 的座標都做了is_edge判斷
     所以根據 near_ocean 就可以知道當前土地是不是飛地
+    
+    這裡 near_ocean 有個小細節要注意:
+    如果 near_ocean 從初始狀態 False 變成　True, 代表這塊陸地已經有座標是靠海的
+    這個狀態機是不能被重置的, 所以需要用第30行那個if來保護它
     """
