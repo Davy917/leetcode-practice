@@ -3,6 +3,7 @@
         廣度優先, 深度優先:
             130-solve/Solution.java
             200-num-Islands/solution.js
+            286-walls-and-gates\solution.go # 介紹, 多源bfs vs 單源bfs
             529-update-board/solution.py
             695-max-area-of-island/solution.go
             733-flood-fill\solution.go
