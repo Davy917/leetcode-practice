@@ -72,7 +72,26 @@ from collections import defaultdict
 m = defaultdict(list) # 預設值是空列表
 m["fruits"].append("apple") # 不用先初始化 m["fruits"] = []，直接用！
 ```
+---
 
+## 以下整理各語言對「直接用賦值新增鍵值對」的行為（重點、注意事項與最短範例）：
+
+- **Java**: 不能用 `[]` 或直接賦值，必須呼叫 `Map` 的方法（例如 `put`）。若 `map` 變數為 `null`，呼叫方法會 NPE。  
+  例：`map.put("k", v);`
+
+- **JavaScript (Object)**: 可以直接賦值新增/更新屬性：`obj[key] = value`。注意物件需先存在（否則先建立變數）。  
+  例：`obj["k"] = 1;`
+
+- **JavaScript (Map)**: `Map` 物件不能用 `[]`，需使用 `set()`。  
+  例：`m.set("k", 1);`
+
+- **Python**: `dict` 支援直接賦值新增/更新：`d[key] = value`。變數需先指向 `dict`（否則 NameError）。  
+  例：`d["k"] = 1`
+
+- **Go**: 支援 `m[key] = value` 直接賦值，但 `map` 必須已初始化（非 `nil`）：用 `make(map[T]U)` 或字面量建立，否則賦值會 panic。  
+  例：`m := make(map[string]int); m["k"] = 1`
+
+總結：JS 的 plain object、Python `dict`、Go 的已初始化 `map` 可用直接賦值；Java 的 `Map` 與 JS 的 `Map` 則需呼叫方法（`put` / `set`）。
 ---
 
 ## 四、 總結：我該怎麼選？

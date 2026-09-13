@@ -7,6 +7,7 @@
             529-update-board/solution.py
             695-max-area-of-island/solution.go
             733-flood-fill\solution.go
+            752-open-lock\solution.go  # 變化題, 沒有自己寫出來, 不是在陣列中做bfs
             934-shortest-bridge/solution.py       #BFS, DFS都有用到
             1020-num-enclaves/solution.py
             1091-shortest-path-binary-matrix/solution.js
