@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func openLock(deadends []string, target string) int {
 	if target == "0000" {
 		return 0
@@ -14,19 +16,20 @@ func openLock(deadends []string, target string) int {
 	}
 
 	get := func(cur string) (result []string) {
-		s := []byte(cur)
-		for i, b := range s {
-			s[i] = b - 1
+		s := []byte(cur) //[48, 48, 48, 48]
+		for i, v := range s {
+			s[i] = v - 1
 			if s[i] < '0' { //'0' 的整數值是 48
 				s[i] = '9'
 			}
 			result = append(result, string(s))
-			s[i] = b + 1
+			s[i] = v + 1
 			if s[i] > '9' { //'9' 的整數值是 57
 				s[i] = '0'
 			}
 			result = append(result, string(s))
-			s[i] = b
+			fmt.Printf("result = %v\ns = %s\n", result, s)
+			s[i] = v //把s[i] reset
 		}
 		return
 	}
@@ -65,6 +68,7 @@ func main() {
 leetbook解答:
 https://leetcode.cn/problems/open-the-lock/description/
 
+
 get函式說明:
 get 會回傳從當前四位密碼能一步到達的所有狀態（每一位各 +1 / -1，會循環 0↔9），回傳值長度為 2 * len(status)。
 
@@ -85,4 +89,8 @@ get 會回傳從當前四位密碼能一步到達的所有狀態（每一位各 
 queue不再是裝座標, 而是直接放置string
 visited不再是二維陣列, 而是map[string]bool
 get 巧妙地確定了接下來的 8 步會走哪
+
+
+相似題:
+279-num-squares\solution.go
 */
