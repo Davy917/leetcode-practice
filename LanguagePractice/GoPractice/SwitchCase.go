@@ -33,4 +33,7 @@ func SwitchCase() {
 case結尾會自動break, 如果需要匹配下一項可以加入fallthrough, default可以省略
 教學:
 https://www.youtube.com/watch?v=HTw49C9FaTI&list=PLBjZhzRvV2ChPTPNDx_apHdKa9Ha7LVpN&index=12
+
+實戰:
+020-is-valid\solution.go
 */
