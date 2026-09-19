@@ -55,4 +55,7 @@ if(require.main === module){
 自己寫的
 相似題:
 695-max-area-of-island/solution.go
+
+bfs看js
+dfs看go
  */
