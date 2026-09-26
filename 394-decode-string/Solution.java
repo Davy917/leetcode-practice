@@ -1,7 +1,7 @@
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
-class Solution {
+class Solution394 {
     public static String decodeString(String s) {
         //初始化
         Deque<Object[]> stack = new ArrayDeque<>();
