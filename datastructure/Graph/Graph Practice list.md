@@ -8,6 +8,7 @@
 - [200-num-Islands](../../200-num-Islands/solution.js)
 - [286-walls-and-gates](../../286-walls-and-gates/solution.go) - 介紹多源BFS vs 單源BFS
 - [529-update-board](../../529-update-board/solution.py)
+- [542-update-matrix](../../542-update-matrix/solution.go)
 - [695-max-area-of-island](../../695-max-area-of-island/solution.go)
 - [733-flood-fill](../../733-flood-fill/solution.go)
 - [934-shortest-bridge](../../934-shortest-bridge/solution.py) - BFS、DFS都有用到
