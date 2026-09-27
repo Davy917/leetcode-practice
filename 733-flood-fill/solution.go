@@ -1,3 +1,7 @@
+/*
+dfs看java
+bfs看go
+ */
 package main
 
 import (
