@@ -4,25 +4,20 @@ import java.util.Deque;
 class Solution394 {
     public static String decodeString(String s) {
         //初始化
-        Deque<Object[]> stack = new ArrayDeque<>();
+        Deque<String[]> stack = new ArrayDeque<>();
         String str = "";
         String num = "";
         for (char c : s.toCharArray()){
             System.out.println("c = " + c);
             switch (c){
                 case '[':
-                    Object[] temp = new Object[2];
-                    temp[0] = num;
-                    temp[1] = str;
-                    stack.push(temp);
+                    stack.push(new String[]{num, str});
                     num = "";
                     str = "";
                     break;
                 case ']':
-                    Object[] popOut = stack.pop();
-                    String m = (String) popOut[1]; //彈出的文字
-                    int n = Integer.parseInt((String) popOut[0]); //彈出的數字
-                    str = m + str.repeat(n);
+                    String[] popOut = stack.pop();
+                    str = popOut[1] + str.repeat(Integer.parseInt(popOut[0]));
                     break;
                 default:
                     int index = 'z' - c; // 'a'對應97, 'z'對應122
@@ -81,7 +76,8 @@ stack加入邏輯
 [num, str]
 stack彈出元素與當前str組合的邏輯:
 str = 彈出的文字 + (str * 彈出的數字)
-str = m + (str * n)
+str = popOut[1] + str.repeat(Integer.parseInt(popOut[0]));
+
 代碼結構:
 for char : s{
     遇到 [ :
@@ -91,8 +87,11 @@ for char : s{
         1. popOut 出棧
         2. str = 彈出的文字 + (彈出的數字 * str)
     遇到文字:
-        str = 文字
+        str += 文字
     遇到數字:
-        num = 數字
+        num += 數字
 }
+
+延伸討論:
+
 */

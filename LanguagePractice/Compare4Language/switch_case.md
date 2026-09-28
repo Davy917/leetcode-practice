@@ -32,6 +32,9 @@ String type = switch (day) {
     }
 };
 ```
+java switch-case練習
+- [394-decode-string](../../394-decode-string/Solution.java)
+
 
 #### 2. JavaScript
 JS 的 `switch` 行為與 C/Java 傳統語法相似，但在現代開發中，常使用 **Object Literal** 或 **Map** 來替代複雜的分支。
@@ -118,7 +121,9 @@ match point:
     case (x, y) if x == y: # 帶 guard 的匹配
         print("On diagonal")
 ```
-
+python match-case練習
+- [150-eval-RPN](../../150-eval-RPN/solution.py)
+- [394-decode-string](../../394-decode-string/solution.py)
 ---
 
 ### 特性對比表
