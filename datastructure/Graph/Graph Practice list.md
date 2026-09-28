@@ -51,6 +51,7 @@
 
 - [207-can-finish](../../207-can-finish/solution.py)
 - [210-find-order](../../210-find-order/Solution.java)
+- [841-can-visit-all-rooms](../../841-can-visit-all-rooms/solution.go) 使用時機: 並查集 vs dfs,bfs
 - [1136-minimum-semesters](../../1136-minimum-semesters/solution.py)
 
 ### 無環圖
