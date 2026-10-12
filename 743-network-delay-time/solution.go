@@ -39,7 +39,6 @@ func networkDelayTime(times [][]int, n int, k int) int {
 					dist: graph[cur.end][j].dist + cur.dist,
 				}
 				heap.Push(h, next)
-				fmt.Print(cur.end, cur.dist)
 			}
 		}
 	}
@@ -74,31 +73,29 @@ func main() {
 /*
 times本質是什麼?
 有權有向圖
+
 聯想到什麼?
-BFS, DFS
+BFS, DFS, 轉鄰接表
 
-轉鄰接表(1-base)
-[], [], [1, 3], [4]
+拿紙筆把圖畫出來, 嘗試過BFS, DFS都沒寫出來
 
-因為
-2---1, 花10分鐘
-2---3, 花20分鐘
+寫不出來的原因-->有權圖存在「繞路反而更短」的情形
+times = [[1,2,10], [1,3,1], [3,2,1]], n = 3, k = 1
 
-所以
-可知, 2---3完成的時候, 2---1 這條訊號一定也完成了
+需要使用--->Dijkstra演算法
+743-network-delay-time/Dijkstra VS BFS.md
 
 結論
-從起點到所有節點的最短路徑的最大值
+從起點到所有節點的最短路徑的最大值, 同樣都是找最短路徑
+BFS用在無權圖
+Dijkstra用在有權圖
 
-可能會使用:
 
-BFS要做什麼?
-
-優先隊列要怎麼做?
-
-為什麼一般的BFS, DFS處理不了這個問題?
-
-需要用那些資料結構?
+需要哪些資料結構?
+Pair struct{終點, 邊長}
+graph: map{起點: {終點, 邊長}}--->鄰接表
+h: heap{終點, 邊長}--->最大堆
+visited: slice[布林值]
 
 什麼情況會return -1 ?
 有一個以上的邊(含), 沒有被走訪--->用visited處理

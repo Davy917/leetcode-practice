@@ -43,6 +43,10 @@
 - [417-pacific-atlantic](../../417-pacific-atlantic/solution.py)
 - [909-snakes-and-ladders](../../909-snakes-and-ladders/solution.go)
 
+### 有權圖 - Dijkstra
+
+- [743-network-delay-time](../../743-network-delay-time/solution.go) Dijkstra VS BFS
+
 #### 隱式圖
 
 - [279-num-squares](../../279-num-squares/solution.go)
