@@ -5,3 +5,4 @@
 - [347-top-k-frequent](../../347-top-k-frequent/solution.py)
 - [658-find-closest-elements](../../658-find-closest-elements/solution.go)
 - [743-network-delay-time](../../743-network-delay-time/solution.go)
+- [1631-minimum-effort-path](../../1631-minimum-effort-path/Solution.java)

@@ -130,3 +130,84 @@ heap.Init(h)
 heap.Push(h, 3)
 val := heap.Pop(h)
 ```
+
+## 如何自訂優先隊列的比對內容
+
+**1. Java**
+使用 `class`，並通常需要實作 `Comparable` 介面以便放入優先佇列中排序：
+- [743-network-delay-time](../../743-network-delay-time/Solution.java) 轉鄰接表
+- [1631-minimum-effort-path](../../1631-minimum-effort-path/Solution.java) 不轉鄰接表
+
+```java
+// ... existing code ...
+class Pair implements Comparable<Pair> {
+    int node;
+    int dist;
+    
+    public Pair(int node, int dist) {
+        this.node = node;
+        this.dist = dist;
+    }
+    
+    @Override
+    public int compareTo(Pair other) {
+        return Integer.compare(this.dist, other.dist); // 由小到大排序
+    }
+}
+// ... existing code ...
+```
+*(註：Java 14 以上也可以使用更簡潔的 `record Pair(int node, int dist)`)*
+
+**2. Python**
+可以使用一般的 `class`，或是更優雅的 `dataclass`：
+```python
+from dataclasses import dataclass
+
+# ... existing code ...
+@dataclass
+class Pair:
+    node: int
+    dist: int
+    
+    # 若要放入 heap 排序，需定義 __lt__ (小於) 方法
+    def __lt__(self, other):
+        return self.dist < other.dist
+# ... existing code ...
+```
+
+**3. JavaScript / TypeScript**
+使用 `class` 來定義：
+```javascript
+// ... existing code ...
+class Pair {
+    constructor(node, dist) {
+        this.node = node;
+        this.dist = dist;
+    }
+}
+// ... existing code ...
+```
+*(TypeScript 還可以加上型別註解：`class Pair { node: number; dist: number; ... }`)*
+
+**4. Go**
+自己定義一個類型並實現 `heap.Interface` 中的 `Len`, `Less`, `Swap`, `Push`, `Pop` 五個方法:
+
+- [743-network-delay-time](../../743-network-delay-time/solution.go)
+```go
+type IntHeap []Pair
+
+func (h IntHeap) Len() int            { return len(h) }
+func (h IntHeap) Less(i, j int) bool  { return h[i].dist < h[j].dist } // < 為最小堆, > 為最大堆1
+func (h IntHeap) Swap(i, j int)       { h[i], h[j] = h[j], h[i] }
+func (h *IntHeap) Push(x interface{}) { *h = append(*h, x.(Pair)) }
+func (h *IntHeap) Pop() interface{} {
+	old := *h
+	n := len(old)
+	x := old[n-1]
+	*h = old[0 : n-1]
+	return x
+}
+```
+
+- **核心優勢：**
+這些寫法都比單純的 Array 或 Tuple 更具**可讀性**。當你需要存取 `state.node` 時，會比 `state[0]` 更不容易出錯，後續擴充欄位也更方便。

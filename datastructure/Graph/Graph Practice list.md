@@ -44,9 +44,9 @@
 - [909-snakes-and-ladders](../../909-snakes-and-ladders/solution.go)
 
 ### 有權圖 - Dijkstra
-
-- [743-network-delay-time](../../743-network-delay-time/solution.go) Dijkstra VS BFS
-
+**Dijkstra VS BFS**
+- [743-network-delay-time](../../743-network-delay-time/solution.go) 轉鄰接表
+- [1631-minimum-effort-path](../../1631-minimum-effort-path/Solution.java) 不轉鄰接表
 #### 隱式圖
 
 - [279-num-squares](../../279-num-squares/solution.go)
