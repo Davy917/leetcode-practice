@@ -4,3 +4,4 @@
 - [264-nth-ugly-number](../../264-nth-ugly-number/solution.py)
 - [347-top-k-frequent](../../347-top-k-frequent/solution.py)
 - [658-find-closest-elements](../../658-find-closest-elements/solution.go)
+- [743-network-delay-time](../../743-network-delay-time/solution.go)

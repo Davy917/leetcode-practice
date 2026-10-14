@@ -23,8 +23,8 @@ func networkDelayTime(times [][]int, n int, k int) int {
 	fmt.Println(graph) //debug
 	h := &IntHeap{}
 	maxVal := -2
-	var bfs func(cur int)
-	bfs = func(cur int) {
+	var dijkstra func(cur int)
+	dijkstra = func(cur int) {
 		heap.Push(h, Pair{cur, 0})
 		for h.Len() > 0 {
 			var cur Pair = heap.Pop(h).(Pair)
@@ -42,7 +42,7 @@ func networkDelayTime(times [][]int, n int, k int) int {
 			}
 		}
 	}
-	bfs(k)
+	dijkstra(k)
 	for i := 1; i < len(visited); i++ {
 		if visited[i] == false {
 			return -1
