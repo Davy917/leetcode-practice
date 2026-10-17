@@ -92,4 +92,6 @@ visited 能被捨棄嗎?
 可以, 把走過的地方改成 0 在這題是可行的
 
 這還不是標準的dijkstra, 試試標準版dijkstra
+
+補上dist[][], relax, heap存從起點到該節點的路徑成本
  */
