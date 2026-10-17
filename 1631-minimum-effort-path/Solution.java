@@ -1,3 +1,7 @@
+/*
+標準版dijkstra看python版本
+自己寫的dijkstra看java版本
+*/
 import java.util.PriorityQueue;
 
 class Pair implements Comparable<Pair> {
@@ -91,7 +95,6 @@ dijkstra, 出隊, 才標記為已遍歷
 visited 能被捨棄嗎?
 可以, 把走過的地方改成 0 在這題是可行的
 
-這還不是標準的dijkstra, 試試標準版dijkstra
-
-補上dist[][], relax, heap存從起點到該節點的路徑成本
+標準版dijkstra vs 自己寫的dijkstra
+1631-minimum-effort-path\improve.md
  */

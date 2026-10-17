@@ -1,3 +1,7 @@
+/*
+自己寫的看python
+官方解看java
+*/
 import java.util.*;
 import java.util.LinkedList;
 
