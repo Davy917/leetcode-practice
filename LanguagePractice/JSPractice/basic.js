@@ -9,6 +9,11 @@ console.log("111 === '111", 111 === '111')
 var a = 2
 console.log("a的5次方 = " + a ** 5)
 
+/*
+XOR運算子^--->XOR（全稱 Exclusive OR）的中文名稱是「互斥或」或「異或」
+136-single-number\solution.js
+*/
+
 //1.全域變數
 var y = 1
 function variable() {
