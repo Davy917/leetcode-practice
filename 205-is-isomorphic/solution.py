@@ -1,3 +1,7 @@
+"""
+官方解答python, java
+自己寫的go版本
+"""
 class Solution:
     def P0205_isIsomorphic(self, s: str, t: str) -> bool:
         map1 = {}
