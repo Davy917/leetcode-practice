@@ -1,4 +1,8 @@
-//看明白了, 但自己寫一遍還是寫不出來
+/*
+官方解答java
+自己寫的失敗版本js
+自己寫的成功版本go
+*/
 import java.util.Arrays;
 
 class Solution424 {
@@ -28,6 +32,9 @@ class Solution424 {
     }
 }
 /*
+看明白了, 但自己寫一遍還是寫不出來
+5個月後自己寫出來了
+
 官方解答:
 https://leetcode.cn/leetbook/read/sliding-window-and-two-pointers/rlcgrd/
  */
