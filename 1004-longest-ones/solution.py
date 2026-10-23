@@ -1,5 +1,6 @@
 """
 自己寫的java, python
+自己寫的優化版go
 """
 class Solution:
     def longestOnes(self, nums: list[int], k: int) -> int:
