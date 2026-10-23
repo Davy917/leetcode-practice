@@ -1,4 +1,6 @@
-//自己寫的
+/*
+自己寫的java, python
+*/
 class Solution1004 {
     public static int longestOnes(int[] nums, int k) {
         int maxLen = 0;
