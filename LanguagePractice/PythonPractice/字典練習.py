@@ -44,4 +44,8 @@ if __name__ == "__main__":
 你需要傳入一個可調用對象 (callable)，它在被調用時會返回一個默認值。
 最常見的可調用對象是內建類型（如 int, list, dict, set）或你自定義的無參函數。  
 defaultdict 的括號裡必須有一個參數，這個參數就是告訴 defaultdict 當遇到新鍵時，應該創建什麼樣的默認值。  
+
+defaultdict vs dict實戰:
+249-group-strings/solution.py
+049-group-anagrams/solution.py
 """
