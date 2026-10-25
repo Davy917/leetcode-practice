@@ -1,3 +1,7 @@
+"""
+自己寫的js
+官方解答java, python
+"""
 from typing import List
 class Solution:
     rowMap = {}

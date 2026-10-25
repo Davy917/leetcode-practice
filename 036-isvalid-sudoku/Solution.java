@@ -1,3 +1,7 @@
+/*
+自己寫的js
+官方解答java, python
+*/
 import java.util.*;
 
 class Solution036 {
