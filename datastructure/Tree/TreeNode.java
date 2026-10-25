@@ -19,6 +19,17 @@ public class TreeNode {
 
     public void setLeft(TreeNode left) { this.left = left; }
     public void setRight(TreeNode right) { this.right = right; }
+
+    @Override//覆寫TreeNode 的 toString()，讓　treeNodeMap　的打印可讀
+    public String toString() {
+        if (left == null && right == null) return String.valueOf(val);//如果是子葉，直接return其值
+        //非子葉return如下
+        return val + "("
+                + (left == null ? "null" : left.toString())
+                + ","
+                + (right == null ? "null" : right.toString())
+                + ")";
+    }
 }
 
 /*

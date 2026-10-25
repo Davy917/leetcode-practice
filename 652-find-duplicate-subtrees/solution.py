@@ -24,7 +24,7 @@ class Solution:
         
         #設計哈希鍵
         key = f"{node.val}(" + self.visit(node.left) + "," + self.visit(node.right) + ")"
-        print("treeNodeKey = ", type(key))
+        print("treeNodeKey = ", key)
 
 
         if key in self.key_set:
