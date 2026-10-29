@@ -36,7 +36,7 @@ anonymousFunc(function (message)
         console.log("message is :", message)
     })
 
-//立即函式 (第 2 種最符合立即函式的典型用法。)
+//立即函式 IIFE = Immediately Invoked Function Expression (第 2 種最符合立即函式的典型用法。)
 //1. 加上 return（推薦）
 var sayHi = function (name){
     let s = "Hi, " + name + " !"
@@ -50,7 +50,7 @@ var sayHi = function (name){
     console.log(s)
     return s //注意
 })('Peter')
-
+// 實戰用法 datastructure\PriorityQueue\Heap.js
 
 // 箭頭函式寫法
 const add = (a, b) => a + b;

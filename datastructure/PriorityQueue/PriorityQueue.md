@@ -74,6 +74,29 @@ class MinHeap {
 }
 ```
 
+不過有幾種常見的替代方案：
+
+1. **手動實作 Min-Heap / Max-Heap** — 最常見的做法，用陣列模擬二元堆積。
+2. **排序代替** — 對於這道題，可以直接對頻率排序後取前 K 個，時間複雜度 O(n log n)。
+3. **LeetCode 環境有提供** — LeetCode 的 JavaScript 環境中有內建 `MinPriorityQueue`（來自 `datastructures-js` 套件），可以直接使用。
+
+---
+
+### LeetCode 環境中的用法
+
+```javascript
+// 建立最小堆積，依傳入的比較函數排序
+const pq = new MinPriorityQueue({ compare: (a, b) => a.freq - b.freq });
+
+pq.enqueue({ val: 1, freq: 3 });
+pq.enqueue({ val: 2, freq: 5 });
+
+pq.dequeue(); // 取出 freq 最小的元素
+pq.front();   // 查看堆積頂端元素
+pq.size();    // 堆積大小
+```
+
+
 #### 3. Python
 Python 使用內建的 `heapq` 模組。
 - **特性：** 默認為 **最小堆 (Min-Heap)**。
