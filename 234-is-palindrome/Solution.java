@@ -1,4 +1,7 @@
-//將值複製到數組中然後使用雙指針
+/*
+基本解看java
+最佳解看python, go
+*/
 import java.util.ArrayList;
 import java.util.List;
 
@@ -80,12 +83,3 @@ class Solution234 {
         System.out.println("isPalindrome result = " + result);
     }
 }
-/*
-给你一个单链表的头节点 head ，请你判断该链表是否为回文链表。如果是，返回 true ；否则，返回 false 。
-
-输入：head = [1,2,2,1]
-输出：true
-
-输入：head = [1,2]
-输出：false
- */

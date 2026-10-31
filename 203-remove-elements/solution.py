@@ -1,3 +1,7 @@
+"""
+第一次練習版本java, python
+第二次自己寫的go
+"""
 from typing import Optional
 class ListNode(object):
     def __init__(self, val=0, next=None):

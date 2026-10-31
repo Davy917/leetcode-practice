@@ -1,3 +1,7 @@
+/*
+第一次練習版本java, python
+第二次自己寫的go
+*/
 class Solution203 {
 
     public static class ListNode{

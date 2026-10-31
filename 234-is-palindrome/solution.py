@@ -1,4 +1,7 @@
-#使用快慢指針，反轉鏈表，空間複雜度有優勢
+"""
+基本解看java
+最佳解看python, go
+"""
 from typing import Optional#寫optional的好處是??
 class ListNode:
     def __init__(self, val=0, next=None):
