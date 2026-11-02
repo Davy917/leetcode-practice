@@ -6,7 +6,7 @@ import (
 
 func main() {
 	nums := []int{1, 5, 6, 7, 9, 5}
-	ll := test.NewLinkedList()
+	ll := test.Constructor()
 	ll.BuildLinkedList(nums)
 	ll.PrintList(ll.Head)
 }

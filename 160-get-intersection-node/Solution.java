@@ -1,3 +1,7 @@
+/*
+自己寫的基本解java
+自己寫的最佳解go
+*/
 import java.util.HashSet;
 
 class ListNode{

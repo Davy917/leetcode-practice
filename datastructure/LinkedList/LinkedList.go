@@ -2,45 +2,100 @@ package LinkedList
 
 import "fmt"
 
-type LinkedList struct{
+type LinkedList struct {
 	Head *ListNode
-	Tail *ListNode
 	Size int
 }
 
-func NewLinkedList() *LinkedList {
-	return &LinkedList{}
+func Constructor() LinkedList {
+	return LinkedList{nil, 0}
 }
 
-func (ll *LinkedList) AddAtTail(val int) {
-	newNode := &ListNode{Val: val}
-	if ll.Size == 0 {
-		ll.Head = newNode
-		ll.Tail = newNode
-		ll.Size++
+func (this *LinkedList) Get(index int) int {
+	if index < 0 || index >= this.Size {
+		return -1
+	}
+	cur := this.Head
+	k := 0
+	for k < index && cur.Next != nil {
+		cur = cur.Next
+		k++
+	}
+	return cur.Val
+}
+
+func (this *LinkedList) AddAtHead(val int) {
+	this.AddAtIndex(0, val)
+}
+func (this *LinkedList) AddAtTail(val int) {
+	this.AddAtIndex(this.Size, val)
+}
+func (this *LinkedList) AddAtIndex(index int, val int) {
+	if index > this.Size {
 		return
 	}
-	ll.Tail.Next = newNode
-	ll.Tail = newNode
-	ll.Size++
-}
-
-func (ll *LinkedList) BuildLinkedList(nums []int) (Head *ListNode) {
-	ll.Head = nil
-	ll.Tail = nil
-	ll.Size = 0
-	for _, num := range nums {
-		ll.AddAtTail(num)
+	dummy := &ListNode{-1, this.Head}
+	newNode := ListNode{val, nil}
+	cur := dummy
+	j := 0
+	for j < index {
+		cur = cur.Next
+		j++
 	}
-	return ll.Head
+	if index == 0 {
+		dummy.Next = &newNode
+		newNode.Next = this.Head
+		this.Head = &newNode
+	} else {
+		temp := cur.Next
+		cur.Next = &newNode
+		newNode.Next = temp
+	}
+	this.Size++
 }
 
-func (ll *LinkedList) PrintList(Head *ListNode) {
+func (this *LinkedList) DeleteAtIndex(index int) {
+	if index < 0 || index >= this.Size {
+		return
+	}
+	dummy := &ListNode{-1, this.Head}
+	cur := dummy
+	j := 0
+	for j < index {
+		cur = cur.Next
+		j++
+	}
+
+	if index == 0 {
+		this.Head = this.Head.Next
+		dummy.Next = this.Head
+	} else {
+		if cur.Next != nil && cur.Next.Next != nil {
+			cur.Next = cur.Next.Next
+		} else {
+			cur.Next = nil
+		}
+	}
+	this.Size--
+}
+
+func (this *LinkedList) BuildLinkedList(nums []int) *ListNode {
+	for _, num := range nums {
+		this.AddAtTail(num)
+	}
+	return this.Head
+}
+
+func (this *LinkedList) PrintList(Head *ListNode) {
 	fmt.Print("[")
-	visitor := Head
-	for visitor != nil{
-		fmt.Printf("%d ", visitor.Val)
-		visitor = visitor.Next
+	cur := Head
+	for cur != nil {
+		fmt.Printf("%d ", cur.Val)
+		cur = cur.Next
 	}
 	fmt.Print("]\n")
 }
+
+/*
+改編自 707-my-linked-list\solution.go
+*/
