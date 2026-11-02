@@ -23,7 +23,7 @@ func isPalindrome(head *ListNode) bool {
 	tail := reverseList(slow.Next)
 	slow.Next = nil
 	cur := head
-	for tail != nil{
+	for tail != nil {
 		fmt.Printf("tail = %d, cur = %d\n", cur.Val, tail.Val) // debug
 		if tail.Val != cur.Val {
 			return false
@@ -45,7 +45,7 @@ func reverseList(head *ListNode) *ListNode {
 	return pre
 }
 func main() {
-	ll := LinkedList.NewLinkedList()
+	ll := LinkedList.Constructor()
 	head := ll.BuildLinkedList([]int{1, 2, 3, 2, 1})
 	isPalindrome(head)
 }

@@ -3,33 +3,35 @@
 第二次自己寫的go
 */
 package main
+
 import (
 	"gopractice/datastructure/LinkedList"
 )
+
 type ListNode = LinkedList.ListNode
+
 func removeElements(head *ListNode, val int) *ListNode {
-    dummy := &ListNode{Val: -1, Next: head}
-    cur := dummy
-    for cur.Next != nil{
-        for cur.Next.Val == val{
-            if cur.Next.Next != nil{
-                cur.Next = cur.Next.Next
-            } else{
-                cur.Next = nil
-                return dummy.Next
-            }
-        }
-        cur = cur.Next
-    }
-    return dummy.Next
+	dummy := &ListNode{Val: -1, Next: head}
+	cur := dummy
+	for cur.Next != nil {
+		for cur.Next.Val == val {
+			if cur.Next.Next != nil {
+				cur.Next = cur.Next.Next
+			} else {
+				cur.Next = nil
+				return dummy.Next
+			}
+		}
+		cur = cur.Next
+	}
+	return dummy.Next
 }
-func main(){
-	ll := LinkedList.NewLinkedList()
-	head := ll.BuildLinkedList([]int {7,7,7,7})
+func main() {
+	ll := LinkedList.Constructor()
+	head := ll.BuildLinkedList([]int{7, 7, 7, 7})
 	ll.PrintList(head)
 	removeElements(head, 7)
 }
-
 
 /*
 自己寫的
@@ -48,7 +50,7 @@ for 下個節點還有東西嗎?
                     刪掉之後, 繼續循環
                 不存在
                     走到邊界了, 刪掉之後直接return
-        不需要  
+        不需要
             退出for迴圈
     移動到下一個節點
 

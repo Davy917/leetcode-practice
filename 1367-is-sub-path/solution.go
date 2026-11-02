@@ -28,9 +28,10 @@ func isSamePath(head *ListNode, root *TreeNode) bool {
 }
 
 func main() {
-	head := []int{4, 2, 8}
+	nums := []int{4, 2, 8}
 	root := []any{1, 4, nil, 2, 1, nil, nil, nil, 4, 2, 6, nil, nil, 8, 1, nil, nil, 3, nil, nil, nil}
-	headNode := LinkedList.NewLinkedList().BuildLinkedList(head)
+	ll := LinkedList.Constructor()
+	headNode := ll.BuildLinkedList(nums)
 	rootNode := Tree.BuildPreorderTree(root)
 	fmt.Println(isSubPath(headNode, rootNode))
 }

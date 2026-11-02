@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	linkedlist "gopractice/datastructure/LinkedList"
+	linkedlist "gopractice/datastructure/DoublyLinkedList"
 	gft "gopractice/gofunctool"
 )
 

@@ -1,6 +1,7 @@
 //官方解答
 import Tree.*;
-import LinkedList.*;
+import LinkedList.ListNode;
+import LinkedList.LinkedList;
 
 class Solution1367 {
     public static boolean isSubPath(ListNode head, TreeNode root) {
