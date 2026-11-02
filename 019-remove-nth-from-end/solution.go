@@ -1,32 +1,17 @@
-// 自己寫的
+// 思路看java版本
 package main
 
-type ListNode struct {
-	val  int
-	Next *ListNode
-}
-type LinkedList struct {
-	head *ListNode
-	tail *ListNode
-	size int
-}
+import (
+	"gopractice/datastructure/LinkedList"
+)
 
-func (ll *LinkedList) Append(val int) {
-	Node := &ListNode{val, nil}
-	if ll.head == nil {
-		ll.head = Node
-		ll.tail = Node
-	} else {
-		ll.tail.Next = Node
-		ll.tail = Node
-	}
-	ll.size++
-}
+type ListNode = LinkedList.ListNode
+
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	if head.Next == nil {
 		return nil
 	}
-	dummy := &ListNode{0, head} //& ??
+	dummy := &ListNode{Val: -1, Next: head}
 	l, r := dummy, dummy
 	for i := 0; i < n && r.Next != nil; i++ {
 		r = r.Next
@@ -39,12 +24,11 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	return dummy.Next //注意不是return head
 }
 func main() {
-	ll := LinkedList{nil, nil, 0}
-	head := []int{1, 2, 3, 4, 5}
-	for _, v := range head {
-		ll.Append(v)
-	}
-	removeNthFromEnd(ll.head, 2)
+	nums := []int{1, 2, 3, 4, 5}
+	ll := LinkedList.Constructor()
+	head := ll.BuildLinkedList(nums)
+	ll.PrintList(head)                      //執行前
+	ll.PrintList(removeNthFromEnd(head, 2)) //執行後
 }
 
 /*

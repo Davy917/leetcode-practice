@@ -19,14 +19,15 @@ class Solution1367 {
     }
     public static void main(String[] args) {
         Integer[] root = {1, 4, null, 2, 1, null, null, null, 4, 2, 6, null, null, 8, 1, null, null, 3, null, null, null};
-        Integer[] head = {4,2,8};
+        int[] nums = {4,2,8};
         /*
         TestCase2:
         Integer[] root = {1};
-        Integer[] head = {1};
+        int[] nums = {1};
          */
         var rootNode = TreeDebugger.buildPreorderTree(root);
-        var headNode = LinkedList.buildLinkedList(head);
+        LinkedList ll = new LinkedList();
+        ListNode headNode = ll.buildLinkedList(nums);
         System.out.println("Ans = " + isSubPath(headNode, rootNode));
     }
 }
