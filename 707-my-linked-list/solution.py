@@ -1,138 +1,83 @@
-class LinkedList(object):
-    def __init__(self, val = 0, next = None):
-        self.val = val
-        self.next = next
+from typing import Optional
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from datastructure.DoublyLinkedList.ListNode import ListNode
 
-class MyLinkedList(object):
+
+class MyLinkedList:
 
     def __init__(self):
-        self.head = None#注意
-
-    def get(self, index):
-        counter = 0
-        visitor = self.head
-
-        if visitor is None:
+        self.head: Optional[ListNode] = None
+        self.tail: Optional[ListNode] = None
+        self.size = 0
+    def get(self, index: int) -> int:
+        if 0 > index or index >= self.size:
             return -1
+        cur = self.head
+        j = 0
+        while j < index:
+            cur = cur.next
+            j += 1
+        return cur.val
 
-        while counter != index and visitor != None:
-            visitor = visitor.next
-            counter += 1
+    def addAtHead(self, val: int) -> None:
+        self.addAtIndex(0, val)
 
-        return -1 if visitor is None else visitor.val
+    def addAtTail(self, val: int) -> None:
+        self.addAtIndex(self.size, val)
 
-    def addAtHead(self, val):
-        newNode = LinkedList(val)
-        newNode.next = self.head #注意
-        self.head = newNode
-        
-    def addAtTail(self, val):
-        newNode = LinkedList(val)
-
-        if self.head == None: #空鏈表直接賦值
-            self.head = newNode
+    def addAtIndex(self, index: int, val: int) -> None:
+        if 0 > index or index > self.size:
             return
-        
-        tailNode = self.head
+        dummy = ListNode(None, self.head, -1)
+        new_node = ListNode(None, None, val)
+        cur = dummy
+        j = 0
+        while j < index:
+            cur = cur.next
+            j += 1
+        temp = cur.next
+        cur.next = new_node
+        new_node.prev = cur
+        new_node.next = temp
+        if temp:
+            temp.prev = new_node
 
-        while tailNode != None:
-
-            if tailNode.next == None:
-                tailNode.next = newNode
-                break
-
-            tailNode = tailNode.next
-
-
-    def addAtIndex(self, index, val):
-        newNode = LinkedList(val)
-        visitor = self.head
         if index == 0:
-            self.addAtHead(val)
+            self.head = new_node
+        if index == self.size:
+            self.tail = new_node
+        self.size += 1
+
+
+    def deleteAtIndex(self, index: int) -> None:
+        if 0 > index or index >= self.size:
             return
+        dummy = ListNode(None, self.head, -1)
+        cur = dummy
+        j = 0
+        while j < index:
+            cur = cur.next
+            j += 1
 
-        counter = 0
-        while counter < index-1 and visitor is not None:#check again
-            visitor = visitor.next
-            counter += 1
-            print(f"counter = {counter}")
-            
-        if counter == index-1 and visitor is not None:
-            print(f"Index {val} into position {index}")
-            newNode.next = visitor.next
-            visitor.next = newNode
-        
-    def deleteAtHead(self):
-        """
-        在 deleteAtHead 方法中，你是要刪除鏈表的第一個節點（head）。
+        temp = cur.next.next
+        cur.next = temp
+        if temp:
+            temp.prev = cur
 
-        看這個例子：
-        head--->[A | -]---> [B | -]---> [C | ]
-
-        執行 deleteAtHead() 後，你想要的結果是：
-        head---> [B | -]---> [C | ]
-
-        所以邏輯是：
-            head 目前指向節點 A
-            head.next 指向節點 B
-            this.head = head.next; 讓 head 改為指向節點 B
-
-        這樣就刪除了節點 A。
-        如果寫成 this.head = head.next.next;
-        那就會跳過節點 B 直接指向節點 C，這樣反而刪除了節點 A 和節點 B，不符合需求。
-        """
-        if self.head == None:
-            return
-        self.head = self.head.next
-
-    def deleteAtIndex(self, index):
-        visitor = self.head
-        
         if index == 0:
-            self.deleteAtHead()
-            return
-        counter = 0
-        #2
-        while counter < index-1 and visitor.next is not None:
-            visitor = visitor.next
-            counter += 1
-            print(f"counter = {counter}")
-            
-        if counter == index-1 and visitor.next is not None:
-            print(f"Delete position {index} value")
-            visitor.next = visitor.next.next
-            
-    def printList(self):
-        current = self.head
-        elements = []
-        while current is not None:
-            elements.append(str(current.val))
-            current = current.next
-        print("[" + ", ".join(elements) + "]")
-        
-        """
-        str.join() 是一個 字串 (string) 的方法，它的主要功能是將一個 可迭代物件 (iterable) 中的所有字串元素連接起來，並在每個元素之間插入呼叫 join() 方法的那個字串。  
+            self.head = temp
+        if index == self.size - 1:
+            self.tail = cur
+            if self.size == 1:
+                self.tail = None
+        self.size -= 1
 
-        簡單來說，它就像是用膠水把一堆字串粘合起來，而這個「膠水」就是你呼叫 join() 時使用的字串。  
-        """
-        
 if __name__ == "__main__":
-    obj = MyLinkedList()
-    obj.addAtIndex(2, 1)
-    obj.printList()
-    obj.addAtIndex(3, 4)
-    obj.printList()
-    obj.addAtTail(1)
-    obj.get(0)
-    obj.deleteAtIndex(0)
-    obj.get(0)
-"""
-        假設index = 2
-
-                            visitor     index = 2
-                            ↓           ↓
-        head--->[A | -]---> [B | -]---> [C | -]---> [D | ]
-
-                                [newNode | ]
-
-"""
+    dll = MyLinkedList()
+    dll.addAtTail(1)
+    dll.addAtHead(0)
+    dll.addAtTail(2)
+    dll.addAtIndex(1, 4)
+    dll.deleteAtIndex(1)

@@ -1,13 +1,8 @@
-package linkedlist
+package DoublyLinkedList
 
-type DoublyLinkedNode struct {
-	val  int
-	next *DoublyLinkedNode //*DoublyLinkedNode：表示「指向 listNode 的指標型別」，這是 linked list 正確做法。
-	prev *DoublyLinkedNode
-}
 type DoublyLinkedList struct {
-	head *DoublyLinkedNode
-	tail *DoublyLinkedNode
+	head *ListNode
+	tail *ListNode
 	size int
 }
 
@@ -17,7 +12,7 @@ func NewDoublyLinkedList() *DoublyLinkedList {
 
 // func (接收者) 方法名(參數) 回傳型別
 func (dll *DoublyLinkedList) Append(val int) {
-	node := &DoublyLinkedNode{val: val}
+	node := &ListNode{val: val}
 	if dll.head == nil {
 		dll.head = node
 		dll.tail = node
@@ -30,7 +25,7 @@ func (dll *DoublyLinkedList) Append(val int) {
 }
 
 func (dll *DoublyLinkedList) AppendLeft(val int) {
-	node := &DoublyLinkedNode{val: val}
+	node := &ListNode{val: val}
 	if dll.head == nil {
 		dll.head = node
 		dll.tail = node

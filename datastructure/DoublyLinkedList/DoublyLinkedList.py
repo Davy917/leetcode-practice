@@ -1,8 +1,8 @@
 from typing import Optional
-import sys
-from pathlib import Path
-sys.path.insert(0, str(Path(__file__).parent.parent.parent))
-from datastructure.DoublyLinkedList.ListNode import ListNode
+try:
+    from .ListNode import ListNode   # 被當成 package 匯入時（例如 __init__.py）
+except ImportError:
+    from ListNode import ListNode    # 直接執行此檔時（同資料夾）
 
 class MyLinkedList:
 
