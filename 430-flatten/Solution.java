@@ -1,3 +1,9 @@
+/*
+自己寫的
+第一次練習看java
+指針 + 廣度遍歷看python
+棧 + 深度遍歷看go
+*/
 class Node{
     int val;
     Node prev;
