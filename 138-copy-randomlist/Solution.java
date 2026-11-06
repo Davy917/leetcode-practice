@@ -1,3 +1,8 @@
+/*
+第一次練習看java
+第二次練習看python
+第三次練習看Go (含思路)
+*/
 import java.util.HashMap;
 import java.util.Map;
 
