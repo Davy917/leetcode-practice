@@ -1,7 +1,3 @@
-/*
-代碼參考模板:
-algo/BinarySearch/BinarySearch_basic.java
- */
 class GuessGame{
     public static final int pick = 7;
     int guess(int n){
@@ -12,7 +8,7 @@ class GuessGame{
 class Solution374 extends GuessGame{
     public int guessNumber(int n) {
         int left = 1, right = n, ans = 0;
-        while (left <= right){ //可能要改成<
+        while (left <= right){
             int middle = left + (right - left) / 2;
             System.out.printf("left = %d, right = %d, middle = %d%n", left, right, middle);
             int result = guess(middle);
