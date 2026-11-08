@@ -1,24 +1,31 @@
 /*
-代碼參考模板:
-algo/BinarySearch/BinarySearch_basic.java
- */
+第一次寫的版本python
+主思路看js
+變化看java
+*/
 class Solution69 {
     public static int mySqrt(int x) {
-        int left = 1, right = x, ans = 0;
-
-        while (left <= right){
-            int middle = left + (right - left) / 2;
-            if ((long)middle * middle <= x){ //要轉成(long)
-                ans = middle;
-                left = middle + 1;
-            }
+        int l = 0, r = 46340, m = 0;
+        while (l+1 < r){
+            m = (l + r) / 2;
+            if (m * m > x)
+                r = m - 1;
             else
-                right = middle - 1;
+                l = m;
         }
-        return ans;
+        return r * r > x ? r : l;
     }
     static void main(String[] args) {
-        int x = 8;
-        System.out.println(mySqrt(x));
+        System.out.println(mySqrt(10));
     }
 }
+/*
+l = 0       l本身或它右邊某數值是答案
+r = 46340   r本身或它左邊某數值是答案
+
+迴圈結束後:
+l, r必相鄰, 且都可能是答案, 需要二選一
+
+return的時候再判定:
+return r * r > x ? r : l;
+ */

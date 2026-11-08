@@ -1,6 +1,7 @@
 """
-代碼參考模板:
-algo/BinarySearch/BinarySearch_basic.java
+第一次寫的版本python
+主思路看js
+變化看java
 """
 class Solution:
 #修正後

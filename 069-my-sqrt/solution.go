@@ -1,9 +1,10 @@
+/*
+第一次寫的版本python
+主思路看js
+變化看java
+*/
 package main
 
-/*
-代碼參考模板:
-algo/BinarySearch/BinarySearch_basic.java
-*/
 import "fmt"
 
 func mySqrt(x int) int {
@@ -26,7 +27,5 @@ func mySqrt(x int) int {
 	return ans
 }
 func main() {
-	var x = 8
-	ans := mySqrt(x)
-	fmt.Println("ans = ", ans)
+	fmt.Println("ans = ", mySqrt(26))
 }
