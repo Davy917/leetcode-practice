@@ -4,7 +4,7 @@
 再優化看go
 */
 class Solution153 {
-    public int findMin(int[] nums) {
+    public static int findMin(int[] nums) {
         int l = 0, r = nums.length-1;
         if (nums[l] <= nums[r]) { return nums[l]; }
         while (l < r) {

@@ -1,6 +1,6 @@
 /*
-代碼參考模板:
-algo/BinarySearch/BinarySearch_ultra.java
+第一次練習java
+第二次練習含思路python
  */
 import java.util.Arrays;
 
