@@ -1,19 +1,19 @@
+"""
+第一次練習看java
+第二次練習思路看go
+"""
 from typing import List
 class Solution:
     def findPeakElement(self, nums: List[int]) -> int:
-        left = 0
-        right = len(nums) - 1
-        while left < right:
-            middle = left + (right - left) // 2
-            print(f"left = {left}, right = {right}, middle = {middle}")
-            if nums[middle] > nums[middle + 1]:
-                right = middle
+        l, r = 0, len(nums) - 1
+        while l < r:
+            m = (l + r) // 2
+            if nums[m] < nums[m+1]:
+                l = m + 1
             else:
-                left = middle + 1
-        return left
-    
+                r = m
+        return l
+
 if __name__ == "__main__":
-    nums = [1, 2, 1, 3, 5, 6, 4]
-    nums2 = [1, 2, 3, 1]
-    ans = Solution().findPeakElement(nums2)
-    print("ans = ", ans)
+    nums = [9,7,3,2,1]
+    print("ans = ", Solution().findPeakElement(nums))

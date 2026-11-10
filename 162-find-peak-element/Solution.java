@@ -1,9 +1,7 @@
 /*
-參考代碼模板:
-(basic + advance組合題)
-algo/BinarySearch/BinarySearch_advance.java
-algo/BinarySearch/BinarySearch_basic.java
- */
+第一次練習看java
+第二次練習思路看go
+*/
 class Solution162 {
     public static int P0162_findPeakElement(int[] nums) {
         int left = 0, right = nums.length - 1;
@@ -18,7 +16,7 @@ class Solution162 {
         return left;
     }
     static void main(String[] args) {
-        int[] nums = {1, 2, 1, 5, 3, 6, 4};
+        int[] nums = {1, 2, 1, 3, 5, 6, 4};
         int ans = P0162_findPeakElement(nums);
         System.out.println("ans = " + ans);
     }
@@ -28,8 +26,14 @@ class Solution162 {
 從影片9:00開始
 https://www.youtube.com/watch?v=6S9ETYGfk9k
 
-很多人可能跟我一开始一样，有一个思维误区，就是一次走一半难道不怕错过了一些峰值吗，但是其实这不重要，题目只是要求求出一个峰值，
-因此只要右边存在答案就可以把左边都抛弃掉，然后只要一直确保这个区间存在答案，当区间长度为1时，答案就出来了。
+定義:
+l = 0, 		          l可能是答案
+r = nums.length - 1,  r可能是答案
+l, r都可能是答案, 不斷向中間收攏, 直到最後l == r, 返回哪一個都行
+
+每次比較 nums[m] 和 nums[m+1] 後：
+如果 nums[m] < nums[m+1]，代表右邊在上坡，peak 在右半邊 → l = m + 1
+否則 peak 在左半邊（含 m）→ r = m
 
 FAQ:
 while (left < right) 這個並不是左右都閉的寫法, 少了一個等號, 為什麼這樣寫不會出錯??

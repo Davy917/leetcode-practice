@@ -1,3 +1,9 @@
+/*
+第一次練習java
+第二次練習python
+第三次練習js
+第四次練習go
+*/
 isBadVersion = function(version) {
     return version >= 4;
 };

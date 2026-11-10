@@ -1,7 +1,9 @@
 /*
-代碼參考模板:
-algo/BinarySearch/BinarySearch_advance.java
- */
+第一次練習java
+第二次練習python
+第三次練習js
+第四次練習go
+*/
 class VersionControl {
     private static final int firstBadVersion = 2147483647;
         boolean isBadVersion(int version){

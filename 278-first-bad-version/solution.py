@@ -1,4 +1,9 @@
-#第二次寫, 自己寫出來了
+"""
+第一次練習java
+第二次練習python
+第三次練習js
+第四次練習go
+"""
 def isBadVersion(version: int) -> bool:
     if version in (1,2,3):
         return False
@@ -16,11 +21,5 @@ class Solution:
                 right = middle
         return right
 if __name__ == "__main__":
-    n, bad = 5, 4
-    print("Ans = ", Solution().firstBadVersion(n))
-
-"""
-我們直接假設 testcase 如下:
-[1, 2, 3, 4, 5]
-[g, g, g, b, b]
-"""
+    bad = 4
+    print("Ans = ", Solution().firstBadVersion(5))
