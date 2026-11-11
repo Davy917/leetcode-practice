@@ -1,169 +1,50 @@
-/*
-參考模板:
-algo/BinarySearch/BinarySearch_advance.java
-
-相同寫法也可以看go版本
-658-find-closest-elements/solution.go
-
-非官方解答
- */
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
+import java.util.*;
 class Solution658 {
-    public static List<Integer> P0658_findClosestElements(int[] arr, int k, int x) {
-        List<Integer> mainList = new ArrayList<>();
-        if (k == arr.length)
-            return Arrays.stream(arr).boxed().collect(java.util.stream.Collectors.toList());
-
-        int left = 0, right = arr.length;
-        while (left < right) {
-            int mid = left + (right - left) / 2;
-            System.out.printf("left = %d, right = %d, mid = %d%n", left, right, mid);
-            if (arr[mid] < x) {
-                left = mid + 1;
-            } else {
-                right = mid;
-            }
+    public static List<Integer> findClosestElements(int[] arr, int k, int x) {
+        int l = 0, r = arr.length;
+        while (l+1 < r){
+            int m = (l+r)/2;
+            if (arr[m] > x)
+                r = m;
+            else
+                l = m;
         }
-
-        int target;
-        if (left == 0) {
-            target = 0;
-        } else if (left == arr.length) {
-            target = arr.length - 1;
-        } else {
-            target = Math.abs(arr[left] - x) < Math.abs(arr[left - 1] - x) ? left : left - 1;
+        int a = l, b = l+1;
+        for (int i = 0; i < k; i++) {
+            if (a > -1 && b < arr.length)
+                if (Math.abs(arr[a]-x) < Math.abs(arr[b]-x) || ((Math.abs(arr[a]-x) == Math.abs(arr[b]-x)) && arr[a] < arr[b]))
+                    a--;
+                else
+                    b++;
+            else if (a > -1)
+                a--;
+            else if (b < arr.length)
+                b++;
         }
-
-        mainList.add(arr[target]);
-        left = target - 1;
-        right = target + 1;
-
-        while (mainList.size() < k){
-            System.out.printf("left = %d, right = %d, mainList = %s%n", left, right, mainList);
-            if (left < 0){
-                mainList.add(arr[right]);
-                right++;
-                continue;
-            }
-            else if (right >= arr.length) {
-                mainList.add(arr[left]);
-                left--;
-                continue;
-            }
-            if (Math.abs(arr[left] - x) < Math.abs(arr[right] - x)){ // 注意是 -x 不是 -arr[target]
-                mainList.add(arr[left]);
-                left--;
-            }
-            else if (Math.abs(arr[left] - x) > Math.abs(arr[right] - x)){
-                mainList.add(arr[right]);
-                right++;
-            }
-            else {
-                if (arr[left] < arr[right]){
-                    mainList.add(arr[left]);
-                    left--;
-                }
-                else{
-                    mainList.add(arr[right]);
-                    right++;
-                }
-            }
-        }
-        mainList.sort(Integer::compareTo);
-        System.out.println("sortedMainList = " + mainList);
-        return mainList;
+        arr = Arrays.copyOfRange(arr, a+1, b);
+        var res = new ArrayList<Integer>();
+        for (int num: arr)
+            res.add(num);
+        return res;
     }
 
     static void main(String[] args) {
-        int[] arr = {1, 1, 2, 3, 4, 5};
-        //P0658_findClosestElements(arr, 4, -1);
-        int[] arr2 = {1, 2, 3, 4, 5};
-        //P0658_findClosestElements(arr2, 4, 3);
-        int[] arr3 = {0, 0, 0, 1, 3, 5, 6, 7, 8, 8};
-        //P0658_findClosestElements(arr3, 2, 2);
+        int[] arr = {3};
+        System.out.println(findClosestElements(arr, 1, 3));
     }
 }
-
 /*
-原始版, 跑leetcode會出錯, 錯誤原因請看最後面
+自己寫的
+思路:
+1. 先找到k, 任何一個k都可以(這邊是找最後一個k)
+2. 從此k的下標出發, 同時前後搜索, 搜索到出界就停下
+3. 指針 [a+1, b) 停留的位置, 就是答案
+4. 把原arr做成切片arr[a+1, b)
+5. 把切片arr轉成list, 並return list
 
-參考模板:
-algo/BinarySearch/BinarySearch_basic.java
+嘗試一次完成一件事, 並儘量簡化代碼
 
-class Solution658_original {
-    public static List<Integer> findClosestElements(int[] arr, int k, int x) {
-        List<Integer> mainList = new ArrayList<>();
-        if (k == arr.length)
-            return Arrays.stream(arr).boxed().collect(java.util.stream.Collectors.toList());
-
-        int left = 0, right = arr.length - 1;
-
-        while (left <= right) {
-            int middle = left + (right - left) / 2;
-            if (arr[middle] < x)
-                left = middle + 1;
-            else
-                right = middle - 1;
-        }
-        int target;
-        if (left == 0)
-            target = 0;
-        else if (left == arr.length)
-            target = arr.length - 1;
-        else
-            target = Math.abs(arr[left] - x) < Math.abs(arr[left - 1] - x) ? left : left - 1;
-
-        mainList.add(arr[target]);
-        left = target - 1;
-        right = target + 1;
-
-        for (int count = 1; count < k && (left >= 0 || right <= k); count++) {
-            System.out.printf("left = %d, right = %d, mainList = %s%n", left, right, mainList);
-            if (left < 0){
-                mainList.add(arr[right]);
-                right++;
-                continue;
-            }
-            else if (right > k) { //因為一直盯著 1, 1, 2, 3, 4, 5 寫, 所以這行才寫錯
-                System.out.println("hit");
-                mainList.add(arr[left]);
-                left--;
-                continue;
-            }
-            if (Math.abs(arr[left] - arr[target]) < Math.abs(arr[right] - arr[target])){
-                mainList.add(arr[left]);
-                left--;
-            }
-            else if (Math.abs(arr[left] - arr[target]) > Math.abs(arr[right] - arr[target])){
-                mainList.add(arr[right]);
-                right++;
-            }
-            else {
-                if (arr[left] < arr[right]){
-                    mainList.add(arr[left]);
-                    left--;
-                }
-                else{
-                    mainList.add(arr[right]);
-                    right++;
-                }
-            }
-        }
-        mainList.sort(Integer::compareTo);
-        System.out.println("sortedMainList = " + mainList);
-        return mainList;
-    }
-        static void main(String[] args) {
-        int[] arr = {0, 0, 0, 1, 3, 5, 6, 7, 8, 8};
-            findClosestElements(arr, 2, 2);
-    }
-}
-
-    修改這3個地方, 變成現在的版本
-    比較時改成 Math.abs(arr[left] - x) vs Math.abs(arr[right] - x) (不該犯錯)
-    邊界改成 right < arr.length 與 right >= arr.length (不該犯錯)
-    迴圈條件改成「直到取滿 k 個」：while (mainList.size() < k)
+補充:
+[a+1, b) 代表左閉右開, 左邊界包含a+1, 右邊界不包含b
+a+1是因為 for (int i = 0; i < k; i++) 會把a多-1, 所以要 a+1 才是真正的起始位置。
 */
