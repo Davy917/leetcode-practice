@@ -1,6 +1,6 @@
 """
-參考代碼模板:
-algo\BinarySearch\BinarySearch_basic
+第一次練習python
+第二次練習go
 """
 class Solution(object):
     def nextGreatestLetter(self, letters, target):
