@@ -1,3 +1,8 @@
+"""
+第一次練習java
+第二次練習python
+第三次練習go, 含思路
+"""
 from typing import List
 class Solution:
     def findMin(self, nums: List[int]) -> int:
@@ -27,9 +32,4 @@ if __name__ == "__main__":
     力扣視頻題解:
     07:50開始
     https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array-ii/
-    """
-    """
-    找pivot
-    1, 0
-    0, 1
     """

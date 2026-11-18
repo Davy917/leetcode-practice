@@ -1,8 +1,7 @@
 /*
-方法一
-暴力解: 遍歷數組, 返回pivot, 如果找不到真正的pivot返回nums[0]
-方法二:
-二分查找, 見Python
+第一次練習java
+第二次練習python
+第三次練習go, 含思路
  */
 class Solution154 {
     public int P154_findMinWithTry(int[] nums) {
